@@ -1,53 +1,53 @@
-set nocompatible
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dracula/vim', { 'as': 'dracula'  }
-Plug 'tomasiser/vim-code-dark'
-Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'morhetz/gruvbox'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'easymotion/vim-easymotion'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
-Plug 'luochen1990/rainbow'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'jparise/vim-graphql'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-let g:airline_theme='codedark'
-
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#tabline#fnamode=':t'
-let g:airline#extensions#whitespace#enabled = 0
-
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-\	'separately': {
-\		'nerdtree': 0,
-\	}
-\}
-
-set relativenumber
-set backspace=indent,eol,start
-set number
-set encoding=UTF-8
-set autoindent
-set mouse=a
-set noshowmode
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-
 syntax enable
 filetype plugin indent on
 
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set smartindent
+set nu
+set relativenumber
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set backspace=indent,eol,start
+set encoding=UTF-8
+set autoindent
+set mouse=a
+set incsearch
+set noshowmode
+
+augroup JsonToJsonc
+	autocmd! FileType json set filetype=jsonc
+augroup END
+
+" NERDTree
+let g:NERDTreeGitStatusUseNerdFonts=1
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.git$']
@@ -60,6 +60,7 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = 'ﯤ'
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jsx'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tsx'] = ''
@@ -67,6 +68,9 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['svg'] = 'ﰟ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rs'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['py'] = ''
 
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vimrc.*'] = ''
@@ -76,10 +80,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.lock.json'] = '
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ'
 
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['svg'] = 'ﰟ'
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rs'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['py'] = ''
-
+" Easymotion
 let mapleader=" "
 nmap <Leader>s <Plug>(easymotion-s2)
 nmap <Leader>nt :NERDTreeFind<CR>
@@ -92,4 +93,11 @@ nmap <Leader>pli :PlugInstall<CR>
 nmap <Leader>plc :PlugClean<CR>
 nmap <Leader>y :y$<CR>
 
-colorscheme codedark
+" Rainbow config
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:airline_powerline_fonts = 1
+colorscheme gruvbox
+set background=dark
