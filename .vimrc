@@ -16,6 +16,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jparise/vim-graphql'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ryanoasis/vim-devicons'
@@ -41,10 +43,6 @@ set autoindent
 set mouse=a
 set incsearch
 set noshowmode
-
-augroup JsonToJsonc
-	autocmd! FileType json set filetype=jsonc
-augroup END
 
 " NERDTree
 let g:NERDTreeGitStatusUseNerdFonts=1
@@ -92,6 +90,9 @@ nmap <Leader>ls :ls<CR>
 nmap <Leader>pli :PlugInstall<CR>
 nmap <Leader>plc :PlugClean<CR>
 nmap <Leader>y :y$<CR>
+
+" JSON
+let g:vim_json_warnings=0
 
 " Rainbow config
 au VimEnter * RainbowParenthesesToggle
