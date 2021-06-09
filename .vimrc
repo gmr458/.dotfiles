@@ -2,6 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
@@ -9,6 +11,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -17,7 +20,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'elzr/vim-json'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'cespare/vim-toml'
 Plug 'jparise/vim-graphql'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ryanoasis/vim-devicons'
@@ -27,6 +30,8 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
+set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -43,6 +48,7 @@ set autoindent
 set mouse=a
 set incsearch
 set noshowmode
+set termguicolors
 
 " NERDTree
 let g:NERDTreeGitStatusUseNerdFonts=1
@@ -81,7 +87,9 @@ let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ'
 " Easymotion
 let mapleader=" "
 nmap <Leader>s <Plug>(easymotion-s2)
-nmap <Leader>nt :NERDTreeFind<CR>
+nmap <Leader>nto :NERDTreeFind<CR>
+nmap <Leader>ntc :NERDTreeClose<CR>
+nmap <Leader>ntr :NERDTreeRefreshRoot<CR>
 nmap <Leader>wq :wq<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q!<CR>
@@ -100,5 +108,6 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadBraces
 
 let g:airline_powerline_fonts = 1
-colorscheme gruvbox
-set background=dark
+let g:dracula_italic = 0
+colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
