@@ -1,3 +1,5 @@
+include=./themes/catppuccin
+
 ; Behavior options
 hide-cursor        = false
 history            = true
@@ -13,19 +15,12 @@ multi-instance     = false
 ; Style options
 font                  = Iosevka Fixed
 font-size             = 20
-background-color      = #000000DD
 outline-width         = 1%
-outline-color         = #CDD6F4 
 border-width          = 0
-border-color          = #CDD6F4 
-text-color            = #CDD6F4 
 prompt-text           = "Search: "
 prompt-padding        = 0
 num-results           = 0
-selection-color       = #96f7c8
-selection-match-color = #6ba2ff
 selection-padding     = 0
-selection-background  = #00000000
 result-spacing        = 0
 min-input-width       = 0
 width                 = 35%
