@@ -97,20 +97,20 @@
     "tooltip": false
   },
   // "network": {
-  //   "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+  //   "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
   //   "format-wifi": "{icon}",
   //   "format-ethernet": "󰈀",
   //   "format-disconnected": "󱞐 Disconnected",
-  //   "format-alt": "{icon}{essid} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
+  //   "format-alt": "{icon} {essid} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
   //   "tooltip": false
   // },
   "network#wlo1": {
     "interval": 10,
     "interface": "wlo1",
-    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
     "format-disconnected": "󰤮",
-    "format-alt": "{icon}{essid} | 󱑽 {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
+    "format-alt": "{icon} {essid} | 󱑽 {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
     "tooltip": false
   },
   "network#eno1": {
