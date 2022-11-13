@@ -1,0 +1,236 @@
+@import "../../../colors/catppuccin-mocha.css";
+
+* {
+  font-family: Iosevka Fixed, Material Design Icons Desktop;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: @bg;
+  color: @fg;
+}
+
+#workspaces button {
+  background-color: @surface0;
+  color: @fg;
+  padding: 1px 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 20px;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: @blue;
+  border: @blue;
+  color: @crust;
+  padding: 1px 9px;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  background-color: @green;
+  color: @crust;
+  padding: 1px 12px;
+}
+
+#workspaces button.urgent {
+  background-color: transparent;
+  color: @red;
+  box-shadow: inset 0 -2px @red;
+}
+
+/* #workspaces button.hidden {} */
+
+/* -------------------------------------------------------------------------------- */
+
+#custom-launcher,
+#window,
+#tray,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#clock,
+#custom-powermenu {
+  color: @fg;
+  padding: 1px 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 20px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* #window {} */
+
+/* -------------------------------------------------------------------------------- */
+
+#custom-launcher {
+  background-color: @blue;
+  color: @crust;
+}
+#custom-powermenu {
+  background-color: @red;
+  color: @crust;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces,
+.modules-left > widget:first-child > #custom-launcher,
+.modules-left > widget:first-child > #window,
+.modules-left > widget:first-child > #tray,
+.modules-left > widget:first-child > #cpu,
+.modules-left > widget:first-child > #memory,
+.modules-left > widget:first-child > #backlight,
+.modules-left > widget:first-child > #pulseaudio,
+.modules-left > widget:first-child > #network,
+.modules-left > widget:first-child > #bluetooth,
+.modules-left > widget:first-child > #battery,
+.modules-left > widget:first-child > #clock,
+.modules-left > widget:first-child > #custom-powermenu {
+  margin-left: 10px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces,
+.modules-right > widget:last-child > #custom-launcher,
+.modules-right > widget:last-child > #window,
+.modules-right > widget:last-child > #tray,
+.modules-right > widget:last-child > #cpu,
+.modules-right > widget:last-child > #memory,
+.modules-right > widget:last-child > #backlight,
+.modules-right > widget:last-child > #pulseaudio,
+.modules-right > widget:last-child > #network,
+.modules-right > widget:last-child > #bluetooth,
+.modules-right > widget:last-child > #battery,
+.modules-right > widget:last-child > #clock,
+.modules-right > widget:last-child > #custom-powermenu {
+  margin-right: 10px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* #tray {} */
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#cpu {
+  background-color: @sapphire;
+  color: @crust;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#memory {
+  background-color: @green;
+  color: @crust;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#backlight {
+  background-color: #ffffff;
+  color: @crust;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#pulseaudio {
+  background-color: @mauve;
+  color: @crust;
+}
+
+#pulseaudio.bluetooth {
+  background-color: @blue;
+  color: @crust;
+}
+
+#pulseaudio.muted {
+  background-color: @red;
+  color: @crust;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* #network {} */
+#network.disabled,
+#network.disconnected {
+  background-color: @red;
+  color: @crust;
+}
+
+/* #network.linked {} */
+
+#network.ethernet,
+#network.wifi {
+  background-color: @blue;
+  color: @crust;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* #bluetooth {} */
+#bluetooth.disabled,
+#bluetooth.off {
+  background-color: @red;
+  color: @crust;
+}
+
+#bluetooth.on,
+#bluetooth.connected {
+  background-color: @blue;
+  color: @crust;
+}
+
+/* #bluetooth.discoverable {} */
+/* #bluetooth.discovering {} */
+/* #bluetooth.pairable {} */
+
+/* -------------------------------------------------------------------------------- */
+
+/* #battery {} */
+#battery.full {
+  background-color: @green;
+  color: @crust;
+}
+
+#battery.warning {
+  background-color: @yellow;
+  color: @crust;
+}
+
+#battery.critical {
+  background-color: @red;
+  color: @crust;
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: @teal;
+  color: @crust;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#clock {
+  background-color: @lavender;
+  color: @crust;
+}

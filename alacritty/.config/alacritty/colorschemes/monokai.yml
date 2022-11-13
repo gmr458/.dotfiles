@@ -1,0 +1,28 @@
+# Colors (Monokai Dark)
+colors:
+  # Default colors
+  primary:
+    background: '#282923'
+    foreground: '#f8f8f2'
+
+  # Normal colors
+  normal:
+   black:   '#272822'
+   red:     '#f92472'
+   green:   '#a6e22c'
+   yellow:  '#e7db74'
+   blue:    '#66d9ef'
+   magenta: '#ae81ff'
+   cyan:    '#67d8ef'
+   white:   '#f8f8f2'
+
+  # Bright colors
+  bright:
+   black:   '#75715e'
+   red:     '#f92472'
+   green:   '#a6e22c'
+   yellow:  '#e7db74'
+   blue:    '#66d9ef'
+   magenta: '#ae81ff'
+   cyan:    '#67d8ef'
+   white:   '#f8f8f2'

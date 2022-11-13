@@ -1,0 +1,20 @@
+/* @define-color bg     #000000; */
+@define-color bg     rgba(0, 0, 0, 0.9);
+@define-color bg-alt #20212c;
+@define-color fg     #CDD6F4;
+@define-color fg-alt #555555;
+@define-color blue   #6ba2ff;
+@define-color cyan   #45ffff;
+@define-color green  #96f7c8;
+@define-color orange #ffba63;
+@define-color pink   #ff6b9d;
+@define-color purple #e66afc;
+@define-color red    #ff7575;
+@define-color yellow #ffff39;
+@define-color white  #ffffff;
+
+@define-color shade-1 #5D5E72;
+@define-color shade-2 #7A7B8C;
+@define-color shade-3 #A0A0AB;
+@define-color shade-4 #CACACE;
+@define-color shade-5 #F8F8F8;

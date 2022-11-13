@@ -1,0 +1,27 @@
+# Colors (Material Ocean)
+colors:
+  # Default colors
+  primary:
+    background: '#0f111a'
+    foreground: '#a6accd'
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#f07178'
+    green:   '#c3e88d'
+    yellow:  '#ffcb6b'
+    blue:    '#82aaff'
+    magenta: '#c792ea'
+    cyan:    '#89ddff'
+    white:   '#ffffff'
+  # Bright colors
+  bright:
+    black:   '#928374'
+    red:     '#f07178'
+    green:   '#c3e88d'
+    yellow:  '#ffcb6b'
+    blue:    '#82aaff'
+    magenta: '#c792ea'
+    cyan:    '#89ddff'
+    white:   '#ffffff'

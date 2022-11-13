@@ -1,0 +1,19 @@
+colors:
+  primary:
+    background: '#1a212e'
+    foreground: '#93a4c3'
+  cursor:
+    text:       CellBackground
+    cursor:     '#528bff' # syntax-cursor-color
+  selection:
+    text:       CellForeground
+    background: '#2a324a' # syntax-selection-color
+  normal:
+    black:      '#0c0e15' # mono-3
+    red:        '#f65866' # red 1
+    green:      '#8bcd5b'
+    yellow:     '#efbd5d' # orange 2
+    blue:       '#41a7fc'
+    magenta:    '#c75ae8'
+    cyan:       '#34bfd0'
+    white:      '#93a4c3' # mono-2
