@@ -20,7 +20,9 @@ else
 			swaylock
 			;;
 		"󰗽 Log Out")
-			echo "Log Out"
+			if [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
+				hyprctl dispatch exit 1
+			fi
 			;;
 	esac
 fi
