@@ -8,7 +8,7 @@
 
   // Modules left
   "modules-left": [
-    // "custom/launcher",
+    "custom/launcher",
     "wlr/workspaces"
   ],
   "custom/launcher": {
@@ -37,7 +37,7 @@
   // Modules center
   "modules-center": [],
   "hyprland/window": {
-    "format": "{}",
+    "format": " {:.40} ",
     "separate-outputs": false
   },
 
@@ -53,8 +53,8 @@
     "network#eno1",
     "bluetooth",
     // "battery",
-    "clock"
-    // "custom/powermenu"
+    "clock",
+    "custom/powermenu"
   ],
   "tray": {
     // "icon-size": 21,

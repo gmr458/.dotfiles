@@ -185,12 +185,15 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+# bar {
+#         status_command i3status
+# }
 
 # Picom
 exec_always --no-startup-id picom --experimental-backends --config $HOME/.config/picom/picom.conf &
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
 # Speed keyboard
 exec_always --no-startup-id xset r rate 250 40

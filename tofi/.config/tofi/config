@@ -1,4 +1,4 @@
-include=./themes/black-and-white
+include=./themes/catppuccin
 
 ; Behavior options
 hide-cursor        = false
