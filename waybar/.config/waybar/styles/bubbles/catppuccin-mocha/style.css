@@ -124,7 +124,9 @@ window#waybar {
 
 /* -------------------------------------------------------------------------------- */
 
-/* #tray {} */
+#tray {
+  background-color: @crust;
+}
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
