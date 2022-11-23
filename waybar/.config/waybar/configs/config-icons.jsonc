@@ -23,7 +23,7 @@
   "margin-right": 10,
 
   // Size of gaps in between of the different modules. Default: 4.
-  "spacing": 2,
+  "spacing": 4,
 
   // Optional name added as a CSS class, for styling multiple waybars.
   // "name": "",
