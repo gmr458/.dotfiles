@@ -1,10 +1,87 @@
 {
-  // "layer": "top", // Waybar at top layer
-  "position": "bottom", // Waybar position (top|bottom|left|right)
-  // "height": 30, // Waybar height (to be removed for auto height)
-  // "width": 1350, // Waybar width
-  "spacing": 8, // Gaps between modules (4px)
+  // Decide if the bar is displayed in front (top) of the windows or behind (bottom) them. Default: bottom.
+  "layer": "top", 
+
+  // "output": [],
+
+  // Bar position, can be top, bottom, left, right. Default: top.
+  "position": "top", 
+
+  // Height to be used by the bar if possible, leave blank for a dynamic value.
+  "height": 36, 
+
+  // Width to be used by the bar if possible, leave blank for a dynamic value.
+  // "width": 1350, 
+
+  // Margins value using the css format without units.
+  "margin": "",
+
+  // Margins value without units.
+  "margin-top": 5,
+  // "margin-bottom": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+
+  // Size of gaps in between of the different modules. Default: 4.
+  "spacing": 2,
+
+  // Optional name added as a CSS class, for styling multiple waybars.
+  // "name": "",
+
+  // Selects one of the preconfigured display modes.
+  // This is an equivalent of the sway-bar(5) (https://github.com/swaywm/sway/blob/master/sway/sway-bar.5.scd) 
+  // mode command and supports the same values: dock, hide, invisible, overlay.
+  // Note: hide and invisible modes may be not as useful without Sway IPC.
+  // "mode": "",
+
+  // Defines the timing of modifier key to reset the bar visibility.
+  // To reset the visibility of the bar with the press of the modifier key use press.
+  // Use release to reset the visibility upon the release of the modifier key and 
+  // only if no other action happened while the key was pressed.
+  // This prevents hiding the bar when the modifier is used to switch a workspace,
+  // change binding mode or start a keybinding. Default: press.
+  // "modifier-reset": "press",
+
+  // Option to request an exclusive zone from the compositor.
+  // Disable this to allow drawing application windows underneath or on top of the bar.
+  // Disabled by default for overlay layer. Default: true.
+  // "exclusive": true,
+
+  // Prefer fixed center position for the modules-center block.
+  // The center block will stay in the middle of the bar whenever possible.
+  // It can still be pushed around if other blocks need more space.
+  // When false, the center block is centered in the space between the left and right block. Default: true.
+  // "fixed-center": true,
+
+  // Option to pass any pointer events to the window under the bar.
+  // Intended to be used with either top or overlay layers and without exclusive zone.
+  // Enabled by default for overlay layer. Default: false.
+  // "passthrough": false,
+
+  // Margins value using the css format without units.
+  // "margin": 5,
+
+  // Option to disable the use of gtk-layer-shell for popups.
+  // Only functional if compiled with gtk-layer-shell support. Default: true.
   "gtk-layer-shell": false,
+
+  // Option to subscribe to the Sway IPC bar configuration and 
+  // visibility events and control waybar with swaymsg bar commands.
+  // Requires bar_id value from sway configuration to be either passed 
+  // with the -b commandline argument or specified with the id option.
+  // See #1244 for the documentation and configuration examples. Default: false.
+  // "ipc": false,
+
+  // bar_id for the Sway IPC. Use this if you need to override the value passed with 
+  // the -b bar_id commandline argument for the specific bar instance.
+  // "id": ""
+
+  // Paths to additional configuration files.
+  // Each file can contain a single object with any of the bar configuration options.
+  // In case of duplicate options, the first defined value takes precedence, i.e. including file -> first included file -> etc.
+  // Nested includes are permitted, but make sure to avoid circular imports.
+  // For a multi-bar config, the include directive affects only current bar configuration object.
+  // "include": [],
 
   // Modules left
   "modules-left": [
@@ -110,7 +187,8 @@
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
     "format-disconnected": "󰤮",
-    "format-alt": "{icon} {essid} | 󱑽 {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
+    // "format-alt": "{icon} {essid} | 󱑽 {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
+    "format-alt": "{icon} {essid} | 󱑽 {signalStrength}%",
     "tooltip": false
   },
   "network#eno1": {
@@ -119,7 +197,8 @@
     "format-icons": ["󰈀"],
     "format-ethernet": "{icon}",
     "format-disconnected": "{icon}",
-    "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
+    // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
+    "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
     "tooltip": false
   },
   "bluetooth": {

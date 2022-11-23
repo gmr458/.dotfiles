@@ -27,7 +27,7 @@
 
 /* base */
 /* @define-color bg #1E1E2E; */
-@define-color bg rgba(30, 30, 46, 0.0);
+@define-color bg rgba(30, 30, 46, 0.8);
 
 /* text */
 @define-color fg #CDD6F4;

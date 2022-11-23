@@ -1,4 +1,4 @@
-@import "../../../colors/catppuccin-mocha.css";
+@import "../../../colors/black-and-white.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
@@ -6,8 +6,8 @@
 }
 
 window#waybar {
-  background-color: @bg;
-  color: @fg;
+  background-color: @background-waybar;
+  color: @text;
   border-radius: 20px;
 }
 
@@ -27,9 +27,9 @@ window#waybar {
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  background: @blue;
-  border: @blue;
-  color: @crust;
+  background: @pastel-gray;
+  border: @pastel-gray;
+  color: @black;
   padding: 1px 9px;
   transition-property: background-color;
   transition-duration: 1s;
@@ -37,15 +37,15 @@ window#waybar {
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: @green;
-  color: @crust;
+  background-color: @white;
+  color: @black;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 #workspaces button.urgent {
   background-color: @red;
-  color: @crust;
+  color: @black;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -66,7 +66,7 @@ window#waybar {
 #battery,
 #clock,
 #custom-powermenu {
-  color: @fg;
+  color: @text;
   padding: 1px 8px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -80,8 +80,8 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #window {
-  background-color: @blue;
-  color: @crust;
+  background-color: @white;
+  color: @black;
 }
 
 #window:hover {
@@ -92,7 +92,7 @@ window#waybar {
 
 #custom-launcher {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #custom-launcher:hover {
@@ -101,7 +101,7 @@ window#waybar {
 
 #custom-powermenu {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #custom-powermenu:hover {
@@ -147,7 +147,7 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #tray {
-  background-color: @crust;
+  background-color: @granite-gray;
 }
 #tray > .passive {
   -gtk-icon-effect: dim;
@@ -160,8 +160,8 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #cpu {
-  background-color: @sapphire;
-  color: @crust;
+  background-color: @white;
+  color: @black;
 }
 
 #cpu:hover {
@@ -171,8 +171,8 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #memory {
-  background-color: @green;
-  color: @crust;
+  background-color: @white;
+  color: @black;
 }
 
 #memory:hover {
@@ -182,8 +182,8 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #backlight {
-  background-color: #fff;
-  color: @crust;
+  background-color: @white;
+  color: @black;
 }
 
 #backlight:hover {
@@ -194,7 +194,7 @@ window#waybar {
 
 #pulseaudio {
   background-color: @mauve;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio:hover {
@@ -203,7 +203,7 @@ window#waybar {
 
 #pulseaudio.bluetooth {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.bluetooth:hover {
@@ -212,7 +212,7 @@ window#waybar {
 
 #pulseaudio.muted {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.muted:hover {
@@ -225,7 +225,7 @@ window#waybar {
 #network.disabled,
 #network.disconnected {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #network.disabled:hover,
@@ -238,7 +238,7 @@ window#waybar {
 #network.ethernet,
 #network.wifi {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #network.ethernet:hover,
@@ -252,7 +252,7 @@ window#waybar {
 #bluetooth.disabled,
 #bluetooth.off {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.disabled:hover,
@@ -263,7 +263,7 @@ window#waybar {
 #bluetooth.on,
 #bluetooth.connected {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.on:hover,
@@ -280,7 +280,7 @@ window#waybar {
 /* #battery {} */
 #battery.full {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #battery.full:hover {
@@ -289,7 +289,7 @@ window#waybar {
 
 #battery.warning {
   background-color: @yellow;
-  color: @crust;
+  color: @black;
 }
 
 #battery.warning:hover {
@@ -298,7 +298,7 @@ window#waybar {
 
 #battery.critical {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #battery.critical:hover {
@@ -308,7 +308,6 @@ window#waybar {
 #battery.charging,
 #battery.plugged {
   background-color: @blue;
-  color: @crust;
 }
 
 #battery.charging:hover,
@@ -320,7 +319,7 @@ window#waybar {
 
 #clock {
   background-color: @lavender;
-  color: @crust;
+  color: @black;
 }
 
 #clock:hover {
