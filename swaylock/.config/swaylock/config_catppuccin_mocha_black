@@ -8,6 +8,9 @@ font-size=34
 indicator-radius=180
 indicator-thickness=12
 
+bs-hl-color=f38ba8ff
+caps-lock-bs-hl-color=f38ba8ff
+
 inside-color=000000cc
 inside-clear-color=000000cc
 inside-caps-lock-color=000000cc
@@ -34,7 +37,7 @@ ring-caps-lock-color=ffba63ff
 ring-ver-color=6ba2ffff
 ring-wrong-color=ff6b9dff
 
-separator-color=96f7c8ff
+separator-color=18182500
 
 text-color=cdd6f4ff
 text-clear-color=cdd6f4ff
