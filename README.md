@@ -1,6 +1,6 @@
 # Dotfiles
 
-## [Hyprland](https://github.com/hyprwm/Hyprland), [Waybar](https://github.com/Alexays/Waybar), [Tofi](https://github.com/philj56/tofi/) and [Catppuccin](https://github.com/catppuccin/catppuccin)
+## <a href="https://github.com/hyprwm/Hyprland" target="_blank">Hyprland</a>, <a href="https://github.com/Alexays/Waybar" target="_blank">Waybar</a>, <a href="https://github.com/philj56/tofi" target="_blank">Tofi</a> and  <a href="https://github.com/catppuccin/catppuccin" target="_blank">Catppuccin</a>
 
 ### Catppuccin Mocha
 
