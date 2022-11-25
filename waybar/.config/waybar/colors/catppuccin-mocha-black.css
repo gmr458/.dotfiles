@@ -1,5 +1,6 @@
 @define-color white     #F2F2F2;
 @define-color black     #222021;
+@define-color black-transparent rgba(0, 0, 0, 0.8);
 
 @define-color rosewater #F5E0DC;
 @define-color flamingo  #F2CDCD;
@@ -28,11 +29,3 @@
 @define-color mantle    #181825;
 @define-color crust     #11111B;
 
-@define-color arsenic-gray         #424041;
-@define-color granite-gray         #696667;
-@define-color pastel-gray          #d0c9c1;
-@define-color quick-silver-gray    #a7a29b;
-@define-color philippine-grey      #908b85;
-
-
- @define-color background-waybar rgba(34, 32, 33, 0.9);

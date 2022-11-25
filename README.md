@@ -1,29 +1,23 @@
 # Dotfiles
 
-## Black & White
+## [Hyprland](https://github.com/hyprwm/Hyprland), [Waybar](https://github.com/Alexays/Waybar), [Tofi](https://github.com/philj56/tofi/) and [Catppuccin](https://github.com/catppuccin/catppuccin)
 
-### Screenshots
-![simple-black-and-white-01](./screenshots/black-and-white/01.png)
-![simple-black-and-white-02](./screenshots/black-and-white/02.png)
-![simple-black-and-white-03](./screenshots/black-and-white/03.png)
+### Catppuccin Mocha
 
-
-### Tofi Launcher
-![simple-black-and-white-04](./screenshots/black-and-white/04.png)
-
-### Tofi Power Menu
-![simple-black-and-white-05](./screenshots/black-and-white/05.png)
-
-
-### Neovim
-![simple-black-and-white-06](./screenshots/black-and-white/06.png)
-![simple-black-and-white-07](./screenshots/black-and-white/07.png)
-![simple-black-and-white-08](./screenshots/black-and-white/08.png)
-
-## Catppuccin Mocha
-
-### Screenshots
+#### Horizontal Waybar
 ![catppuccin-mocha-01](./screenshots/catppuccin-mocha/01.png)
 ![catppuccin-mocha-02](./screenshots/catppuccin-mocha/02.png)
+
+#### Vertical Waybar
 ![catppuccin-mocha-03](./screenshots/catppuccin-mocha/03.png)
 ![catppuccin-mocha-04](./screenshots/catppuccin-mocha/04.png)
+
+### Catppuccin Mocha Black
+
+#### Horizontal Waybar
+![catppuccin-mocha-black-01](./screenshots/catppuccin-mocha-black/01.png)
+![catppuccin-mocha-black-02](./screenshots/catppuccin-mocha-black/02.png)
+
+#### Vertical Waybar
+![catppuccin-mocha-black-03](./screenshots/catppuccin-mocha-black/03.png)
+![catppuccin-mocha-black-04](./screenshots/catppuccin-mocha-black/04.png)

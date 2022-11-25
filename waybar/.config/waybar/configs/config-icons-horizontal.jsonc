@@ -8,7 +8,7 @@
   "position": "top", 
 
   // Height to be used by the bar if possible, leave blank for a dynamic value.
-  "height": 36, 
+  "height": 38, 
 
   // Width to be used by the bar if possible, leave blank for a dynamic value.
   // "width": 1350, 
@@ -124,7 +124,9 @@
     // "cpu",
     // "memory",
     "backlight",
-    "pulseaudio",
+    // "pulseaudio",
+    "pulseaudio#audio",
+    "pulseaudio#microphone",
     // "network",
     "network#wlo1",
     "network#eno1",
@@ -154,13 +156,30 @@
     "on-scroll-down": "brightnessctl set 5%-",
     "on-click": ""
   },
-  "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
-    "format-bluetooth": "󰂯 {icon} {volume}% {format_source}",
-    "format-bluetooth-muted": "󰂯 󰖁 {volume}% {format_source}",
-    "format-muted": "󰖁 {volume}% {format_source}",
-    "format-source": "󰍬 {volume}%",
-    "format-source-muted": "󰍭 {volume}%",
+  // "pulseaudio": {
+  //   "format": "{icon} {volume}% {format_source}",
+  //   "format-bluetooth": "󰂯 {icon} {volume}% {format_source}",
+  //   "format-bluetooth-muted": "󰂯 󰖁 {volume}% {format_source}",
+  //   "format-muted": "󰖁 {volume}% {format_source}",
+  //   "format-source": "󰍬 {volume}%",
+  //   "format-source-muted": "󰍭 {volume}%",
+  //   "format-icons": {
+  //     "headphone": "󰋋",
+  //     "hands-free": "󰋋",
+  //     "headset": "󰋋",
+  //     "phone": "",
+  //     "portable": "",
+  //     "car": "",
+  //     "default": ["󰕿", "󰖀", "󰕾"]
+  //   },
+  //   "on-click": "",
+  //   "tooltip": false
+  // },
+  "pulseaudio#audio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "󰂯 {icon} {volume}%",
+    "format-bluetooth-muted": "󰂯 󰖁 {volume}%",
+    "format-muted": "󰖁 {volume}%",
     "format-icons": {
       "headphone": "󰋋",
       "hands-free": "󰋋",
@@ -170,7 +189,14 @@
       "car": "",
       "default": ["󰕿", "󰖀", "󰕾"]
     },
-    "on-click": "",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": false
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 {volume}%",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
     "tooltip": false
   },
   // "network": {

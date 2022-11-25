@@ -1,4 +1,4 @@
-@import "../../../colors/catppuccin-mocha.css";
+@import "../../../colors/catppuccin-mocha-black.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
@@ -6,8 +6,8 @@
 }
 
 window#waybar {
-  background-color: @bg;
-  color: @fg;
+  background-color: @black-transparent;
+  color: @text;
   border-radius: 20px;
 }
 
@@ -29,7 +29,7 @@ window#waybar {
   text-shadow: inherit;
   background: @blue;
   border: @blue;
-  color: @crust;
+  color: @black;
   padding: 1px 9px;
   transition-property: background-color;
   transition-duration: 1s;
@@ -38,14 +38,14 @@ window#waybar {
 #workspaces button.focused,
 #workspaces button.active {
   background-color: @green;
-  color: @crust;
+  color: @black;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 #workspaces button.urgent {
   background-color: @red;
-  color: @crust;
+  color: @black;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -60,13 +60,14 @@ window#waybar {
 #cpu,
 #memory,
 #backlight,
-#pulseaudio,
+#pulseaudio.audio,
+#pulseaudio.microphone,
 #network,
 #bluetooth,
 #battery,
 #clock,
 #custom-powermenu {
-  color: @fg;
+  color: @text;
   padding: 1px 8px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -81,7 +82,7 @@ window#waybar {
 
 #window {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #window:hover {
@@ -92,7 +93,7 @@ window#waybar {
 
 #custom-launcher {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #custom-launcher:hover {
@@ -101,7 +102,7 @@ window#waybar {
 
 #custom-powermenu {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #custom-powermenu:hover {
@@ -118,7 +119,8 @@ window#waybar {
 .modules-left > widget:first-child > #cpu,
 .modules-left > widget:first-child > #memory,
 .modules-left > widget:first-child > #backlight,
-.modules-left > widget:first-child > #pulseaudio,
+.modules-left > widget:first-child > #pulseaudio.audio,
+.modules-left > widget:first-child > #pulseaudio.microphone,
 .modules-left > widget:first-child > #network,
 .modules-left > widget:first-child > #bluetooth,
 .modules-left > widget:first-child > #battery,
@@ -135,7 +137,8 @@ window#waybar {
 .modules-right > widget:last-child > #cpu,
 .modules-right > widget:last-child > #memory,
 .modules-right > widget:last-child > #backlight,
-.modules-right > widget:last-child > #pulseaudio,
+.modules-right > widget:last-child > #pulseaudio.audio,
+.modules-right > widget:last-child > #pulseaudio.microphone,
 .modules-right > widget:last-child > #network,
 .modules-right > widget:last-child > #bluetooth,
 .modules-right > widget:last-child > #battery,
@@ -147,7 +150,7 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #tray {
-  background-color: @crust;
+  background-color: transparent;
 }
 #tray > .passive {
   -gtk-icon-effect: dim;
@@ -161,7 +164,7 @@ window#waybar {
 
 #cpu {
   background-color: @sapphire;
-  color: @crust;
+  color: @black;
 }
 
 #cpu:hover {
@@ -172,7 +175,7 @@ window#waybar {
 
 #memory {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #memory:hover {
@@ -182,8 +185,8 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #backlight {
-  background-color: #fff;
-  color: @crust;
+  background-color: @white;
+  color: @black;
 }
 
 #backlight:hover {
@@ -192,58 +195,67 @@ window#waybar {
 
 /* -------------------------------------------------------------------------------- */
 
-#pulseaudio {
+#pulseaudio.audio {
   background-color: @mauve;
-  color: @crust;
+  color: @black;
 }
 
-#pulseaudio:hover {
+#pulseaudio.audio:hover {
   background-color: @pink;
 }
 
-#pulseaudio.bluetooth {
+#pulseaudio.audio.bluetooth {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.bluetooth:hover {
   background-color: @sky;
 }
 
-#pulseaudio.muted {
+#pulseaudio.audio.muted {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
-#pulseaudio.muted:hover {
+#pulseaudio.audio.muted:hover {
   background-color: @maroon;
+}
+
+
+#pulseaudio.microphone {
+  background-color: @mauve;
+  color: @black;
+}
+
+#pulseaudio.microphone:hover {
+  background-color: @pink;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-/* #network {} */
+#network,
+#network.ethernet,
+#network.wifi {
+  background-color: @green;
+  color: @black;
+}
+
+#network:hover,
+#network.ethernet:hover,
+#network.wifi:hover {
+  background-color: @teal;
+}
+
 #network.disabled,
 #network.disconnected {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #network.disabled:hover,
 #network.disconnected:hover {
   background-color: @maroon;
-}
-
-/* #network.linked {} */
-
-#network.ethernet,
-#network.wifi {
-  background-color: @green;
-  color: @crust;
-}
-
-#network.ethernet:hover,
-#network.wifi:hover {
-  background-color: @teal;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -252,7 +264,7 @@ window#waybar {
 #bluetooth.disabled,
 #bluetooth.off {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.disabled:hover,
@@ -263,7 +275,7 @@ window#waybar {
 #bluetooth.on,
 #bluetooth.connected {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.on:hover,
@@ -280,7 +292,7 @@ window#waybar {
 /* #battery {} */
 #battery.full {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #battery.full:hover {
@@ -289,7 +301,7 @@ window#waybar {
 
 #battery.warning {
   background-color: @yellow;
-  color: @crust;
+  color: @black;
 }
 
 #battery.warning:hover {
@@ -298,7 +310,7 @@ window#waybar {
 
 #battery.critical {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #battery.critical:hover {
@@ -308,7 +320,6 @@ window#waybar {
 #battery.charging,
 #battery.plugged {
   background-color: @blue;
-  color: @crust;
 }
 
 #battery.charging:hover,
@@ -320,7 +331,7 @@ window#waybar {
 
 #clock {
   background-color: @lavender;
-  color: @crust;
+  color: @black;
 }
 
 #clock:hover {
