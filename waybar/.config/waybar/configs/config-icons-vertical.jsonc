@@ -63,7 +63,7 @@
 
   // Option to disable the use of gtk-layer-shell for popups.
   // Only functional if compiled with gtk-layer-shell support. Default: true.
-  "gtk-layer-shell": false,
+  "gtk-layer-shell": true,
 
   // Option to subscribe to the Sway IPC bar configuration and 
   // visibility events and control waybar with swaymsg bar commands.
@@ -189,7 +189,8 @@
       "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{icon} {volume}%"
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
@@ -212,7 +213,8 @@
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
     "format-disconnected": "󰤮",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "{icon} {essid} | 󱑽 {signaldBm} dBm {frequency} MHz"
   },
   "network#eno1": {
     "interval": 10,
@@ -220,7 +222,8 @@
     "format-icons": ["󰈀"],
     "format-ethernet": "{icon}",
     "format-disconnected": "{icon}",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}"
   },
   "bluetooth": {
     "format-disabled": "󰂯",
@@ -229,7 +232,8 @@
     "format-connected": "󰂯",
     "format-connected-battery": "󰂯 {device_alias} 󰂄 {device_battery_percentage}%",
     "on-click": "",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "󰂯 {device_alias}"
   },
   "battery": {
     "states": {
@@ -241,12 +245,15 @@
     "format-plugged": "{icon}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "on-click": "",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{icon} {capacity}%"
   },
   "clock": {
     "interval": 1,
     "format": "{:%I\n%M\n%p}",
-    "format-alt": "{:%d\n%m\n%y\n󰍴\n%I\n%M\n%p}"
+    "format-alt": "{:%d\n%m\n%y\n󰍴\n%I\n%M\n%p}",
+    "tooltip": true,
+    "tooltip-format": "{:󰣆 %A, %B %d | 󰥔 %I:%M:%S %p}"
   },
   "custom/powermenu": {
     "format": "󰤆",
