@@ -222,7 +222,6 @@ window#waybar {
   background-color: @maroon;
 }
 
-
 #pulseaudio.microphone {
   background-color: @mauve;
   color: @crust;
@@ -230,6 +229,15 @@ window#waybar {
 
 #pulseaudio.microphone:hover {
   background-color: @pink;
+}
+
+#pulseaudio.microphone.source-muted {
+  background-color: @red;
+  color: @crust;
+}
+
+#pulseaudio.microphone.source-muted:hover {
+  background-color: @maroon;
 }
 
 /* -------------------------------------------------------------------------------- */

@@ -7,10 +7,7 @@
   "gtk-layer-shell": false,
 
   // Modules left
-  "modules-left": [
-    "custom/launcher",
-    "wlr/workspaces"
-  ],
+  "modules-left": ["custom/launcher", "wlr/workspaces"],
   "custom/launcher": {
     "format": "Apps",
     "on-click": "~/.config/tofi/scripts/drun.sh &",

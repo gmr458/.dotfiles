@@ -223,7 +223,6 @@ window#waybar {
   background-color: @maroon;
 }
 
-
 #pulseaudio.microphone {
   background-color: @mauve;
   color: @crust;

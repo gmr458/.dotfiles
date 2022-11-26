@@ -1,17 +1,17 @@
 {
   // Decide if the bar is displayed in front (top) of the windows or behind (bottom) them. Default: bottom.
-  "layer": "top", 
+  "layer": "top",
 
   // "output": [],
 
   // Bar position, can be top, bottom, left, right. Default: top.
-  "position": "left", 
+  "position": "left",
 
   // Height to be used by the bar if possible, leave blank for a dynamic value.
-  // "height": 36, 
+  // "height": 36,
 
   // Width to be used by the bar if possible, leave blank for a dynamic value.
-  "width": 46, 
+  "width": 46,
 
   // Margins value using the css format without units.
   "margin": "",
@@ -29,14 +29,14 @@
   // "name": "",
 
   // Selects one of the preconfigured display modes.
-  // This is an equivalent of the sway-bar(5) (https://github.com/swaywm/sway/blob/master/sway/sway-bar.5.scd) 
+  // This is an equivalent of the sway-bar(5) (https://github.com/swaywm/sway/blob/master/sway/sway-bar.5.scd)
   // mode command and supports the same values: dock, hide, invisible, overlay.
   // Note: hide and invisible modes may be not as useful without Sway IPC.
   // "mode": "",
 
   // Defines the timing of modifier key to reset the bar visibility.
   // To reset the visibility of the bar with the press of the modifier key use press.
-  // Use release to reset the visibility upon the release of the modifier key and 
+  // Use release to reset the visibility upon the release of the modifier key and
   // only if no other action happened while the key was pressed.
   // This prevents hiding the bar when the modifier is used to switch a workspace,
   // change binding mode or start a keybinding. Default: press.
@@ -65,14 +65,14 @@
   // Only functional if compiled with gtk-layer-shell support. Default: true.
   "gtk-layer-shell": true,
 
-  // Option to subscribe to the Sway IPC bar configuration and 
+  // Option to subscribe to the Sway IPC bar configuration and
   // visibility events and control waybar with swaymsg bar commands.
-  // Requires bar_id value from sway configuration to be either passed 
+  // Requires bar_id value from sway configuration to be either passed
   // with the -b commandline argument or specified with the id option.
   // See #1244 for the documentation and configuration examples. Default: false.
   // "ipc": false,
 
-  // bar_id for the Sway IPC. Use this if you need to override the value passed with 
+  // bar_id for the Sway IPC. Use this if you need to override the value passed with
   // the -b bar_id commandline argument for the specific bar instance.
   // "id": ""
 
@@ -84,10 +84,7 @@
   // "include": [],
 
   // Modules left
-  "modules-left": [
-    "custom/launcher",
-    "wlr/workspaces"
-  ],
+  "modules-left": ["custom/launcher", "wlr/workspaces"],
   "custom/launcher": {
     "format": "󱗼",
     "on-click": "~/.config/tofi/scripts/drun.sh &",
@@ -189,14 +186,19 @@
       "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
     "tooltip": true,
-    "tooltip-format": "{icon} {volume}%"
+    "tooltip-format": "{icon} {desc} {volume}%"
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": "󰍬",
     "format-source-muted": "󰍭",
     "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+    "max-volume": 100,
     "tooltip": false
   },
   // "network": {
@@ -214,7 +216,7 @@
     "format-wifi": "{icon}",
     "format-disconnected": "󰤮",
     "tooltip": true,
-    "tooltip-format": "{icon} {essid} | 󱑽 {signaldBm} dBm {frequency} MHz"
+    "tooltip-format": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz"
   },
   "network#eno1": {
     "interval": 10,
