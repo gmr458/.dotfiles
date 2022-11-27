@@ -117,8 +117,8 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: Iosevka Fixed
-    family: FiraCode Nerd Font Mono
+    family: Iosevka Fixed
+    # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
 
@@ -131,8 +131,8 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Fixed
-    family: FiraCode Nerd Font Mono
+    family: Iosevka Fixed
+    # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
 
@@ -145,13 +145,13 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Fixed
-    family: FiraCode Nerd Font Mono
+    family: Iosevka Fixed
+    # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Italic
 
   # Bold italic font face
   bold_italic:
@@ -159,17 +159,17 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Fixed
-    family: FiraCode Nerd Font Mono
+    family: Iosevka Fixed
+    # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Italic
 
   # Point size
-  # size: 12.0 # Iosevka Fixed size
-  size: 11.5 # FiraCode Nerd Font Mono size
+  size: 12.0 # Iosevka Fixed size
+  # size: 11.5 # FiraCode Nerd Font Mono size
   # size: 12.0 # CaskaydiaCove Nerd Font Mono size
   # size: 12.5 # Comic Mono size
 
