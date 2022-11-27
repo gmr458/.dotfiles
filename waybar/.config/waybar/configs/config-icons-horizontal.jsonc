@@ -149,8 +149,8 @@
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": ["󰃟"],
-    "on-scroll-up": "brightnessctl set +5%",
-    "on-scroll-down": "brightnessctl set 5%-",
+    "on-scroll-up": "brightnessctl set +5% && ~/.config/dunst/scripts/show_brightness.sh",
+    "on-scroll-down": "brightnessctl set 5%- && ~/.config/dunst/scripts/show_brightness.sh",
     "on-click": ""
   },
   // "pulseaudio": {
@@ -186,18 +186,18 @@
       "car": "",
       "default": ["󰕿", "󰖀", "󰕾"]
     },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/dunst/scripts/show_mute.sh",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1% && ~/.config/dunst/scripts/show_volume.sh",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1% && ~/.config/dunst/scripts/show_volume.sh",
     "tooltip": false
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": "󰍬 {volume}%",
     "format-source-muted": "󰍭 {volume}%",
-    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
-    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle && ~/.config/dunst/scripts/show_mute_microphone.sh",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1% && ~/.config/dunst/scripts/show_volume_microphone.sh",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1% && ~/.config/dunst/scripts/show_volume_microphone.sh",
     "max-volume": 100,
     "tooltip": false
   },
