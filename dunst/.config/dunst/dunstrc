@@ -30,7 +30,7 @@
     height = 300
 
     # Position the notification in the top right corner
-    origin = top-right
+    origin = bottom-right
 
     # Offset from the origin
     offset = 10x10
@@ -68,7 +68,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 60
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -77,10 +77,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 12
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 20
 
     # Padding between text and icon.
     text_icon_padding = 0
@@ -245,7 +245,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 10
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
