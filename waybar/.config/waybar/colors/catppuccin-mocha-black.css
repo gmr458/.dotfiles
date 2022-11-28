@@ -1,6 +1,6 @@
 @define-color white     #F2F2F2;
 @define-color black     #222021;
-@define-color black-transparent rgba(0, 0, 0, 0.8);
+@define-color black-transparent rgba(0, 0, 0, 0.7);
 
 @define-color rosewater #F5E0DC;
 @define-color flamingo  #F2CDCD;
