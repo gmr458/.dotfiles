@@ -120,7 +120,7 @@
     "tray",
     // "cpu",
     // "memory",
-    // "backlight",
+    "backlight",
     // "pulseaudio",
     "pulseaudio#audio",
     "pulseaudio#microphone",
@@ -146,7 +146,7 @@
     "tooltip": false
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon}",
     "format-icons": ["󰃟"],
     "on-scroll-up": "brightnessctl set +5% && ~/.config/dunst/scripts/show_brightness.sh",
     "on-scroll-down": "brightnessctl set 5%- && ~/.config/dunst/scripts/show_brightness.sh",
