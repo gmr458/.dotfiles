@@ -1,4 +1,4 @@
-include=./themes/catppuccin_mocha
+include=./themes/catppuccin_mocha_black
 
 ; Behavior options
 hide-cursor        = false
@@ -17,13 +17,13 @@ font                  = Iosevka Fixed
 font-size             = 20
 outline-width         = 1%
 border-width          = 0
-prompt-text           = "Search: "
+prompt-text           = "Apps: "
 prompt-padding        = 0
 num-results           = 0
 selection-padding     = 0
 result-spacing        = 0
 min-input-width       = 0
-width                 = 35%
+width                 = 30%
 height                = 50%
 corner-radius         = 14px
 anchor                = center
