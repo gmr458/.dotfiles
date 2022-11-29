@@ -12,7 +12,7 @@ set number
 set numberwidth=1
 " set omnifunc=
 set pumheight=0
-set relativenumber
+" set relativenumber
 set scroll=4
 set sidescrolloff=4
 set shiftwidth=4
