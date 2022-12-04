@@ -1,8 +1,0 @@
-; Style options
-background-color      = #1E1E2EDD
-outline-color         = #CDD6F4
-border-color          = #CDD6F4
-text-color            = #CDD6F4
-selection-color       = #A6E3A1
-selection-match-color = #89B4FA
-selection-background  = #00000000

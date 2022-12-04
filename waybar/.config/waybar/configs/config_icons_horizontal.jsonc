@@ -84,11 +84,14 @@
   // "include": [],
 
   // Modules left
-  "modules-left": ["custom/launcher", "wlr/workspaces"],
+  "modules-left": [
+    // "custom/launcher",
+    "wlr/workspaces"
+  ],
   "custom/launcher": {
     "format": "󱗼",
-    "on-click": "~/.config/tofi/scripts/drun.sh &",
-    "on-click-right": "~/.config/tofi/scripts/drun.sh &",
+    "on-click": "~/.config/tofi/scripts/drun.sh -t catppuccin_mocha",
+    "on-click-right": "~/.config/tofi/scripts/drun.sh -t catppuccin_mocha",
     "tooltip": false
   },
   "wlr/workspaces": {
@@ -109,9 +112,9 @@
   },
 
   // Modules center
-  "modules-center": [],
+  "modules-center": ["hyprland/window"],
   "hyprland/window": {
-    "format": " {:.40} ",
+    "format": " <span font_desc='Iosevka Fixed 12'>{:.40}</span> ",
     "separate-outputs": false
   },
 
@@ -129,8 +132,8 @@
     "network#eno1",
     "bluetooth",
     // "battery",
-    "clock",
-    "custom/powermenu"
+    "clock"
+    // "custom/powermenu"
   ],
   "tray": {
     // "icon-size": 21,
@@ -257,8 +260,8 @@
   },
   "custom/powermenu": {
     "format": "󰤆",
-    "on-click": "~/.config/tofi/scripts/powermenu.sh &",
-    "on-click-right": "~/.config/tofi/scripts/powermenu.sh &",
+    "on-click": "~/.config/tofi/scripts/powermenu.sh -t catppuccin_mocha",
+    "on-click-right": "~/.config/tofi/scripts/powermenu.sh -t catppuccin_mocha",
     "tooltip": false
   }
 }

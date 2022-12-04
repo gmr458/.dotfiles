@@ -1,4 +1,4 @@
-@import "../../../colors/catppuccin-mocha.css";
+@import "../../../colors/catppuccin_mocha_black.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
@@ -62,7 +62,7 @@ button:hover {
 /* -------------------------------------------------------------------------------- */
 
 #custom-launcher,
-#window,
+/* #window, */
 #tray,
 #cpu,
 #memory,
@@ -81,12 +81,17 @@ button:hover {
 /* -------------------------------------------------------------------------------- */
 
 /* #window {} */
+#window:hover {
+  color: @white;
+  box-shadow: inset 0 -3px @white;
+}
 
 /* -------------------------------------------------------------------------------- */
 
 #custom-launcher {
   color: @blue;
   box-shadow: inset 0 -2px @blue;
+  padding: 0 10px;
 }
 #custom-launcher:hover {
   box-shadow: inset 0 -3px @blue;
@@ -95,6 +100,7 @@ button:hover {
 #custom-powermenu {
   color: @red;
   box-shadow: inset 0 -2px @red;
+  padding: 0 10px;
 }
 #custom-powermenu:hover {
   box-shadow: inset 0 -3px @red;
@@ -125,49 +131,37 @@ button:hover {
 
 /* -------------------------------------------------------------------------------- */
 
-#cpu {
-  color: @sapphire;
-  box-shadow: inset 0 -2px @sapphire;
-}
+/* #cpu {} */
 #cpu:hover {
-  box-shadow: inset 0 -3px @sapphire;
-}
-
-/* -------------------------------------------------------------------------------- */
-
-#memory {
-  color: @green;
-  box-shadow: inset 0 -2px @green;
-}
-#memory:hover {
-  box-shadow: inset 0 -3px @green;
-}
-
-/* -------------------------------------------------------------------------------- */
-
-#backlight {
   color: @white;
-  box-shadow: inset 0 -2px @white;
-}
-#backlight:hover {
   box-shadow: inset 0 -3px @white;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-#pulseaudio {
-  color: @mauve;
-  box-shadow: inset 0 -2px @mauve;
-}
-#pulseaudio:hover {
-  box-shadow: inset 0 -3px @mauve;
+/* #memory {} */
+#memory:hover {
+  color: @white;
+  box-shadow: inset 0 -3px @white;
 }
 
+/* -------------------------------------------------------------------------------- */
+
+/* #backlight {} */
+#backlight:hover {
+  color: @white;
+  box-shadow: inset 0 -3px @white;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* #pulseaudio {} */
 #pulseaudio.bluetooth {
-  color: @blue;
+  color: @fg;
   box-shadow: inset 0 -2px @blue;
 }
 #pulseaudio.bluetooth:hover {
+  color: @white;
   box-shadow: inset 0 -3px @blue;
 }
 
@@ -176,7 +170,13 @@ button:hover {
   box-shadow: inset 0 -2px @red;
 }
 #pulseaudio.muted:hover {
+  color: @red;
   box-shadow: inset 0 -3px @red;
+}
+
+#pulseaudio:hover {
+  color: @white;
+  box-shadow: inset 0 -3px @white;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -187,8 +187,10 @@ button:hover {
   color: @red;
   box-shadow: inset 0 -2px @red;
 }
+
 #network.disabled:hover,
 #network.disconnected:hover {
+  color: @red;
   box-shadow: inset 0 -3px @red;
 }
 
@@ -196,12 +198,14 @@ button:hover {
 
 #network.ethernet,
 #network.wifi {
-  color: @blue;
-  box-shadow: inset 0 -2px @blue;
+  color: @fg;
+  box-shadow: inset 0 -2px @green;
 }
+
 #network.ethernet:hover,
 #network.wifi:hover {
-  box-shadow: inset 0 -3px @blue;
+  color: @white;
+  box-shadow: inset 0 -3px @green;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -212,18 +216,28 @@ button:hover {
   color: @red;
   box-shadow: inset 0 -2px @red;
 }
+
 #bluetooth.disabled:hover,
 #bluetooth.off:hover {
+  color: @red;
   box-shadow: inset 0 -3px @red;
 }
 
-#bluetooth.on,
+#bluetooth.on {
+  color: @fg;
+  box-shadow: inset 0 -2px @green;
+}
+#bluetooth.on:hover {
+  color: @white;
+  box-shadow: inset 0 -3px @green;
+}
+
 #bluetooth.connected {
-  color: @blue;
+  color: @fg;
   box-shadow: inset 0 -2px @blue;
 }
-#bluetooth.on:hover,
 #bluetooth.connected:hover {
+  color: @white;
   box-shadow: inset 0 -3px @blue;
 }
 
@@ -235,10 +249,11 @@ button:hover {
 
 /* #battery {} */
 #battery.full {
-  color: @green;
+  color: @fg;
   box-shadow: inset 0 -2px @green;
 }
 #battery.full:hover {
+  color: @white;
   box-shadow: inset 0 -3px @green;
 }
 
@@ -247,6 +262,7 @@ button:hover {
   box-shadow: inset 0 -2px @yellow;
 }
 #battery.warning:hover {
+  color: @yellow;
   box-shadow: inset 0 -3px @yellow;
 }
 
@@ -255,15 +271,14 @@ button:hover {
   box-shadow: inset 0 -2px @red;
 }
 #battery.critical:hover {
+  color: @red;
   box-shadow: inset 0 -3px @red;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-#clock {
-  color: @white;
-  box-shadow: inset 0 -2px @white;
-}
+/* #clock {} */
 #clock:hover {
+  color: @white;
   box-shadow: inset 0 -3px @white;
 }

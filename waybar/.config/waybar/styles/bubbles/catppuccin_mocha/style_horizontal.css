@@ -1,4 +1,4 @@
-@import "../../../colors/catppuccin-mocha.css";
+@import "../../../colors/catppuccin_mocha.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
@@ -81,12 +81,8 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #window {
-  background-color: @blue;
-  color: @crust;
-}
-
-#window:hover {
-  background-color: @sky;
+  background-color: @transparent;
+  color: @text;
 }
 
 /* -------------------------------------------------------------------------------- */
