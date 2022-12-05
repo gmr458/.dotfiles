@@ -6,7 +6,7 @@
 }
 
 window#waybar {
-  background-color: @base-transparent;
+  background-color: @base;
   color: @text;
   border-radius: 20px;
 }

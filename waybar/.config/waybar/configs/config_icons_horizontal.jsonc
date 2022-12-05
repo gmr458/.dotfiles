@@ -112,7 +112,7 @@
   },
 
   // Modules center
-  "modules-center": ["hyprland/window"],
+  "modules-center": [],
   "hyprland/window": {
     "format": " <span font_desc='Iosevka Fixed 12'>{:.40}</span> ",
     "separate-outputs": false
