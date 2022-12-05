@@ -456,40 +456,40 @@
 # ---------------------------------------------
 
 # Catppuccin Mocha
-# [global]
-#     frame_color = "#CDD6F4"
-#     separator_color= frame
-
-# [urgency_low]
-#     background = "#1E1E2E"
-#     foreground = "#CDD6F4"
-
-# [urgency_normal]
-#     background = "#1E1E2E"
-#     foreground = "#CDD6F4"
-
-# [urgency_critical]
-#     background = "#1E1E2E"
-#     foreground = "#CDD6F4"
-#     frame_color = "#FAB387"
-
-# ---------------------------------------------
-
-# Catppuccin Mocha
 [global]
     frame_color = "#CDD6F4"
     separator_color= frame
 
 [urgency_low]
-    background = "#000000"
+    background = "#1E1E2E"
     foreground = "#CDD6F4"
 
 [urgency_normal]
-    background = "#000000"
+    background = "#1E1E2E"
     foreground = "#CDD6F4"
 
 [urgency_critical]
-    background = "#000000"
+    background = "#1E1E2E"
     foreground = "#CDD6F4"
     frame_color = "#FAB387"
+
+# ---------------------------------------------
+
+# Catppuccin Mocha Black
+# [global]
+#     frame_color = "#CDD6F4"
+#     separator_color= frame
+
+# [urgency_low]
+#     background = "#000000"
+#     foreground = "#CDD6F4"
+
+# [urgency_normal]
+#     background = "#000000"
+#     foreground = "#CDD6F4"
+
+# [urgency_critical]
+#     background = "#000000"
+#     foreground = "#CDD6F4"
+#     frame_color = "#FAB387"
 
