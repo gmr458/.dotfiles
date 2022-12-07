@@ -63,7 +63,7 @@
 
   // Option to disable the use of gtk-layer-shell for popups.
   // Only functional if compiled with gtk-layer-shell support. Default: true.
-  "gtk-layer-shell": false,
+  "gtk-layer-shell": true,
 
   // Option to subscribe to the Sway IPC bar configuration and
   // visibility events and control waybar with swaymsg bar commands.
@@ -192,7 +192,8 @@
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/dunst/scripts/show_mute.sh",
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1% && ~/.config/dunst/scripts/show_volume.sh",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1% && ~/.config/dunst/scripts/show_volume.sh",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{icon} {desc}"
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
@@ -213,24 +214,26 @@
   //   "tooltip": false
   // },
   "network#wlo1": {
-    "interval": 10,
+    "interval": 1,
     "interface": "wlo1",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
     "format-disconnected": "󰤮",
     // "format-alt": "{icon} {essid} | 󱑽 {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
     "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}"
   },
   "network#eno1": {
-    "interval": 10,
+    "interval": 1,
     "interface": "eno1",
     "format-icons": ["󰈀"],
     "format-ethernet": "{icon}",
     "format-disconnected": "{icon}",
     // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
     "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}"
   },
   "bluetooth": {
     "format-disabled": "󰂯 {status}",
