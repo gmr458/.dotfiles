@@ -1,5 +1,6 @@
 #!/bin/bash
 
+border=""
 theme=""
 
 help() {
@@ -7,8 +8,11 @@ help() {
   exit 1
 }
 
-while getopts ':t:?h' OPTION; do
+while getopts ':b:t:?h' OPTION; do
   case "$OPTION" in
+  b)
+    border=$OPTARG
+    ;;
   t)
     theme=$OPTARG
     ;;
@@ -18,12 +22,12 @@ while getopts ':t:?h' OPTION; do
   esac
 done
 
-if [[ -z $theme ]]; then
+if [[ -z border || -z $theme ]]; then
   help
 else
   if (ps -a | grep tofi-run >/dev/null); then
     killall -q tofi-run
   else
-    tofi-run --config ~/.config/tofi/launcher_$theme | xargs hyprctl dispatch exec
+    tofi-run --config ~/.config/tofi/launchers/border_$border/launcher_$theme | xargs hyprctl dispatch exec
   fi
 fi

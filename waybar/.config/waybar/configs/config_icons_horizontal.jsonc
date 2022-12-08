@@ -19,11 +19,11 @@
   // Margins value without units.
   // "margin-top": 5,
   "margin-bottom": 5,
-  "margin-left": 10,
-  "margin-right": 10,
+  "margin-left": 5,
+  "margin-right": 5,
 
   // Size of gaps in between of the different modules. Default: 4.
-  "spacing": 4,
+  "spacing": 1,
 
   // Optional name added as a CSS class, for styling multiple waybars.
   // "name": "",
@@ -218,22 +218,24 @@
     "interface": "wlo1",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
-    "format-disconnected": "󰤮",
-    // "format-alt": "{icon} {essid} | 󱑽 {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
-    "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",
+    // "format-disconnected": "󰤮",
+    "format-disconnected": "",
+    // "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",
+    "on-click": "",
     "tooltip": true,
-    "tooltip-format": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}"
+    "tooltip-format": "{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
   },
   "network#eno1": {
     "interval": 1,
     "interface": "eno1",
     "format-icons": ["󰈀"],
     "format-ethernet": "{icon}",
-    "format-disconnected": "{icon}",
-    // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
-    "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
+    // "format-disconnected": "{icon}",
+    "format-disconnected": "",
+    // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
+    "on-click": "",
     "tooltip": true,
-    "tooltip-format": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr} | 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}"
+    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
   },
   "bluetooth": {
     "format-disabled": "󰂯 {status}",
@@ -259,7 +261,10 @@
   "clock": {
     "interval": 1,
     "format": "󰥔 {:%I:%M %p}",
-    "format-alt": "{:󰣆 %A, %B %d | 󰥔 %I:%M:%S %p}"
+    // "format-alt": "{:󰣆 %A, %B %d | 󰥔 %I:%M:%S %p}",
+    "on-click": "",
+    "tooltip": true,
+    "tooltip-format": "{:󰣆 %A, %B %d, %Y | 󰥔 %I:%M:%S %p}"
   },
   "custom/powermenu": {
     "format": "󰤆",

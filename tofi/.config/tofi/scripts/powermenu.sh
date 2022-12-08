@@ -1,5 +1,6 @@
 #!/bin/bash
 
+border=""
 theme=""
 
 help() {
@@ -7,8 +8,11 @@ help() {
   exit 1
 }
 
-while getopts ':t:?h' OPTION; do
+while getopts ':b:t:?h' OPTION; do
   case "$OPTION" in
+  b)
+    border=$OPTARG
+    ;;
   t)
     theme=$OPTARG
     ;;
@@ -18,13 +22,13 @@ while getopts ':t:?h' OPTION; do
   esac
 done
 
-if [[ -z $theme ]]; then
+if [[ -z border || -z $theme ]]; then
   help
 else
   if (ps -a | grep tofi >/dev/null); then
     killall -q tofi
   else
-    case $(printf "%s\n" "󰐥 Power Off" "󰑐 Restart" "󰖔 Suspend" "󰑻 Hibernate" "󰌾 Lock" "󰗽 Log Out" | tofi --config "$HOME/.config/tofi/powermenu_$theme") in
+    case $(printf "%s\n" "󰐥 Power Off" "󰑐 Restart" "󰖔 Suspend" "󰑻 Hibernate" "󰌾 Lock" "󰗽 Log Out" | tofi --config "$HOME/.config/tofi/powermenus/border_$border/powermenu_$theme") in
     "󰐥 Power Off")
       systemctl poweroff
       ;;

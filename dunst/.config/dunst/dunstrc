@@ -1,3 +1,5 @@
+# vim: ft=cfg
+
 # See dunst(5) for all configuration options
 
 [global]
@@ -33,7 +35,7 @@
     origin = bottom-right
 
     # Offset from the origin
-    offset = 10x10
+    offset = 5x5
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -87,7 +89,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     # frame_color = "#aaaaaa"
@@ -245,7 +247,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 10
+    corner_radius = 0
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -456,40 +458,39 @@
 # ---------------------------------------------
 
 # Catppuccin Mocha
-[global]
-    frame_color = "#CDD6F4"
-    separator_color= frame
-
-[urgency_low]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
-
-[urgency_normal]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
-
-[urgency_critical]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
-    frame_color = "#FAB387"
-
-# ---------------------------------------------
-
-# Catppuccin Mocha Black
 # [global]
 #     frame_color = "#CDD6F4"
 #     separator_color= frame
 
 # [urgency_low]
-#     background = "#000000"
+#     background = "#1E1E2E"
 #     foreground = "#CDD6F4"
 
 # [urgency_normal]
-#     background = "#000000"
+#     background = "#1E1E2E"
 #     foreground = "#CDD6F4"
 
 # [urgency_critical]
-#     background = "#000000"
+#     background = "#1E1E2E"
 #     foreground = "#CDD6F4"
 #     frame_color = "#FAB387"
 
+# ---------------------------------------------
+
+# Catppuccin Mocha Black
+[global]
+    frame_color = "#CDD6F4"
+    separator_color= frame
+
+[urgency_low]
+    background = "#000000"
+    foreground = "#CDD6F4"
+
+[urgency_normal]
+    background = "#000000"
+    foreground = "#CDD6F4"
+
+[urgency_critical]
+    background = "#000000"
+    foreground = "#CDD6F4"
+    frame_color = "#FAB387"
