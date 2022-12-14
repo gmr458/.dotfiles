@@ -20,7 +20,8 @@ font-size       = 16
 font-features   = ""
 font-variations = ""
 
-background-color = #000000e6
+; background-color = #000000e6
+background-color = #000000
 
 outline-width = 1%
 outline-color = #cff6f4

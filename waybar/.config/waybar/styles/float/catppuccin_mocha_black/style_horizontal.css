@@ -6,13 +6,13 @@
 }
 
 window#waybar {
-  background-color: @black-transparent;
+  background-color: @black;
   color: @white;
   border: 1px solid @text;
 }
 
 tooltip {
-  background: @black-transparent;
+  background: @black;
   border: 1px solid @text;
   border-radius: 0;
 }
@@ -160,7 +160,7 @@ tooltip label {
 } */
 
 #tray menu {
-  background: @black-transparent;
+  background: @black;
   color: @white;
   border: 1px solid @text;
   border-radius: 0;
