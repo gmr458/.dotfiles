@@ -59,7 +59,14 @@ alias ll='lsd -l'
 alias lla='lsd -lA'
 alias tree='lsd --tree --ignore-glob node_modules --ignore-glob venv'
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {} --theme=Dracula' --preview-window=right:75%"
-alias gorepos="cd $GOPATH/src/github.com/gmr458"
+
+alias go_repos="cd $GOPATH/src/github.com/gmr458"
+alias java_repos="cd ~/Repos/mine/java"
+alias javascript_repos="cd ~/Repos/mine/javascript"
+alias kotlin_repos="cd ~/Repos/mine/kotlin"
+alias python_repos="cd ~/Repos/mine/python"
+alias rust_repos="cd ~/Repos/mine/rust"
+alias typescript_repos="cd ~/Repos/mine/typescript"
 
 # ------------------------------------------------------------
 
