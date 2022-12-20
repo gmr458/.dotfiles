@@ -68,6 +68,8 @@ alias python_repos="cd ~/Repos/mine/python"
 alias rust_repos="cd ~/Repos/mine/rust"
 alias typescript_repos="cd ~/Repos/mine/typescript"
 
+alias start_mongo_server="docker run -d --rm -p 27017:27017 --name mongo-server -v /var/lib/data:/data/db mongo:6.0.3"
+
 # ------------------------------------------------------------
 
 HISTFILE=~/.histfile
