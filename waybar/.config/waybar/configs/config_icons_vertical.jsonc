@@ -17,10 +17,10 @@
   "margin": "",
 
   // Margins value without units.
-  "margin-top": 10,
-  "margin-bottom": 10,
-  "margin-left": 10,
-  "margin-right": 5,
+  "margin-top": 5,
+  "margin-bottom": 5,
+  "margin-left": 5,
+  // "margin-right": 5,
 
   // Size of gaps in between of the different modules. Default: 4.
   "spacing": 8,
@@ -84,7 +84,7 @@
   // "include": [],
 
   // Modules left
-  "modules-left": ["custom/launcher", "wlr/workspaces"],
+  "modules-left": ["wlr/workspaces"],
   "custom/launcher": {
     "format": "󱗼",
     "on-click": "~/.config/tofi/scripts/drun.sh &",
@@ -123,14 +123,14 @@
     "backlight",
     // "pulseaudio",
     "pulseaudio#audio",
-    "pulseaudio#microphone",
+    // "pulseaudio#microphone",
     // "network",
     "network#wlo1",
     "network#eno1",
     "bluetooth",
     // "battery",
-    "clock",
-    "custom/powermenu"
+    "clock"
+    // "custom/powermenu"
   ],
   "tray": {
     "spacing": 10
@@ -210,22 +210,24 @@
   //   "tooltip": false
   // },
   "network#wlo1": {
-    "interval": 10,
+    "interval": 1,
     "interface": "wlo1",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
     "format-disconnected": "󰤮",
+    "on-click": "",
     "tooltip": true,
-    "tooltip-format": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz"
+    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
   },
   "network#eno1": {
-    "interval": 10,
+    "interval": 1,
     "interface": "eno1",
     "format-icons": ["󰈀"],
     "format-ethernet": "{icon}",
     "format-disconnected": "{icon}",
+    "on-click": "",
     "tooltip": true,
-    "tooltip-format": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}"
+    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
   },
   "bluetooth": {
     "format-disabled": "󰂯",

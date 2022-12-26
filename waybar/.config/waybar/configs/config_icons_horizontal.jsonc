@@ -126,7 +126,7 @@
     "backlight",
     // "pulseaudio",
     "pulseaudio#audio",
-    "pulseaudio#microphone",
+    // "pulseaudio#microphone",
     // "network",
     "network#wlo1",
     "network#eno1",
