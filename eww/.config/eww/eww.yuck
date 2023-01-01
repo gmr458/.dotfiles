@@ -1,0 +1,179 @@
+; (deflisten workspaces_from_script :initial "workspaces" "scripts/workspaces.py")
+
+; (defwidget workspaces []
+; 	(literal :content workspaces_from_script))
+
+; (defwindow example
+;     :monitor 0
+
+;     :geometry (geometry
+;         :x "0%"
+;         :y "10px"
+;         :width  "98%"
+;         :height '40px'
+;         :anchor "top center"
+;     )
+
+;     :stacking "fg"
+;     :exclusive true
+;     :focusable false
+
+;     (workspaces)
+; )
+
+; ----------------------------------------------
+
+; (defwidget bar []
+;     (centerbox :orientation "h"
+;         (launcher)
+;         (workspaces)
+;         (powermenu)
+;     )
+; )
+
+; (deflisten workspaces_listen "scripts/workspaces.sh")
+; (defwidget workspaces []
+;   (literal :content workspaces_listen))
+
+; (defwidget launcher []
+;     (box
+;         :class "box-launcher"
+;         :orientation "horizontal"
+;         :halign "start"
+;         :spacing 4
+
+;         (button
+;             :class "button-launcher"
+;             :onclick "~/.config/tofi/scripts/drun.sh &"
+;             "󱗼"
+;         )
+;     )
+; )
+
+; (defpoll time :interval "1s"
+;   "date '+%H:%M %b %d, %Y'")
+
+; (defwidget powermenu []
+;     (box
+;         :class "box-powermenu"
+;         :orientation "horizontal"
+;         :halign "end"
+;         :spacing 4
+
+;         (button
+;             :class "button-powermenu"
+;             :onclick "~/.config/tofi/scripts/powermenu.sh &"
+;             "󰤆"
+;         )
+
+;         (time)
+;     )
+; )
+
+; (defwindow bar
+;     :monitor 0
+;     :exclusive true
+;     :geometry (geometry
+;         :x "0%"
+;         :y "10px"
+;         :width  "98%"
+;         :height '38px'
+;         :anchor "top center"
+;     )
+
+;     :stacking "fg"
+;     :exclusive true
+;     :focusable true
+
+;     (bar)
+; )
+
+; ----------------------------------------------
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (left)
+    (center)
+    (right)))
+
+(defwidget right []
+    (box :class "right" :orientation "h" :space-evenly false :halign "end"
+        (box :class "clock" {"󰥔 " + time})
+        (button
+            :class "button-powermenu"
+            :onclick "~/.config/tofi/scripts/powermenu.sh &"
+            "󰤆"
+        )
+    )
+)
+
+
+(deflisten workspaces_listen "scripts/workspaces.sh")
+(defwidget left []
+    (box :class "left" :orientation "h" :space-evenly false :halign "start"
+        (button
+            :class "button-launcher"
+            :onclick "~/.config/tofi/scripts/drun.sh &"
+            "󱗼")
+        (literal :content workspaces_listen)
+    )
+)
+
+(defwidget center []
+    (box
+        :class "center"
+        :orientation "h"
+        :space-evenly false
+        :halign "center"
+        ""
+    )
+)
+
+
+; (defwidget metric [label value onchange]
+;   (box :orientation "h"
+;        :class "metric"
+;        :space-evenly false
+;     (box :class "label" label)
+;     (scale :min 0
+;            :max 101
+;            :active {onchange != ""}
+;            :value value
+;            :onchange onchange)))
+
+
+; (defpoll volume :interval "1s"
+;   "scripts/getvol")
+
+(defpoll time :interval "1s" :class "clock"
+  "date '+%I:%M %p'")
+
+; (defwindow bar
+;   :monitor 0
+;   :windowtype "dock"
+;   :geometry (geometry :x "0%"
+;                       :y "0%"
+;                       :width "98%"
+;                       :height "10px"
+;                       :anchor "top center")
+;   :reserve (struts :side "top" :distance "4%")
+;   (bar))
+
+
+(defwindow bar
+    :monitor 0
+    :exclusive true
+    :geometry (geometry
+        :x "0%"
+        :y "0%"
+        :width  "98%"
+        :height '10px'
+        :anchor "top center"
+    )
+
+    :stacking "fg"
+    :exclusive true
+    :focusable false
+
+    (bar)
+)

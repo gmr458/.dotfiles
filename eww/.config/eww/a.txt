@@ -1,0 +1,57 @@
+; (defwidget workspaces []
+
+;     (box
+;         :class "workspaces"
+;         :orientation "horizontal"
+;         :halign "start"
+;         :spacing 4
+
+;         (button
+;             :class "active"
+;             :onclick "hyprctl dispatch workspace 1"
+;             "1"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 2"
+;             "2"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 3"
+;             "3"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 4"
+;             "4"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 5"
+;             "5"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 6"
+;             "6"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 7"
+;             "7"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 8"
+;             "8"
+;         ) ; end button
+
+;         (button
+;             :onclick "hyprctl dispatch workspace 9"
+;             "9"
+;         ) ; end button
+
+;     ) ; end box
+
+; ) ; end defwidget
