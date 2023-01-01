@@ -11,16 +11,16 @@
   "height": 38,
 
   // Width to be used by the bar if possible, leave blank for a dynamic value.
-  // "width": 1350,
+  "width": 900,
 
   // Margins value using the css format without units.
-  "margin": "",
+  // "margin": "",
 
   // Margins value without units.
-  // "margin-top": 5,
+  "margin-top": 0,
   "margin-bottom": 5,
-  "margin-left": 5,
-  "margin-right": 5,
+  "margin-left": 10,
+  "margin-right": 10,
 
   // Size of gaps in between of the different modules. Default: 4.
   "spacing": 1,

@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "'Roboto Mono', 'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
     "terminal.integrated.fontWeightBold": "normal",
     "window.titleBarStyle": "custom",

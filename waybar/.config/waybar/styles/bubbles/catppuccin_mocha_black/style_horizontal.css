@@ -11,17 +11,26 @@ window#waybar {
   border-radius: 20px;
 }
 
+tooltip {
+  background: @black;
+  border: 1px solid @black;
+  border-radius: 10px;
+}
+tooltip label {
+  color: @text;
+}
+
 #workspaces button {
   background-color: transparent;
   color: @text;
+  border: transparent;
   padding: 1px 8px;
   margin-top: 5px;
   margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 1px;
+  margin-right: 1px;
   border-radius: 20px;
-  transition-property: background-color;
-  transition-duration: 0.3s;
+  transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
@@ -30,24 +39,29 @@ window#waybar {
   background: @blue;
   border: @blue;
   color: @black;
-  padding: 1px 9px;
-  transition-property: background-color;
-  transition-duration: 1s;
+  min-width: 30px;
+  transition: all 0.3s ease;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
   background-color: @green;
   color: @black;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  min-width: 30px;
+  transition: all 0.3s ease;
+  animation: colored-gradient 10s ease infinite;
+}
+
+#workspaces button.focused:hover,
+#workspaces button.active:hover {
+  background-color: @white;
+  transition: all 1s ease;
 }
 
 #workspaces button.urgent {
   background-color: @red;
   color: @black;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  transition: all 0.3s ease;
 }
 
 /* #workspaces button.hidden {} */
@@ -74,8 +88,7 @@ window#waybar {
   margin-left: 2px;
   margin-right: 2px;
   border-radius: 20px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  transition: all 0.3s ease;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -108,7 +121,7 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces,
+.modules-left > widget:first-child > #workspaces button,
 .modules-left > widget:first-child > #custom-launcher,
 .modules-left > widget:first-child > #window,
 .modules-left > widget:first-child > #tray,
@@ -126,7 +139,7 @@ window#waybar {
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces,
+.modules-right > widget:last-child > #workspaces button,
 .modules-right > widget:last-child > #custom-launcher,
 .modules-right > widget:last-child > #window,
 .modules-right > widget:last-child > #tray,
