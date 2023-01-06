@@ -1,6 +1,7 @@
 show-failed-attempts
 
-image=~/Pictures/Wallpapers/Surface_Laptop_3/Surface_Laptop_3_03.jpg
+scaling=stretch
+image=~/Pictures/wallpapers/mountain_landscape_nature_23-wallpaper-2048x1152.jpg
 
 font=Iosevka Fixed
 font-size=34

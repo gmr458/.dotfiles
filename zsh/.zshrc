@@ -30,7 +30,7 @@ export GOROOT='/usr/local/go'
 export GOPATH="$HOME/go"
 export DENO_INSTALL="$HOME/.deno"
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export JAVA_HOME='/usr/java/jdk-17.0.5'
+export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-17.0.5.0.8-1.fc37.x86_64'
 
 # ------------------------------------------------------------
 
@@ -41,8 +41,8 @@ export PATH=$PATH:"$GOROOT/bin"
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$DENO_INSTALL/bin"
 export PATH=$PATH:$PNPM_HOME
-export PATH=$PATH:'/opt/apache-maven/apache-maven-3.8.6/bin'
-export PATH=$PATH:'/opt/gradle/gradle-7.5.1/bin'
+export PATH=$PATH:'/opt/apache-maven/apache-maven-3.8.7/bin'
+export PATH=$PATH:'/opt/gradle/gradle-7.6/bin'
 export PATH=$PATH:'/usr/local/kotlinc/bin'
 # export PATH=$PATH:"$(go env GOPATH)/bin"
 

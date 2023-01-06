@@ -125,12 +125,12 @@
     // "memory",
     "backlight",
     // "pulseaudio",
-    "pulseaudio#audio",
     // "pulseaudio#microphone",
+    "pulseaudio#audio",
+    "bluetooth",
     // "network",
     "network#wlo1",
     "network#eno1",
-    "bluetooth",
     // "battery",
     "clock"
     // "custom/powermenu"
@@ -177,8 +177,8 @@
   // },
   "pulseaudio#audio": {
     "format": "{icon} {volume}%",
-    "format-bluetooth": "󰂯 {icon} {volume}%",
-    "format-bluetooth-muted": "󰂯 󰖁 {volume}%",
+    "format-bluetooth": "󰂯{icon} {volume}%",
+    "format-bluetooth-muted": "󰂯󰖁 {volume}%",
     "format-muted": "󰖁 {volume}%",
     "format-icons": {
       "headphone": "󰋋",
