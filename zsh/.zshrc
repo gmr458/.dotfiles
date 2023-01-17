@@ -61,12 +61,12 @@ alias tree='lsd --tree --ignore-glob node_modules --ignore-glob venv'
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {} --theme=Dracula' --preview-window=right:75%"
 
 alias go_repos="cd $GOPATH/src/github.com/gmr458"
-alias java_repos="cd ~/Repos/mine/java"
-alias javascript_repos="cd ~/Repos/mine/javascript"
-alias kotlin_repos="cd ~/Repos/mine/kotlin"
-alias python_repos="cd ~/Repos/mine/python"
-alias rust_repos="cd ~/Repos/mine/rust"
-alias typescript_repos="cd ~/Repos/mine/typescript"
+alias java_repos="cd ~/repos/mine/java"
+alias javascript_repos="cd ~/repos/mine/javascript"
+alias kotlin_repos="cd ~/repos/mine/kotlin"
+alias python_repos="cd ~/repos/mine/python"
+alias rust_repos="cd ~/repos/mine/rust"
+alias typescript_repos="cd ~/repos/mine/typescript"
 
 alias start_mongo_server="docker run -d --rm -p 27017:27017 --name mongo-server -v /var/lib/data:/data/db mongo:6.0.3"
 
