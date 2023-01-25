@@ -30,8 +30,8 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   dimensions:
-    columns: 120
-    lines: 25
+    columns: 0
+    lines: 0
 
   # Window position (changes require restart)
   #
@@ -46,11 +46,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 12
-    y: 12
+    x: 6
+    y: 1
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.8
+  opacity: 0.9
 
   # Startup Mode (changes require restart)
   #
@@ -175,7 +175,7 @@ font:
   # size: 12.0 # Iosevka Fixed size
   # size: 11.5 # FiraCode Nerd Font Mono size
   # size: 12.0 # CaskaydiaCove Nerd Font Mono size
-  # size: 12.5 # Comic Mono size
+  # size: 11.5 # Comic Mono size
   size: 10.5 # RobotoMono Nerd Font Mono size
 
   # Offset is the extra space around each character. `offset.y` can be thought

@@ -86,6 +86,7 @@
   // Modules left
   "modules-left": [
     // "custom/launcher",
+    "sway/workspaces",
     "wlr/workspaces"
   ],
   "custom/launcher": {
