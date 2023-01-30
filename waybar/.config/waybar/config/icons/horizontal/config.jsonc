@@ -11,7 +11,7 @@
   "height": 38,
 
   // Width to be used by the bar if possible, leave blank for a dynamic value.
-  "width": 900,
+  // "width": 900,
 
   // Margins value using the css format without units.
   // "margin": "",
@@ -87,7 +87,10 @@
   "modules-left": [
     // "custom/launcher",
     "sway/workspaces",
-    "wlr/workspaces"
+    "sway/mode",
+    "wlr/workspaces",
+    "wlr/taskbar",
+    "hyprland/submap"
   ],
   "custom/launcher": {
     "format": "󱗼",
@@ -110,6 +113,30 @@
       "9": "9",
       "default": "1"
     }
+  },
+  "wlr/taskbar": {
+    "all-outputs": false,
+    "format": "{icon} {title}",
+    // "icon-theme": "",
+    "icon-size": 20,
+    "markup": false,
+    "tooltip": true,
+    "tooltip-format": "{title}",
+    "active-first": false,
+    "on-click": "activate",
+    // "on-click-middle": "",
+    // "on-click-right": "",
+    // "on-update": "",
+    "ignore-list": []
+    // "app_ids-mapping": {}
+  },
+  "hyprland/submap": {
+    "format": "{}",
+    "tooltip": false
+  },
+  "sway/mode": {
+    "format": "{}",
+    "tooltip": false
   },
 
   // Modules center

@@ -1,4 +1,4 @@
-@import "../../../colors/catppuccin_mocha.css";
+@import "../../../../colors/catppuccin_mocha_black.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
@@ -6,22 +6,41 @@
 }
 
 window#waybar {
-  background-color: @base;
+  background-color: @black-transparent;
   color: @text;
   border-radius: 20px;
+  border: 1px solid #10171b;
+}
+
+tooltip {
+  background: @black;
+  border: 1px solid #10171b;
+  border-radius: 10px;
+}
+tooltip label {
+  color: @text;
+}
+
+#workspaces {
+  /* border: 1px solid #10171b; */
+  /* border-radius: 20px; */
+  margin-top: 0;
+  margin-bottom: 0;
+  /* margin-left: 1px; */
+  margin-right: 5px;
 }
 
 #workspaces button {
-  background-color: transparent;
-  color: @text;
+  background-color: @blue;
+  color: @crust;
+  border: transparent;
   padding: 1px 8px;
   margin-top: 5px;
   margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 1px;
+  margin-right: 1px;
   border-radius: 20px;
-  transition-property: background-color;
-  transition-duration: 0.3s;
+  transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
@@ -29,33 +48,75 @@ window#waybar {
   text-shadow: inherit;
   background: @blue;
   border: @blue;
-  color: @crust;
-  padding: 1px 9px;
-  transition-property: background-color;
-  transition-duration: 1s;
+  color: @black;
+  min-width: 30px;
+  transition: all 0.3s ease;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
   background-color: @green;
-  color: @crust;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  color: @black;
+  min-width: 30px;
+  transition: all 0.3s ease;
+  animation: colored-gradient 10s ease infinite;
+}
+
+#workspaces button.focused:hover,
+#workspaces button.active:hover {
+  background-color: @white;
+  transition: all 1s ease;
 }
 
 #workspaces button.urgent {
   background-color: @red;
-  color: @crust;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  color: @black;
+  transition: all 0.3s ease;
 }
 
 /* #workspaces button.hidden {} */
+
+#taskbar {
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+#taskbar button {
+  padding: 1px 8px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+#taskbar button:hover {
+  background: transparent;
+  border: 1px solid #10171b;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: colored-gradient 10s ease infinite;
+}
+
+/* #taskbar button.maximized {} */
+
+/* #taskbar button.minimized {} */
+
+#taskbar button.active {
+  border: 1px solid #10171b;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: colored-gradient 10s ease infinite;
+}
+
+/* #taskbar button.fullscreen {} */
 
 /* -------------------------------------------------------------------------------- */
 
 #custom-launcher,
 #window,
+#submap,
+#mode,
 #tray,
 #cpu,
 #memory,
@@ -74,14 +135,27 @@ window#waybar {
   margin-left: 2px;
   margin-right: 2px;
   border-radius: 20px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  transition: all 0.3s ease;
 }
 
 /* -------------------------------------------------------------------------------- */
 
 #window {
-  background-color: @transparent;
+  background-color: transparent;
+  color: @text;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#submap {
+  background-color: transparent;
+  color: @text;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#mode {
+  background-color: transparent;
   color: @text;
 }
 
@@ -89,7 +163,7 @@ window#waybar {
 
 #custom-launcher {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #custom-launcher:hover {
@@ -98,7 +172,7 @@ window#waybar {
 
 #custom-powermenu {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #custom-powermenu:hover {
@@ -108,7 +182,9 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces,
+/* .modules-left > widget:first-child > #workspaces, */
+.modules-left > widget:first-child > #workspaces button,
+.modules-left > widget:first-child > #taskbar button,
 .modules-left > widget:first-child > #custom-launcher,
 .modules-left > widget:first-child > #window,
 .modules-left > widget:first-child > #tray,
@@ -126,7 +202,10 @@ window#waybar {
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces,
+/* .modules-right > widget:last-child > #workspaces, */
+/* .modules-right > widget:last-child > #workspaces, */
+.modules-right > widget:last-child > #workspaces button,
+.modules-right > widget:last-child > #taskbar button,
 .modules-right > widget:last-child > #custom-launcher,
 .modules-right > widget:last-child > #window,
 .modules-right > widget:last-child > #tray,
@@ -160,7 +239,7 @@ window#waybar {
 
 #cpu {
   background-color: @sapphire;
-  color: @crust;
+  color: @black;
 }
 
 #cpu:hover {
@@ -171,7 +250,7 @@ window#waybar {
 
 #memory {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #memory:hover {
@@ -181,8 +260,8 @@ window#waybar {
 /* -------------------------------------------------------------------------------- */
 
 #backlight {
-  background-color: #fff;
-  color: @crust;
+  background-color: @white;
+  color: @black;
 }
 
 #backlight:hover {
@@ -193,7 +272,7 @@ window#waybar {
 
 #pulseaudio.audio {
   background-color: @mauve;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.audio:hover {
@@ -202,7 +281,7 @@ window#waybar {
 
 #pulseaudio.audio.bluetooth {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.bluetooth:hover {
@@ -211,7 +290,7 @@ window#waybar {
 
 #pulseaudio.audio.muted {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.audio.muted:hover {
@@ -220,7 +299,7 @@ window#waybar {
 
 #pulseaudio.microphone {
   background-color: @mauve;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.microphone:hover {
@@ -242,7 +321,7 @@ window#waybar {
 #network.ethernet,
 #network.wifi {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #network:hover,
@@ -254,7 +333,7 @@ window#waybar {
 #network.disabled,
 #network.disconnected {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #network.disabled:hover,
@@ -268,7 +347,7 @@ window#waybar {
 #bluetooth.disabled,
 #bluetooth.off {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.disabled:hover,
@@ -279,7 +358,7 @@ window#waybar {
 #bluetooth.on,
 #bluetooth.connected {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.on:hover,
@@ -296,7 +375,7 @@ window#waybar {
 /* #battery {} */
 #battery.full {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #battery.full:hover {
@@ -305,7 +384,7 @@ window#waybar {
 
 #battery.warning {
   background-color: @yellow;
-  color: @crust;
+  color: @black;
 }
 
 #battery.warning:hover {
@@ -314,7 +393,7 @@ window#waybar {
 
 #battery.critical {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #battery.critical:hover {
@@ -336,7 +415,7 @@ window#waybar {
 
 #clock {
   background-color: @lavender;
-  color: @crust;
+  color: @black;
 }
 
 #clock:hover {

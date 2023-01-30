@@ -1,68 +1,63 @@
-@import "../../../colors/catppuccin_mocha_black.css";
+@import "../../../../colors/catppuccin_mocha_black.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 window#waybar {
-  background-color: @black-transparent;
-  color: @text;
-  border-radius: 20px;
-  border: 1px solid #10171b;
+  background-color: @black;
+  color: @white;
+  border: 1px solid @text;
 }
 
 tooltip {
   background: @black;
-  border: 1px solid #10171b;
-  border-radius: 10px;
+  border: 1px solid @text;
+  border-radius: 0;
 }
 tooltip label {
-  color: @text;
+  color: @white;
+  padding: 2px;
 }
 
 #workspaces button {
-  background-color: @blue;
-  color: @crust;
-  border: transparent;
+  background-color: transparent;
+  color: @white;
   padding: 1px 8px;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 1px;
   margin-right: 1px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  border-radius: 0;
+  transition-property: background-color;
+  transition-duration: 0.3s;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  background: @blue;
-  border: @blue;
+  background: @text;
+  border: @text;
   color: @black;
-  min-width: 30px;
-  transition: all 0.3s ease;
+  padding: 1px 9px;
+  transition-property: background-color;
+  transition-duration: 1s;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: @green;
+  background: @text;
   color: @black;
-  min-width: 30px;
-  transition: all 0.3s ease;
-  animation: colored-gradient 10s ease infinite;
-}
-
-#workspaces button.focused:hover,
-#workspaces button.active:hover {
-  background-color: @white;
-  transition: all 1s ease;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 #workspaces button.urgent {
   background-color: @red;
   color: @black;
-  transition: all 0.3s ease;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 /* #workspaces button.hidden {} */
@@ -82,21 +77,22 @@ tooltip label {
 #battery,
 #clock,
 #custom-powermenu {
-  color: @text;
+  background-color: transparent;
+  color: @white;
   padding: 1px 8px;
   margin-top: 5px;
   margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  margin-left: 1px;
+  margin-right: 1px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 /* -------------------------------------------------------------------------------- */
 
 #window {
   background-color: transparent;
-  color: @text;
+  color: @white;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -159,12 +155,21 @@ tooltip label {
 
 /* -------------------------------------------------------------------------------- */
 
-#tray {
+/* #tray {
   background-color: transparent;
+} */
+
+#tray menu {
+  background: @black;
+  color: @white;
+  border: 1px solid @text;
+  border-radius: 0;
 }
+
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
+
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @red;
@@ -172,108 +177,111 @@ tooltip label {
 
 /* -------------------------------------------------------------------------------- */
 
-#cpu {
+/* #cpu {
   background-color: @sapphire;
   color: @black;
-}
+} */
 
 #cpu:hover {
-  background-color: @teal;
-}
-
-/* -------------------------------------------------------------------------------- */
-
-#memory {
-  background-color: @green;
-  color: @black;
-}
-
-#memory:hover {
-  background-color: @teal;
-}
-
-/* -------------------------------------------------------------------------------- */
-
-#backlight {
   background-color: @white;
   color: @black;
 }
 
-#backlight:hover {
-  background-color: @rosewater;
+/* -------------------------------------------------------------------------------- */
+
+/* #memory {
+  background-color: @green;
+  color: @black;
+} */
+
+#memory:hover {
+  background-color: @white;
+  color: @black;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-#pulseaudio.audio {
-  background-color: @mauve;
+/* #backlight {
+  background-color: @white;
+  color: @black;
+} */
+
+#backlight:hover {
+  background-color: @white;
   color: @black;
 }
 
+/* -------------------------------------------------------------------------------- */
+
+/* #pulseaudio.audio {
+  background-color: @mauve;
+  color: @black;
+} */
+
 #pulseaudio.audio:hover {
-  background-color: @pink;
+  background-color: @white;
+  color: @black;
 }
 
 #pulseaudio.audio.bluetooth {
+  color: @blue;
+}
+
+#pulseaudio.bluetooth:hover {
   background-color: @blue;
   color: @black;
 }
 
-#pulseaudio.bluetooth:hover {
-  background-color: @sky;
-}
-
 #pulseaudio.audio.muted {
-  background-color: @red;
-  color: @black;
+  color: @red;
 }
 
 #pulseaudio.audio.muted:hover {
-  background-color: @maroon;
-}
-
-#pulseaudio.microphone {
-  background-color: @mauve;
+  background-color: @red;
   color: @black;
 }
 
+/* #pulseaudio.microphone {
+  background-color: @mauve;
+  color: @black;
+} */
+
 #pulseaudio.microphone:hover {
-  background-color: @pink;
+  background-color: @white;
+  color: @black;
 }
 
 #pulseaudio.microphone.source-muted {
-  background-color: @red;
-  color: @crust;
+  color: @red;
 }
 
 #pulseaudio.microphone.source-muted:hover {
-  background-color: @maroon;
+  background-color: @red;
+  color: @black;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-#network,
+/* #network,
 #network.ethernet,
-#network.wifi {
-  background-color: @green;
-  color: @black;
-}
+#network.wifi {} */
 
 #network:hover,
 #network.ethernet:hover,
 #network.wifi:hover {
-  background-color: @teal;
+  background-color: @white;
+  color: @black;
 }
 
 #network.disabled,
 #network.disconnected {
-  background-color: @red;
-  color: @black;
+  color: @red;
 }
 
 #network.disabled:hover,
 #network.disconnected:hover {
-  background-color: @maroon;
+  background-color: @red;
+  color: @black;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -281,24 +289,22 @@ tooltip label {
 /* #bluetooth {} */
 #bluetooth.disabled,
 #bluetooth.off {
-  background-color: @red;
-  color: @black;
+  color: @red;
 }
 
 #bluetooth.disabled:hover,
 #bluetooth.off:hover {
-  background-color: @maroon;
-}
-
-#bluetooth.on,
-#bluetooth.connected {
-  background-color: @blue;
+  background-color: @red;
   color: @black;
 }
 
+/* #bluetooth.on,
+#bluetooth.connected {} */
+
 #bluetooth.on:hover,
 #bluetooth.connected:hover {
-  background-color: @sky;
+  background-color: @white;
+  color: @black;
 }
 
 /* #bluetooth.discoverable {} */
@@ -308,51 +314,51 @@ tooltip label {
 /* -------------------------------------------------------------------------------- */
 
 /* #battery {} */
-#battery.full {
-  background-color: @green;
-  color: @black;
-}
+/* #battery.full {} */
 
 #battery.full:hover {
   background-color: @teal;
+  background-color: @white;
+  color: @black;
 }
 
 #battery.warning {
+  color: @yellow;
+}
+
+#battery.warning:hover {
   background-color: @yellow;
   color: @black;
 }
 
-#battery.warning:hover {
-  background-color: @rosewater;
+#battery.critical {
+  color: @red;
 }
 
-#battery.critical {
+#battery.critical:hover {
   background-color: @red;
   color: @black;
 }
 
-#battery.critical:hover {
-  background-color: @maroon;
-}
-
 #battery.charging,
 #battery.plugged {
-  background-color: @blue;
-  color: @crust;
+  color: @green;
 }
 
 #battery.charging:hover,
 #battery.plugged:hover {
-  background-color: @sky;
+  background-color: @green;
+  color: @black;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-#clock {
+/* #clock {
   background-color: @lavender;
   color: @black;
-}
+} */
 
 #clock:hover {
-  background-color: @text;
+  background-color: @white;
+  color: @black;
 }

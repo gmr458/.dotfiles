@@ -1,13 +1,13 @@
-@import "../../../colors/catppuccin_mocha_black.css";
+@import "../../../../colors/catppuccin_mocha_black.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 window#waybar {
   background-color: @black;
-  color: @white;
+  color: @text;
   border: 1px solid @text;
 }
 
@@ -15,6 +15,7 @@ tooltip {
   background: @black;
   border: 1px solid @text;
   border-radius: 0;
+  padding-right: 30px;
 }
 tooltip label {
   color: @white;
@@ -22,13 +23,15 @@ tooltip label {
 }
 
 #workspaces button {
+  font-size: 11px;
   background-color: transparent;
-  color: @white;
-  padding: 1px 8px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 1px;
-  margin-right: 1px;
+  color: @text;
+  padding-top: 2px;
+  padding-bottom: 0;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
   border-radius: 0;
   transition-property: background-color;
   transition-duration: 0.3s;
@@ -40,14 +43,15 @@ tooltip label {
   background: @text;
   border: @text;
   color: @black;
-  padding: 1px 9px;
+  padding-top: 3px;
+  padding-bottom: 1px;
   transition-property: background-color;
   transition-duration: 1s;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background: @text;
+  background-color: @text;
   color: @black;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -79,11 +83,9 @@ tooltip label {
 #custom-powermenu {
   background-color: transparent;
   color: @white;
-  padding: 1px 8px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 1px;
-  margin-right: 1px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -92,7 +94,11 @@ tooltip label {
 
 #window {
   background-color: transparent;
-  color: @white;
+  color: @black;
+}
+
+#window:hover {
+  background-color: @sky;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -118,7 +124,7 @@ tooltip label {
 /* -------------------------------------------------------------------------------- */
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces button,
+.modules-left > widget:first-child > #workspaces,
 .modules-left > widget:first-child > #custom-launcher,
 .modules-left > widget:first-child > #window,
 .modules-left > widget:first-child > #tray,
@@ -132,11 +138,11 @@ tooltip label {
 .modules-left > widget:first-child > #battery,
 .modules-left > widget:first-child > #clock,
 .modules-left > widget:first-child > #custom-powermenu {
-  margin-left: 5px;
+  margin-top: 5px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces button,
+.modules-right > widget:last-child > #workspaces,
 .modules-right > widget:last-child > #custom-launcher,
 .modules-right > widget:last-child > #window,
 .modules-right > widget:last-child > #tray,
@@ -150,14 +156,14 @@ tooltip label {
 .modules-right > widget:last-child > #battery,
 .modules-right > widget:last-child > #clock,
 .modules-right > widget:last-child > #custom-powermenu {
-  margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-/* #tray {
+#tray {
   background-color: transparent;
-} */
+}
 
 #tray menu {
   background: @black;
@@ -310,7 +316,6 @@ tooltip label {
 /* #bluetooth.discoverable {} */
 /* #bluetooth.discovering {} */
 /* #bluetooth.pairable {} */
-
 /* -------------------------------------------------------------------------------- */
 
 /* #battery {} */
@@ -362,3 +367,4 @@ tooltip label {
   background-color: @white;
   color: @black;
 }
+

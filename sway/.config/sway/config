@@ -18,13 +18,14 @@ client.background        $base
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -108,15 +109,35 @@ input "type:keyboard" {
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # Brightness
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp   exec brightnessctl set 5%+
+    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
 
     # Media Player controls
-    bindsym --locked XF86AudioPlay  exec playerctl play-pause
-    bindsym --locked XF86AudioPause exec playerctl play-pause
-    bindsym --locked XF86AudioNext  exec playerctl next
-    bindsym --locked XF86AudioPrev  exec playerctl previous
+    bindsym XF86AudioPlay  exec playerctl play-pause
+    bindsym XF86AudioPause exec playerctl play-pause
+    bindsym XF86AudioNext  exec playerctl next
+    bindsym XF86AudioPrev  exec playerctl previous
 
+    # Volume
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/.config/dunst/scripts/show_volume.sh
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/.config/dunst/scripts/show_volume.sh
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/dunst/scripts/show_mute.sh
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+    # Screenshots
+    bindsym Print exec grim -l 0
+    bindsym $mod+Print exec grim -l 0 -g "$(slurp)"
+
+    # Swaylock
+    bindsym $mod+Shift+b exec swaylock --config ~/.config/swaylock/config_catppuccin_mocha_black
+
+    # Toggle Waybar
+    bindsym $mod+Shift+t exec pkill -SIGUSR1 '^waybar$'
+
+    # Tofi
+    bindsym $mod+Shift+r exec ~/.config/tofi/scripts/drun.sh -b rect -t $theme
+    bindsym $mod+Shift+d exec ~/.config/tofi/scripts/run.sh -b rect -t $theme
+    bindsym $mod+Shift+p exec ~/.config/tofi/scripts/powermenu.sh -b rect -t $theme
 #
 # Moving around:
 #

@@ -1,34 +1,27 @@
-@import "../../../colors/catppuccin_mocha.css";
+@import "../../../../colors/catppuccin_mocha_black.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 window#waybar {
-  background-color: @base;
+  background-color: @black-transparent;
   color: @text;
-  border: 1px solid @text;
-}
-
-tooltip {
-  background: @base;
-  border: 1px solid @text;
-  border-radius: 0;
-}
-tooltip label {
-  color: @white;
+  border-radius: 22px;
 }
 
 #workspaces button {
+  font-size: 11px;
   background-color: transparent;
   color: @text;
-  padding: 1px 8px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 1px;
-  margin-right: 1px;
-  border-radius: 0;
+  padding-top: 2px;
+  padding-bottom: 0;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 20px;
   transition-property: background-color;
   transition-duration: 0.3s;
 }
@@ -38,8 +31,9 @@ tooltip label {
   text-shadow: inherit;
   background: @blue;
   border: @blue;
-  color: @crust;
-  padding: 1px 9px;
+  color: @black;
+  padding-top: 3px;
+  padding-bottom: 1px;
   transition-property: background-color;
   transition-duration: 1s;
 }
@@ -47,14 +41,14 @@ tooltip label {
 #workspaces button.focused,
 #workspaces button.active {
   background-color: @green;
-  color: @crust;
+  color: @black;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 #workspaces button.urgent {
   background-color: @red;
-  color: @crust;
+  color: @black;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -77,12 +71,10 @@ tooltip label {
 #clock,
 #custom-powermenu {
   color: @text;
-  padding: 1px 8px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
-  /* border-radius: 8px; */
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 20px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -90,15 +82,19 @@ tooltip label {
 /* -------------------------------------------------------------------------------- */
 
 #window {
-  background-color: @transparent;
-  color: @text;
+  background-color: @blue;
+  color: @black;
+}
+
+#window:hover {
+  background-color: @sky;
 }
 
 /* -------------------------------------------------------------------------------- */
 
 #custom-launcher {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #custom-launcher:hover {
@@ -107,7 +103,7 @@ tooltip label {
 
 #custom-powermenu {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #custom-powermenu:hover {
@@ -117,7 +113,7 @@ tooltip label {
 /* -------------------------------------------------------------------------------- */
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces button,
+.modules-left > widget:first-child > #workspaces,
 .modules-left > widget:first-child > #custom-launcher,
 .modules-left > widget:first-child > #window,
 .modules-left > widget:first-child > #tray,
@@ -131,11 +127,11 @@ tooltip label {
 .modules-left > widget:first-child > #battery,
 .modules-left > widget:first-child > #clock,
 .modules-left > widget:first-child > #custom-powermenu {
-  margin-left: 5px;
+  margin-top: 5px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces button,
+.modules-right > widget:last-child > #workspaces,
 .modules-right > widget:last-child > #custom-launcher,
 .modules-right > widget:last-child > #window,
 .modules-right > widget:last-child > #tray,
@@ -149,7 +145,7 @@ tooltip label {
 .modules-right > widget:last-child > #battery,
 .modules-right > widget:last-child > #clock,
 .modules-right > widget:last-child > #custom-powermenu {
-  margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -169,7 +165,7 @@ tooltip label {
 
 #cpu {
   background-color: @sapphire;
-  color: @crust;
+  color: @black;
 }
 
 #cpu:hover {
@@ -180,7 +176,7 @@ tooltip label {
 
 #memory {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #memory:hover {
@@ -191,7 +187,7 @@ tooltip label {
 
 #backlight {
   background-color: #fff;
-  color: @crust;
+  color: @black;
 }
 
 #backlight:hover {
@@ -202,7 +198,7 @@ tooltip label {
 
 #pulseaudio.audio {
   background-color: @mauve;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.audio:hover {
@@ -211,7 +207,7 @@ tooltip label {
 
 #pulseaudio.audio.bluetooth {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.bluetooth:hover {
@@ -220,7 +216,7 @@ tooltip label {
 
 #pulseaudio.audio.muted {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.audio.muted:hover {
@@ -229,7 +225,7 @@ tooltip label {
 
 #pulseaudio.microphone {
   background-color: @mauve;
-  color: @crust;
+  color: @black;
 }
 
 #pulseaudio.microphone:hover {
@@ -251,10 +247,9 @@ tooltip label {
 #network.ethernet,
 #network.wifi {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
-#network:hover,
 #network.ethernet:hover,
 #network.wifi:hover {
   background-color: @teal;
@@ -263,7 +258,7 @@ tooltip label {
 #network.disabled,
 #network.disconnected {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #network.disabled:hover,
@@ -277,7 +272,7 @@ tooltip label {
 #bluetooth.disabled,
 #bluetooth.off {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.disabled:hover,
@@ -285,10 +280,14 @@ tooltip label {
   background-color: @maroon;
 }
 
-#bluetooth.on,
+#bluetooth.on {
+  background-color: @teal;
+  color: @black;
+}
+
 #bluetooth.connected {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #bluetooth.on:hover,
@@ -302,10 +301,10 @@ tooltip label {
 
 /* -------------------------------------------------------------------------------- */
 
-/* #battery {} */
+#battery,
 #battery.full {
   background-color: @green;
-  color: @crust;
+  color: @black;
 }
 
 #battery.full:hover {
@@ -314,7 +313,7 @@ tooltip label {
 
 #battery.warning {
   background-color: @yellow;
-  color: @crust;
+  color: @black;
 }
 
 #battery.warning:hover {
@@ -323,7 +322,7 @@ tooltip label {
 
 #battery.critical {
   background-color: @red;
-  color: @crust;
+  color: @black;
 }
 
 #battery.critical:hover {
@@ -333,7 +332,7 @@ tooltip label {
 #battery.charging,
 #battery.plugged {
   background-color: @blue;
-  color: @crust;
+  color: @black;
 }
 
 #battery.charging:hover,
@@ -345,7 +344,7 @@ tooltip label {
 
 #clock {
   background-color: @lavender;
-  color: @crust;
+  color: @black;
 }
 
 #clock:hover {

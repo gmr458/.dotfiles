@@ -1,37 +1,33 @@
-@import "../../../colors/catppuccin_mocha_black.css";
+@import "../../../../colors/catppuccin_mocha.css";
 
 * {
   font-family: Iosevka Fixed, Material Design Icons Desktop;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 window#waybar {
-  background-color: @black;
+  background-color: @base;
   color: @text;
   border: 1px solid @text;
 }
 
 tooltip {
-  background: @black;
+  background: @base;
   border: 1px solid @text;
   border-radius: 0;
-  padding-right: 30px;
 }
 tooltip label {
   color: @white;
-  padding: 2px;
 }
 
 #workspaces button {
-  font-size: 11px;
   background-color: transparent;
   color: @text;
-  padding-top: 2px;
-  padding-bottom: 0;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-left: 5px;
-  margin-right: 5px;
+  padding: 1px 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 1px;
+  margin-right: 1px;
   border-radius: 0;
   transition-property: background-color;
   transition-duration: 0.3s;
@@ -40,26 +36,25 @@ tooltip label {
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  background: @text;
-  border: @text;
-  color: @black;
-  padding-top: 3px;
-  padding-bottom: 1px;
+  background: @blue;
+  border: @blue;
+  color: @crust;
+  padding: 1px 9px;
   transition-property: background-color;
   transition-duration: 1s;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: @text;
-  color: @black;
+  background-color: @green;
+  color: @crust;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 #workspaces button.urgent {
   background-color: @red;
-  color: @black;
+  color: @crust;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -81,11 +76,13 @@ tooltip label {
 #battery,
 #clock,
 #custom-powermenu {
-  background-color: transparent;
-  color: @white;
-  padding: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
+  color: @text;
+  padding: 1px 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  /* border-radius: 8px; */
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -93,19 +90,15 @@ tooltip label {
 /* -------------------------------------------------------------------------------- */
 
 #window {
-  background-color: transparent;
-  color: @black;
-}
-
-#window:hover {
-  background-color: @sky;
+  background-color: @transparent;
+  color: @text;
 }
 
 /* -------------------------------------------------------------------------------- */
 
 #custom-launcher {
   background-color: @blue;
-  color: @black;
+  color: @crust;
 }
 
 #custom-launcher:hover {
@@ -114,7 +107,7 @@ tooltip label {
 
 #custom-powermenu {
   background-color: @red;
-  color: @black;
+  color: @crust;
 }
 
 #custom-powermenu:hover {
@@ -124,7 +117,7 @@ tooltip label {
 /* -------------------------------------------------------------------------------- */
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces,
+.modules-left > widget:first-child > #workspaces button,
 .modules-left > widget:first-child > #custom-launcher,
 .modules-left > widget:first-child > #window,
 .modules-left > widget:first-child > #tray,
@@ -138,11 +131,11 @@ tooltip label {
 .modules-left > widget:first-child > #battery,
 .modules-left > widget:first-child > #clock,
 .modules-left > widget:first-child > #custom-powermenu {
-  margin-top: 5px;
+  margin-left: 5px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces,
+.modules-right > widget:last-child > #workspaces button,
 .modules-right > widget:last-child > #custom-launcher,
 .modules-right > widget:last-child > #window,
 .modules-right > widget:last-child > #tray,
@@ -156,7 +149,7 @@ tooltip label {
 .modules-right > widget:last-child > #battery,
 .modules-right > widget:last-child > #clock,
 .modules-right > widget:last-child > #custom-powermenu {
-  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -164,18 +157,9 @@ tooltip label {
 #tray {
   background-color: transparent;
 }
-
-#tray menu {
-  background: @black;
-  color: @white;
-  border: 1px solid @text;
-  border-radius: 0;
-}
-
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
-
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @red;
@@ -183,111 +167,108 @@ tooltip label {
 
 /* -------------------------------------------------------------------------------- */
 
-/* #cpu {
+#cpu {
   background-color: @sapphire;
-  color: @black;
-} */
+  color: @crust;
+}
 
 #cpu:hover {
-  background-color: @white;
-  color: @black;
+  background-color: @teal;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-/* #memory {
+#memory {
   background-color: @green;
-  color: @black;
-} */
+  color: @crust;
+}
 
 #memory:hover {
-  background-color: @white;
-  color: @black;
+  background-color: @teal;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-/* #backlight {
-  background-color: @white;
-  color: @black;
-} */
+#backlight {
+  background-color: #fff;
+  color: @crust;
+}
 
 #backlight:hover {
-  background-color: @white;
-  color: @black;
+  background-color: @rosewater;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-/* #pulseaudio.audio {
+#pulseaudio.audio {
   background-color: @mauve;
-  color: @black;
-} */
+  color: @crust;
+}
 
 #pulseaudio.audio:hover {
-  background-color: @white;
-  color: @black;
+  background-color: @pink;
 }
 
 #pulseaudio.audio.bluetooth {
-  color: @blue;
+  background-color: @blue;
+  color: @crust;
 }
 
 #pulseaudio.bluetooth:hover {
-  background-color: @blue;
-  color: @black;
+  background-color: @sky;
 }
 
 #pulseaudio.audio.muted {
-  color: @red;
+  background-color: @red;
+  color: @crust;
 }
 
 #pulseaudio.audio.muted:hover {
-  background-color: @red;
-  color: @black;
+  background-color: @maroon;
 }
 
-/* #pulseaudio.microphone {
+#pulseaudio.microphone {
   background-color: @mauve;
-  color: @black;
-} */
+  color: @crust;
+}
 
 #pulseaudio.microphone:hover {
-  background-color: @white;
-  color: @black;
+  background-color: @pink;
 }
 
 #pulseaudio.microphone.source-muted {
-  color: @red;
+  background-color: @red;
+  color: @crust;
 }
 
 #pulseaudio.microphone.source-muted:hover {
-  background-color: @red;
-  color: @black;
+  background-color: @maroon;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-/* #network,
+#network,
 #network.ethernet,
-#network.wifi {} */
+#network.wifi {
+  background-color: @green;
+  color: @crust;
+}
 
 #network:hover,
 #network.ethernet:hover,
 #network.wifi:hover {
-  background-color: @white;
-  color: @black;
+  background-color: @teal;
 }
 
 #network.disabled,
 #network.disconnected {
-  color: @red;
+  background-color: @red;
+  color: @crust;
 }
 
 #network.disabled:hover,
 #network.disconnected:hover {
-  background-color: @red;
-  color: @black;
+  background-color: @maroon;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -295,76 +276,78 @@ tooltip label {
 /* #bluetooth {} */
 #bluetooth.disabled,
 #bluetooth.off {
-  color: @red;
+  background-color: @red;
+  color: @crust;
 }
 
 #bluetooth.disabled:hover,
 #bluetooth.off:hover {
-  background-color: @red;
-  color: @black;
+  background-color: @maroon;
 }
 
-/* #bluetooth.on,
-#bluetooth.connected {} */
+#bluetooth.on,
+#bluetooth.connected {
+  background-color: @blue;
+  color: @crust;
+}
 
 #bluetooth.on:hover,
 #bluetooth.connected:hover {
-  background-color: @white;
-  color: @black;
+  background-color: @sky;
 }
 
 /* #bluetooth.discoverable {} */
 /* #bluetooth.discovering {} */
 /* #bluetooth.pairable {} */
+
 /* -------------------------------------------------------------------------------- */
 
 /* #battery {} */
-/* #battery.full {} */
+#battery.full {
+  background-color: @green;
+  color: @crust;
+}
 
 #battery.full:hover {
   background-color: @teal;
-  background-color: @white;
-  color: @black;
 }
 
 #battery.warning {
-  color: @yellow;
+  background-color: @yellow;
+  color: @crust;
 }
 
 #battery.warning:hover {
-  background-color: @yellow;
-  color: @black;
+  background-color: @rosewater;
 }
 
 #battery.critical {
-  color: @red;
+  background-color: @red;
+  color: @crust;
 }
 
 #battery.critical:hover {
-  background-color: @red;
-  color: @black;
+  background-color: @maroon;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: @green;
+  background-color: @blue;
+  color: @crust;
 }
 
 #battery.charging:hover,
 #battery.plugged:hover {
-  background-color: @green;
-  color: @black;
+  background-color: @sky;
 }
 
 /* -------------------------------------------------------------------------------- */
 
-/* #clock {
+#clock {
   background-color: @lavender;
-  color: @black;
-} */
-
-#clock:hover {
-  background-color: @white;
-  color: @black;
+  color: @crust;
 }
 
+#clock:hover {
+  background-color: @text;
+}
