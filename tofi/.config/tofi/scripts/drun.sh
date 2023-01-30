@@ -28,6 +28,6 @@ else
   if (ps -a | grep tofi-drun >/dev/null); then
     killall -q tofi-drun
   else
-    tofi-drun --drun-launch=true --config ~/.config/tofi/launchers/border_$border/launcher_$theme
+    tofi-drun --drun-launch=true --config ~/.config/tofi/launchers/$border/$theme/launcher
   fi
 fi

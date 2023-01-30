@@ -28,6 +28,6 @@ else
   if (ps -a | grep tofi-run >/dev/null); then
     killall -q tofi-run
   else
-    tofi-run --config ~/.config/tofi/launchers/border_$border/launcher_$theme | xargs hyprctl dispatch exec
+    tofi-run --config ~/.config/tofi/launchers/$border/$theme/launcher | xargs hyprctl dispatch exec
   fi
 fi

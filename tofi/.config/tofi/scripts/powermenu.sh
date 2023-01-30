@@ -28,7 +28,7 @@ else
   if (ps -a | grep tofi >/dev/null); then
     killall -q tofi
   else
-    case $(printf "%s\n" "󰐥 Power Off" "󰑐 Restart" "󰖔 Suspend" "󰑻 Hibernate" "󰌾 Lock" "󰗽 Log Out" | tofi --config "$HOME/.config/tofi/powermenus/border_$border/powermenu_$theme") in
+    case $(printf "%s\n" "󰐥 Power Off" "󰑐 Restart" "󰖔 Suspend" "󰑻 Hibernate" "󰌾 Lock" "󰗽 Log Out" | tofi --config "$HOME/.config/tofi/powermenus/$border/$theme/powermenu") in
     "󰐥 Power Off")
       systemctl poweroff
       ;;
