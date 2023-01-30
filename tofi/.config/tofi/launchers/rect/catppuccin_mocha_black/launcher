@@ -16,17 +16,17 @@ ascii-input        = true
 
 ; Style options
 font            = Iosevka Fixed
-font-size       = 16
+font-size       = 12
 font-features   = ""
 font-variations = ""
 
 ; background-color = #000000e6
 background-color = #000000
 
-outline-width = 1%
+outline-width = 0
 outline-color = #cff6f4
 
-border-width = 0
+border-width = 1
 border-color = #cff6f4
 
 text-color = #cff6f4
@@ -69,7 +69,7 @@ selection-background-corner-radius = 0
 
 result-spacing  = 25px
 min-input-width = 0
-width           = 30%
+width           = 25%
 height          = 60%
 corner-radius   = 0
 anchor          = center
