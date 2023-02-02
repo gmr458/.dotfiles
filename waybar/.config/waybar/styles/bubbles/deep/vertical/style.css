@@ -1,0 +1,352 @@
+@import "../../../../colors/catppuccin_mocha_black.css";
+
+* {
+  font-family: Iosevka Fixed, Material Design Icons Desktop;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: @black-transparent;
+  color: @text;
+  border-radius: 22px;
+}
+
+#workspaces button {
+  font-size: 11px;
+  background-color: transparent;
+  color: @text;
+  padding-top: 2px;
+  padding-bottom: 0;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 20px;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: @blue;
+  border: @blue;
+  color: @black;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  transition-property: background-color;
+  transition-duration: 1s;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  background-color: @green;
+  color: @black;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @black;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* #workspaces button.hidden {} */
+
+/* -------------------------------------------------------------------------------- */
+
+#custom-launcher,
+#window,
+#tray,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio.audio,
+#pulseaudio.microphone,
+#network,
+#bluetooth,
+#battery,
+#clock,
+#custom-powermenu {
+  color: @text;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 20px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#window {
+  background-color: @blue;
+  color: @black;
+}
+
+#window:hover {
+  background-color: @sky;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#custom-launcher {
+  background-color: @blue;
+  color: @black;
+}
+
+#custom-launcher:hover {
+  background-color: @sky;
+}
+
+#custom-powermenu {
+  background-color: @red;
+  color: @black;
+}
+
+#custom-powermenu:hover {
+  background-color: @maroon;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces,
+.modules-left > widget:first-child > #custom-launcher,
+.modules-left > widget:first-child > #window,
+.modules-left > widget:first-child > #tray,
+.modules-left > widget:first-child > #cpu,
+.modules-left > widget:first-child > #memory,
+.modules-left > widget:first-child > #backlight,
+.modules-left > widget:first-child > #pulseaudio.audio,
+.modules-left > widget:first-child > #pulseaudio.microphone,
+.modules-left > widget:first-child > #network,
+.modules-left > widget:first-child > #bluetooth,
+.modules-left > widget:first-child > #battery,
+.modules-left > widget:first-child > #clock,
+.modules-left > widget:first-child > #custom-powermenu {
+  margin-top: 5px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces,
+.modules-right > widget:last-child > #custom-launcher,
+.modules-right > widget:last-child > #window,
+.modules-right > widget:last-child > #tray,
+.modules-right > widget:last-child > #cpu,
+.modules-right > widget:last-child > #memory,
+.modules-right > widget:last-child > #backlight,
+.modules-right > widget:last-child > #pulseaudio.audio,
+.modules-right > widget:last-child > #pulseaudio.microphone,
+.modules-right > widget:last-child > #network,
+.modules-right > widget:last-child > #bluetooth,
+.modules-right > widget:last-child > #battery,
+.modules-right > widget:last-child > #clock,
+.modules-right > widget:last-child > #custom-powermenu {
+  margin-bottom: 5px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#tray {
+  background-color: transparent;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#cpu {
+  background-color: @sapphire;
+  color: @black;
+}
+
+#cpu:hover {
+  background-color: @teal;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#memory {
+  background-color: @green;
+  color: @black;
+}
+
+#memory:hover {
+  background-color: @teal;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#backlight {
+  background-color: #fff;
+  color: @black;
+}
+
+#backlight:hover {
+  background-color: @rosewater;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#pulseaudio.audio {
+  background-color: @mauve;
+  color: @black;
+}
+
+#pulseaudio.audio:hover {
+  background-color: @pink;
+}
+
+#pulseaudio.audio.bluetooth {
+  background-color: @blue;
+  color: @black;
+}
+
+#pulseaudio.bluetooth:hover {
+  background-color: @sky;
+}
+
+#pulseaudio.audio.muted {
+  background-color: @red;
+  color: @black;
+}
+
+#pulseaudio.audio.muted:hover {
+  background-color: @maroon;
+}
+
+#pulseaudio.microphone {
+  background-color: @mauve;
+  color: @black;
+}
+
+#pulseaudio.microphone:hover {
+  background-color: @pink;
+}
+
+#pulseaudio.microphone.source-muted {
+  background-color: @red;
+  color: @crust;
+}
+
+#pulseaudio.microphone.source-muted:hover {
+  background-color: @maroon;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#network,
+#network.ethernet,
+#network.wifi {
+  background-color: @green;
+  color: @black;
+}
+
+#network.ethernet:hover,
+#network.wifi:hover {
+  background-color: @teal;
+}
+
+#network.disabled,
+#network.disconnected {
+  background-color: @red;
+  color: @black;
+}
+
+#network.disabled:hover,
+#network.disconnected:hover {
+  background-color: @maroon;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* #bluetooth {} */
+#bluetooth.disabled,
+#bluetooth.off {
+  background-color: @red;
+  color: @black;
+}
+
+#bluetooth.disabled:hover,
+#bluetooth.off:hover {
+  background-color: @maroon;
+}
+
+#bluetooth.on {
+  background-color: @teal;
+  color: @black;
+}
+
+#bluetooth.connected {
+  background-color: @blue;
+  color: @black;
+}
+
+#bluetooth.on:hover,
+#bluetooth.connected:hover {
+  background-color: @sky;
+}
+
+/* #bluetooth.discoverable {} */
+/* #bluetooth.discovering {} */
+/* #bluetooth.pairable {} */
+
+/* -------------------------------------------------------------------------------- */
+
+#battery,
+#battery.full {
+  background-color: @green;
+  color: @black;
+}
+
+#battery.full:hover {
+  background-color: @teal;
+}
+
+#battery.warning {
+  background-color: @yellow;
+  color: @black;
+}
+
+#battery.warning:hover {
+  background-color: @rosewater;
+}
+
+#battery.critical {
+  background-color: @red;
+  color: @black;
+}
+
+#battery.critical:hover {
+  background-color: @maroon;
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: @blue;
+  color: @black;
+}
+
+#battery.charging:hover,
+#battery.plugged:hover {
+  background-color: @sky;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#clock {
+  background-color: @lavender;
+  color: @black;
+}
+
+#clock:hover {
+  background-color: @text;
+}
