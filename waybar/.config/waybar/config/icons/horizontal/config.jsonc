@@ -116,7 +116,7 @@
   },
   "wlr/taskbar": {
     "all-outputs": false,
-    "format": "{icon} {title:.15}",
+    "format": "{icon} {title:.20}",
     // "icon-theme": "",
     "icon-size": 20,
     "markup": false,
