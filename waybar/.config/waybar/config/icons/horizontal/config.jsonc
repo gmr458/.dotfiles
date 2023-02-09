@@ -89,7 +89,7 @@
     "sway/workspaces",
     "sway/mode",
     "wlr/workspaces",
-    "wlr/taskbar",
+    // "wlr/taskbar",
     "hyprland/submap"
   ],
   "custom/launcher": {

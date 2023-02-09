@@ -36,7 +36,7 @@ set $theme catppuccin_mocha_black
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/wallpapers/6a5o75oan7n91.jpg fill
+output * bg ~/Pictures/wallpapers/alena-aenami-stay-1k.jpg fill
 #
 # Example configuration:
 #
@@ -272,6 +272,6 @@ gaps outer 5
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
-exec ~/.config/waybar/launch.sh -o horizontal -s bubbles -t $theme
+exec ~/.config/waybar/launch.sh -o horizontal -s bubbles -t deep
 
 include /etc/sway/config.d/*

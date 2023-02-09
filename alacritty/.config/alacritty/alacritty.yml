@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.6
+  opacity: 0.7
 
   # Startup Mode (changes require restart)
   #
@@ -121,8 +121,9 @@ font:
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    family: RobotoMono Nerd Font Mono
+    # family: RobotoMono Nerd Font Mono
     # family: SFMono Nerd Font Mono
+    family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -137,8 +138,9 @@ font:
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    family: RobotoMono Nerd Font Mono
+    # family: RobotoMono Nerd Font Mono
     # family: SFMono Nerd Font Mono
+    family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -153,8 +155,9 @@ font:
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    family: RobotoMono Nerd Font Mono
+    # family: RobotoMono Nerd Font Mono
     # family: SFMono Nerd Font Mono
+    family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -169,8 +172,9 @@ font:
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    family: RobotoMono Nerd Font Mono
+    # family: RobotoMono Nerd Font Mono
     # family: SFMono Nerd Font Mono
+    family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -180,8 +184,9 @@ font:
   # size: 11.5 # FiraCode Nerd Font Mono size
   # size: 12.0 # CaskaydiaCove Nerd Font Mono size
   # size: 11.5 # Comic Mono size
-  size: 11.0 # RobotoMono Nerd Font Mono size
+  # size: 10.5 # RobotoMono Nerd Font Mono size
   # size: 12.0 # SFMono Nerd Font Mono
+  size: 11.5 # Consolas Nerd Font Mono
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
