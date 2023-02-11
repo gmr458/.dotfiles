@@ -5,4 +5,5 @@
 @define-color darkgreen  #0A1A1A;
 @define-color red        #F38BA8;
 
-@define-color black-transparent rgba(0, 0, 0, 0.4);
+@define-color black-transparent-5 rgba(0, 0, 0, 0.5);
+@define-color black-transparent-7 rgba(0, 0, 0, 0.7);
