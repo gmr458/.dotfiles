@@ -136,7 +136,7 @@ on_force_close "quit"
 //    - true
 //    - false (Default)
 //
-simplified_ui false
+simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -148,7 +148,7 @@ default_shell "zsh"
 //   - true (default)
 //   - false
 //
-pane_frames true
+pane_frames false
 
 // Define color themes for Zellij
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
@@ -230,7 +230,7 @@ theme "catppuccin-mocha"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "default"
+default_layout "custom"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
