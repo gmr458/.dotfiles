@@ -3,5 +3,12 @@
     "editor.fontLigatures": true,
     "terminal.integrated.fontWeightBold": "normal",
     "window.titleBarStyle": "custom",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "rust-analyzer.inlayHints.chainingHints.enable": false,
+    "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.renderColons": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "intelephense.telemetry.enabled": false,
+    "telemetry.telemetryLevel": "off"
 }
