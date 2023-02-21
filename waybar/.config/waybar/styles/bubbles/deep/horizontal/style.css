@@ -46,8 +46,8 @@ tooltip label {
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  background: @black;
-  border: 1px solid @darkgreen;
+  background: transparent;
+  border: 1px solid @lightgreen;
   color: @white;
   min-width: 30px;
   transition: all 0.3s ease;
@@ -56,7 +56,7 @@ tooltip label {
 #workspaces button.focused,
 #workspaces button.active {
   /* background-color: @darkgreen; */
-  border: 1px solid @darkgreen;
+  border: 1px solid @lightgreen;
   color: @white;
   min-width: 30px;
   transition: all 0.3s ease;

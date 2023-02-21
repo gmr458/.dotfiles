@@ -30,7 +30,7 @@ export GOROOT='/usr/local/go'
 export GOPATH="$HOME/go"
 export DENO_INSTALL="$HOME/.deno"
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-17.0.5.0.8-1.fc37.x86_64'
+export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-17.0.6.0.10-1.fc37.x86_64'
 
 # ------------------------------------------------------------
 
@@ -57,7 +57,7 @@ alias ls='lsd'
 alias lsa='lsd -A'
 alias ll='lsd -l'
 alias lla='lsd -lA'
-alias tree='lsd --tree --ignore-glob node_modules --ignore-glob venv --ignore-glob target --ignore-glob bin --ignore-glob obj'
+alias tree='lsd --tree --ignore-glob node_modules --ignore-glob venv --ignore-glob target --ignore-glob bin --ignore-glob obj --ignore-glob __pycache__'
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {} --theme=Dracula' --preview-window=right:75%"
 
 alias go_repos="cd $GOPATH/src/github.com/gmr458"

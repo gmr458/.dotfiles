@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Roboto Mono', 'FiraCode Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "'FiraCode Nerd Font Mono', Consolas, 'Noto Sans Mono', monospace",
     "editor.fontLigatures": true,
     "terminal.integrated.fontWeightBold": "normal",
     "window.titleBarStyle": "custom",
@@ -10,5 +10,7 @@
     "rust-analyzer.inlayHints.renderColons": false,
     "rust-analyzer.inlayHints.typeHints.enable": false,
     "intelephense.telemetry.enabled": false,
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "java.inlayHints.parameterNames.enabled": "none",
+    "workbench.colorTheme": "Default Light+"
 }

@@ -7,7 +7,7 @@ local fonts = {
 	iosevka_fixed = "Iosevka Fixed",
 	roboto_mono = "RobotoMono Nerd Font Mono",
 }
-local font = fonts.caskaydia_cove
+local font = fonts.fira_code
 
 local weights = {
 	thin = "Thin",
@@ -23,7 +23,7 @@ local weights = {
 	black = "Black",
 	extra_black = "ExtraBlack",
 }
-local font_weight = weights.demi_light
+local font_weight = weights.regular
 
 return {
 	-- font
@@ -34,7 +34,7 @@ return {
 			font = wezterm.font(font, { weight = font_weight }),
 		},
 	},
-	font_size = 12.0,
+	font_size = 11.5,
 
 	-- tab bar
 	use_fancy_tab_bar = false,
