@@ -1,5 +1,6 @@
 {
-    "editor.fontFamily": "'FiraCode Nerd Font Mono', Consolas, 'Noto Sans Mono', monospace",
+    "editor.fontFamily": "Consolas, 'FiraCode Nerd Font Mono', 'Noto Sans Mono', monospace",
+    "editor.fontSize": 15,
     "editor.fontLigatures": true,
     "terminal.integrated.fontWeightBold": "normal",
     "window.titleBarStyle": "custom",
@@ -12,5 +13,11 @@
     "intelephense.telemetry.enabled": false,
     "telemetry.telemetryLevel": "off",
     "java.inlayHints.parameterNames.enabled": "none",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "workbench.colorTheme": "Default Light+"
 }

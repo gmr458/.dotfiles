@@ -90,3 +90,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Node.js version manager
+eval "$(fnm env --use-on-cd)"

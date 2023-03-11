@@ -13,7 +13,7 @@ window#waybar {
 }
 
 tooltip {
-  background: @black-transparent-7;
+  background: @black-transparent-9;
   border: 1px solid @darkgreen;
   border-radius: 10px;
 }
