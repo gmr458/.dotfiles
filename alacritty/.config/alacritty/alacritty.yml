@@ -26,9 +26,10 @@ import:
 window:
   # Window dimensions (changes require restart)
   #
-  # Number of lines/columns (not pixels) in the terminal. The number of columns
-  # must be at least `2`, while using a value of `0` for columns and lines will
-  # fall back to the window manager's recommended size.
+  # Number of lines/columns (not pixels) in the terminal. Both lines and columns
+  # must be non-zero for this to take effect. The number of columns must be at
+  # least `2`, while using a value of `0` for columns and lines will fall back
+  # to the window manager's recommended size
   dimensions:
     columns: 0
     lines: 0
@@ -46,8 +47,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 8
-    y: 8
+    x: 4
+    y: 2
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -93,11 +94,24 @@ window:
     # General application class
     #general: Alacritty
 
-  # GTK theme variant (Linux/BSD only)
+  # Decorations theme variant
   #
-  # Override the variant of the GTK theme. Commonly supported values are `dark`
-  # and `light`. Set this to `None` to use the default theme variant.
-  #gtk_theme_variant: None
+  # Override the variant of the System theme/GTK theme/Wayland client side
+  # decorations. Commonly supported values are `Dark`, `Light`, and `None` for
+  # auto pick-up. Set this to `None` to use the default theme variant.
+  #decorations_theme_variant: None
+
+  # Resize increments
+  #
+  # Prefer resizing window by discrete steps equal to cell dimensions.
+  #resize_increments: false
+
+  # Make `Option` key behave as `Alt` (macOS only):
+  #   - OnlyLeft
+  #   - OnlyRight
+  #   - Both
+  #   - None (default)
+  #option_as_alt: None
 
 #scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -177,7 +191,7 @@ font:
     family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Regular 
 
   # Point size
   # size: 12.0 # Iosevka Fixed size
@@ -202,18 +216,12 @@ font:
   #  x: 0
   #  y: 0
 
-  # Thin stroke font rendering (macOS only)
-  #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
-
   # Use built-in font for box drawing characters.
   #
   # If `true`, Alacritty will use a custom built-in font for box drawing
   # characters (Unicode points 2500 - 259f).
   #
-  #builtin_box_drawing: true
+  builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
@@ -285,7 +293,7 @@ cursor:
     #   - Off: Disable blinking by default
     #   - On: Enable blinking by default
     #   - Always: Force the cursor to always blink
-    blinking: Always
+    blinking: Never
 
   # Vi mode cursor style
   #
@@ -296,18 +304,23 @@ cursor:
   vi_mode_style: Block
 
   # Cursor blinking interval in milliseconds.
-  blink_interval: 300
+  #blink_interval: 750
+
+  # Time after which cursor stops blinking, in seconds.
+  #
+  # Specifying '0' will disable timeout for blinking.
+  #blink_timeout: 5
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  unfocused_hollow: false
+  #unfocused_hollow: true
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
   thickness: 0.1
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: false
 
 # Shell
 #
@@ -316,8 +329,7 @@ cursor:
 # shell.
 #
 # Default:
-#   - (macOS) /bin/bash --login
-#   - (Linux/BSD) user login shell
+#   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
 #shell:
 #  program: /bin/bash
@@ -329,9 +341,6 @@ cursor:
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
 #working_directory: None
-
-# Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
@@ -348,18 +357,22 @@ cursor:
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
 
-# Regex hints
+# Hints
 #
-# Terminal hints can be used to find text in the visible part of the terminal
-# and pipe it to other applications.
+# Terminal hints can be used to find text or hyperlink in the visible part of
+# the terminal and pipe it to other applications.
 #hints:
   # Keys used for the hint labels.
   #alphabet: "jfkdls;ahgurieowpq"
 
   # List with all available hints
   #
-  # Each hint must have a `regex` and either an `action` or a `command` field.
-  # The fields `mouse`, `binding` and `post_processing` are optional.
+  # Each hint must have any of `regex` or `hyperlinks` field and either an
+  # `action` or a `command` field. The fields `mouse`, `binding` and
+  # `post_processing` are optional.
+  #
+  # The `hyperlinks` option will cause OSC 8 escape sequence hyperlinks to be
+  # highlighted.
   #
   # The fields `command`, `binding.key`, `binding.mods`, `binding.mode` and
   # `mouse.mods` accept the same values as they do in the `key_bindings` section.
@@ -369,7 +382,8 @@ cursor:
   #
   # If the `post_processing` field is set to `true`, heuristics will be used to
   # shorten the match if there are characters likely not to be part of the hint
-  # (e.g. a trailing `.`). This is most useful for URIs.
+  # (e.g. a trailing `.`). This is most useful for URIs and applies only to
+  # `regex` matches.
   #
   # Values for `action`:
   #   - Copy
@@ -383,6 +397,7 @@ cursor:
   #enabled:
   # - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
   #           [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+  #   hyperlinks: true
   #   command: xdg-open
   #   post_processing: true
   #   mouse:
@@ -441,7 +456,7 @@ cursor:
 #    - Key0-Key9
 #
 #    A full list with available key codes can be found here:
-#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#    https://docs.rs/winit/*/winit/event/enum.VirtualKeyCode.html#variants
 #
 #    Instead of using the name of the keys, the `key` field also supports using
 #    the scancode of the desired key. Scancodes have to be specified as a
@@ -490,6 +505,7 @@ cursor:
 #   - Quit
 #       Quit Alacritty.
 #   - ToggleFullscreen
+#   - ToggleMaximized
 #   - SpawnNewInstance
 #       Spawn a new instance of Alacritty.
 #   - CreateNewWindow
@@ -511,6 +527,8 @@ cursor:
 #   - ToggleBlockSelection
 #   - ToggleSemanticSelection
 #       Toggle semantic selection based on `selection.semantic_escape_chars`.
+#   - CenterAroundViCursor
+#       Center view around vi mode cursor
 #
 # - Vi mode exclusive cursor motion actions:
 #
@@ -640,9 +658,9 @@ key_bindings:
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
-  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp,  }
+  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
-  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
+  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
@@ -668,6 +686,7 @@ key_bindings:
   #- { key: V,      mods: Control,       mode: Vi|~Search, action: ToggleBlockSelection    }
   #- { key: V,      mods: Alt,           mode: Vi|~Search, action: ToggleSemanticSelection }
   #- { key: Return,                      mode: Vi|~Search, action: Open                    }
+  #- { key: Z,                           mode: Vi|~Search, action: CenterAroundViCursor    }
   #- { key: K,                           mode: Vi|~Search, action: Up                      }
   #- { key: J,                           mode: Vi|~Search, action: Down                    }
   #- { key: H,                           mode: Vi|~Search, action: Left                    }
@@ -741,17 +760,17 @@ key_bindings:
   #- { key: M,              mods: Command,                    action: Minimize              }
   #- { key: Q,              mods: Command,                    action: Quit                  }
   #- { key: W,              mods: Command,                    action: Quit                  }
-  #- { key: N,              mods: Command,                    action: SpawnNewInstance      }
+  #- { key: N,              mods: Command,                    action: CreateNewWindow       }
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-#debug:
+debug:
   # Display the time it takes to redraw each frame.
-  #render_timer: false
+  render_timer: false
 
   # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
+  persistent_logging: false
 
   # Log level
   #
@@ -762,7 +781,16 @@ key_bindings:
   #   - Info
   #   - Debug
   #   - Trace
-  #log_level: Warn
+  log_level: Off
+
+  # Renderer override.
+  #   - glsl3
+  #   - gles2
+  #   - gles2_pure
+  #renderer: None
 
   # Print all received window events.
   #print_events: false
+
+  # Highlight window damage information.
+  #highlight_damage: false
