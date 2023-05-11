@@ -17,7 +17,7 @@ local list_fonts = {
     caskaydia_cove = {
         name = "CaskaydiaCove Nerd Font Mono",
         weight = font_weight.regular,
-        size = 12.0,
+        size = 10.5,
     },
     comic_mono = {
         name = "ComicMono Nerd Font Mono",
@@ -46,6 +46,6 @@ local list_fonts = {
     },
 }
 
-local font = list_fonts.fira_code
+local font = list_fonts.caskaydia_cove
 
 return font

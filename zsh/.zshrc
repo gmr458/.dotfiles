@@ -10,10 +10,8 @@ source ~/.plugins/romkatv/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# ------------------------------------------------------------
-
-# source ~/.plugins/romkatv/gitstatus/gitstatus.prompt.zsh
-# source ~/.plugins/gmr458/zshprompt/transient_prompt.zsh
+source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ------------------------------------------------------------
 
@@ -87,9 +85,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # ------------------------------------------------------------
-
-source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Node.js version manager
 eval "$(fnm env --use-on-cd)"

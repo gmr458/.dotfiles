@@ -9,7 +9,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/colorschemes/catppuccin_mocha_black.yml
+  - ~/.config/alacritty/colorschemes/vscode_dark_modern.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -47,7 +47,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 4
+    x: 5
     y: 2
 
   # Spread additional padding evenly around the terminal content.
@@ -62,13 +62,13 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  decorations: full
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.90
+  # opacity: 0.75
 
   # Startup Mode (changes require restart)
   #
@@ -131,13 +131,12 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: Iosevka Fixed
+    # family: IosevkaFixed Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
-    # family: SFMono Nerd Font Mono
-    family: Consolas Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -148,13 +147,12 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Fixed
+    # family: IosevkaFixed Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
-    # family: SFMono Nerd Font Mono
-    family: Consolas Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -165,13 +163,12 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Fixed
+    # family: IosevkaFixed Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
-    # family: SFMono Nerd Font Mono
-    family: Consolas Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -182,25 +179,23 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: Iosevka Fixed
+    # family: IosevkaFixed Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
-    # family: SFMono Nerd Font Mono
-    family: Consolas Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular 
 
   # Point size
-  # size: 12.0 # Iosevka Fixed size
+  # size: 12.0 # IosevkaFixed Nerd Font Mono size
   # size: 11.5 # FiraCode Nerd Font Mono size
-  # size: 12.0 # CaskaydiaCove Nerd Font Mono size
+  # size: 10.5 # CaskaydiaCove Nerd Font Mono size
   # size: 11.5 # Comic Mono size
-  # size: 10.5 # RobotoMono Nerd Font Mono size
-  # size: 12.0 # SFMono Nerd Font Mono
-  size: 11.5 # Consolas Nerd Font Mono
+  size: 10.5 # RobotoMono Nerd Font Mono size
+  # size: 11.5 # Consolas Nerd Font Mono
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -313,14 +308,14 @@ cursor:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: false
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
   thickness: 0.1
 
 # Live config reload (changes require restart)
-live_config_reload: false
+live_config_reload: true
 
 # Shell
 #
@@ -658,10 +653,10 @@ key_bindings:
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
-  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
-  #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
-  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
-  #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
+  - { key: Up, mods: Control|Shift, action: ScrollHalfPageUp   }
+  - { key: Down, mods: Control|Shift, action: ScrollHalfPageDown }
+  - { key: Home, mods: Control|Shift, action: ScrollToTop    }
+  - { key: End, mods: Control|Shift, action: ScrollToBottom }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
@@ -672,12 +667,12 @@ key_bindings:
   #- { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
   #- { key: Y,      mods: Control,       mode: Vi|~Search, action: ScrollLineUp            }
   #- { key: E,      mods: Control,       mode: Vi|~Search, action: ScrollLineDown          }
-  #- { key: G,                           mode: Vi|~Search, action: ScrollToTop             }
-  #- { key: G,      mods: Shift,         mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: K, mods: Control|Shift, mode: Vi|~Search, action: ScrollToTop }
+  - { key: J, mods: Control|Shift, mode: Vi|~Search, action: ScrollToBottom }
   #- { key: B,      mods: Control,       mode: Vi|~Search, action: ScrollPageUp            }
   #- { key: F,      mods: Control,       mode: Vi|~Search, action: ScrollPageDown          }
-  #- { key: U,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp        }
-  #- { key: D,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown      }
+  - { key: K, mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp        }
+  - { key: J, mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown      }
   #- { key: Y,                           mode: Vi|~Search, action: Copy                    }
   #- { key: Y,                           mode: Vi|~Search, action: ClearSelection          }
   #- { key: Copy,                        mode: Vi|~Search, action: ClearSelection          }

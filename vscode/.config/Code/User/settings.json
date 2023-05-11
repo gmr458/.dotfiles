@@ -1,31 +1,42 @@
 {
-    "editor.fontFamily": "Consolas, 'FiraCode Nerd Font Mono', 'Noto Sans Mono', monospace",
-    "editor.fontSize": 15,
-    "editor.fontLigatures": true,
-    "terminal.integrated.fontWeightBold": "normal",
-    "window.titleBarStyle": "custom",
-    "workbench.iconTheme": "vscode-icons",
-    "rust-analyzer.inlayHints.chainingHints.enable": false,
-    "rust-analyzer.inlayHints.closingBraceHints.enable": false,
-    "rust-analyzer.inlayHints.parameterHints.enable": false,
-    "rust-analyzer.inlayHints.renderColons": false,
-    "rust-analyzer.inlayHints.typeHints.enable": false,
-    "intelephense.telemetry.enabled": false,
-    "telemetry.telemetryLevel": "off",
-    "java.inlayHints.parameterNames.enabled": "none",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.colorTheme": "Default Dark+ Experimental",
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.activityBar.visible": false,
-    "window.menuBarVisibility": "compact"
+  "editor.fontFamily": "Consolas, 'FiraCode Nerd Font Mono', 'Noto Sans Mono', monospace",
+  "editor.fontSize": 15,
+  "editor.hideCursorInOverviewRuler": false,
+  "editor.cursorBlinking": "solid",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontWeightBold": "normal",
+  "window.titleBarStyle": "custom",
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.renderColons": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "intelephense.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "java.inlayHints.parameterNames.enabled": "none",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.activityBar.visible": true,
+  "window.menuBarVisibility": "compact",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

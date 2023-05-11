@@ -174,7 +174,7 @@ on_force_close "quit"
 //    - true
 //    - false (Default)
 //
-simplified_ui false
+simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -193,85 +193,30 @@ pane_frames false
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
 themes {
-    dracula {
-        fg 248 248 242
-        bg 40 42 54
-        red 255 85 85
-        green 80 250 123
-        yellow 241 250 140
-        blue 98 114 164
-        magenta 255 121 198
-        orange 255 184 108
-        cyan 139 233 253
-        black 0 0 0
-        white 255 255 255
-    }
-    catppuccin-latte {
-        bg "#acb0be" // Surface2
-        fg "#acb0be" // Surface2
-        red "#d20f39"
-        green "#40a02b"
-        blue "#1e66f5"
-        yellow "#df8e1d"
-        magenta "#ea76cb" // Pink
-        orange "#fe640b" // Peach
-        cyan "#04a5e5" // Sky
-        black "#dce0e8" // Crust
-        white "#4c4f69" // Text
-    }
-    catppuccin-frappe {
-        bg "#626880" // Surface2
-        fg "#c6d0f5"
-        red "#e78284"
-        green "#a6d189"
-        blue "#8caaee"
-        yellow "#e5c890"
-        magenta "#f4b8e4" // Pink
-        orange "#ef9f76" // Peach
-        cyan "#99d1db" // Sky
-        black "#292c3c" // Mantle
-        white "#c6d0f5"
-    }
-    catppuccin-macchiato {
-        bg "#5b6078" // Surface2
-        fg "#cad3f5"
-        red "#ed8796"
-        green "#a6da95"
-        blue "#8aadf4"
-        yellow "#eed49f"
-        magenta "#f5bde6" // Pink
-        orange "#f5a97f" // Peach
-        cyan "#91d7e3" // Sky
-        black "#1e2030" // Mantle
-        white "#cad3f5"
-    }
-    catppuccin-mocha {
-        bg "#585b70" // Surface2
-        fg "#cdd6f4"
-        fg "#6c7086"
-        // red "#f38ba8"
-        red "#11111b"
-        green "#a6e3a1"
-        blue "#89b4fa"
-        yellow "#f9e2af"
-        magenta "#f5c2e7" // Pink
-        orange "#fab387" // Peach
-        cyan "#89dceb" // Sky
-        // black "#181825" // Mantle
-        black "#11111b" // Crust
-        white "#cdd6f4"
+    vscode_dark_modern {
+        fg      "#cccccc"
+        bg      "#264f78"
+        red     "#cd3131"
+        green   "#0dbc79"
+        yellow  "#e5e510"
+        blue    "#2472c8"
+        magenta "#bc3fbc"
+        orange  "#ce9178"
+        cyan    "#11a8cd"
+        black   "#181818"
+        white   "#e5e5e5"
     }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "catppuccin-mocha"
+theme "vscode_dark_modern"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "custom"
+default_layout "simple"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -338,3 +283,10 @@ mirror_session false
 // The folder in which Zellij will look for themes
 //
 // theme_dir "/path/to/my/theme_dir"
+
+ui {
+    pane_frames {
+        rounded_corners false
+        hide_session_name false
+    }
+}

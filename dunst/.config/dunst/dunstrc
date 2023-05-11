@@ -32,7 +32,7 @@
     height = 300
 
     # Position the notification in the top right corner
-    origin = bottom-right
+    origin = top-right
 
     # Offset from the origin
     offset = 10x10
@@ -70,7 +70,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 60
+    transparency = 0
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -120,7 +120,7 @@
 
     ### Text ###
 
-    font = Iosevka Fixed 12
+    font = Iosevka 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -457,27 +457,6 @@
 
 # ---------------------------------------------
 
-# Catppuccin Mocha
-# [global]
-#     frame_color = "#CDD6F4"
-#     separator_color= frame
-
-# [urgency_low]
-#     background = "#1E1E2E"
-#     foreground = "#CDD6F4"
-
-# [urgency_normal]
-#     background = "#1E1E2E"
-#     foreground = "#CDD6F4"
-
-# [urgency_critical]
-#     background = "#1E1E2E"
-#     foreground = "#CDD6F4"
-#     frame_color = "#FAB387"
-
-# ---------------------------------------------
-
-# Catppuccin Mocha Black
 [global]
     frame_color = "#CDD6F4"
     separator_color= frame
@@ -491,6 +470,6 @@
     foreground = "#CDD6F4"
 
 [urgency_critical]
-    background = "#000000"
+    background = "#FF000000"
     foreground = "#CDD6F4"
     frame_color = "#FAB387"

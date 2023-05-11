@@ -22,8 +22,4 @@ return {
     window_decorations = "NONE",
     default_cursor_style = "BlinkingBar",
     force_reverse_video_cursor = true,
-    color_schemes = {
-        ["Catppuccin Mocha Black"] = require("lua.colorschemes.catppuccin-mocha-black"),
-    },
-    color_scheme = "Catppuccin Mocha Black",
 }
