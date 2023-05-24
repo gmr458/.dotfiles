@@ -163,23 +163,23 @@ tooltip label {
 
 /* -------------------------------------------------------------------------------- */
 
-#custom-launcher {
+/* #custom-launcher {
   background-color: @darkgray;
   color: @black;
-}
+} */
 
-#custom-launcher:hover {
+/* #custom-launcher:hover {
   color: @white;
-}
+} */
 
-#custom-powermenu {
+/* #custom-powermenu {
   background-color: @red;
   color: @black;
 }
 
 #custom-powermenu:hover {
   color: @white;
-}
+} */
 
 /* -------------------------------------------------------------------------------- */
 

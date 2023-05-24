@@ -87,7 +87,7 @@
 
   // Modules left
   "modules-left": [
-    // "custom/launcher",
+    "custom/launcher",
     "sway/workspaces",
     "sway/mode",
     "wlr/workspaces",
@@ -95,9 +95,10 @@
     "hyprland/submap"
   ],
   "custom/launcher": {
-    "format": "󱗼",
-    "on-click": "~/.config/tofi/scripts/drun.sh -t catppuccin_mocha",
-    "on-click-right": "~/.config/tofi/scripts/drun.sh -t catppuccin_mocha",
+    // "format": "󱗼",
+    "format": "󰣛",
+    "on-click": "~/.config/tofi/scripts/drun.sh",
+    "on-click-right": "~/.config/tofi/scripts/drun.sh",
     "tooltip": false
   },
   "wlr/workspaces": {
@@ -162,8 +163,8 @@
     "network#wlo1",
     "network#eno1",
     // "battery",
-    "clock"
-    // "custom/powermenu"
+    "clock",
+    "custom/powermenu"
   ],
   "tray": {
     "icon-size": 18,
@@ -299,8 +300,8 @@
   },
   "custom/powermenu": {
     "format": "󰤆",
-    "on-click": "~/.config/tofi/scripts/powermenu.sh -t catppuccin_mocha",
-    "on-click-right": "~/.config/tofi/scripts/powermenu.sh -t catppuccin_mocha",
+    "on-click": "~/.config/tofi/scripts/powermenu.sh",
+    "on-click-right": "~/.config/tofi/scripts/powermenu.sh",
     "tooltip": false
   }
 }

@@ -5,18 +5,37 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/.plugins/romkatv/powerlevel10k/powerlevel10k.zsh-theme
+if [[ ! -d ~/.plugins ]]; then
+  mkdir -p ~/.plugins
+fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ ! -d ~/.plugins/powerlevel10k ]]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.plugins/powerlevel10k
+fi
+source ~/.plugins/powerlevel10k/powerlevel10k.zsh-theme
 
-source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+function zsh_add_file() {
+  [ -f "$1" ] && source "$1"
+}
+
+function zsh_add_plugin() {
+  PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+  if [ -d "$HOME/.plugins/$PLUGIN_NAME" ]; then
+    zsh_add_file "$HOME/.plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
+      zsh_add_file "$HOME/.plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+  else
+    git clone --depth=1 "https://github.com/$1.git" "$HOME/.plugins/$PLUGIN_NAME"
+  fi
+}
+
+zsh_add_plugin "zap-zsh/supercharge"
+zsh_add_plugin "zdharma-continuum/fast-syntax-highlighting"
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
 
 # ------------------------------------------------------------
 
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
+# bindkey  "^[[H"   beginning-of-line
+# bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -88,3 +107,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Node.js version manager
 eval "$(fnm env --use-on-cd)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

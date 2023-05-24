@@ -27,7 +27,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.activityBar.visible": true,
-  "window.menuBarVisibility": "compact",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -38,5 +37,7 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "java.referencesCodeLens.enabled": true,
+  "java.implementationsCodeLens.enabled": true
 }

@@ -227,7 +227,7 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --quality 1 --se
 bindsym Ctrl+Shift+l exec ~/.config/i3/lock.sh
 
 # rofi
-bindsym Ctrl+space exec --no-startup-id ~/.config/rofi/scripts/launcher_t3
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/scripts/launcher_t3
 bindsym $mod+p     exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
 
 # ----------------------------------------------------
