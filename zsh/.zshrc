@@ -5,37 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ ! -d ~/.plugins ]]; then
-  mkdir -p ~/.plugins
-fi
-
-if [[ ! -d ~/.plugins/powerlevel10k ]]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.plugins/powerlevel10k
-fi
-source ~/.plugins/powerlevel10k/powerlevel10k.zsh-theme
-
-function zsh_add_file() {
-  [ -f "$1" ] && source "$1"
-}
-
-function zsh_add_plugin() {
-  PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-  if [ -d "$HOME/.plugins/$PLUGIN_NAME" ]; then
-    zsh_add_file "$HOME/.plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-      zsh_add_file "$HOME/.plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-  else
-    git clone --depth=1 "https://github.com/$1.git" "$HOME/.plugins/$PLUGIN_NAME"
-  fi
-}
-
-zsh_add_plugin "zap-zsh/supercharge"
-zsh_add_plugin "zdharma-continuum/fast-syntax-highlighting"
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
+source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
+source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ------------------------------------------------------------
 
-# bindkey  "^[[H"   beginning-of-line
-# bindkey  "^[[F"   end-of-line
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -47,7 +24,7 @@ export GOROOT='/usr/local/go'
 export GOPATH="$HOME/go"
 export DENO_INSTALL="$HOME/.deno"
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export JAVA_HOME='/usr/lib/jvm/java-17-openjdk-17.0.6.0.10-1.fc37.x86_64'
+export JAVA_HOME='/usr/lib/jvm/java-17-openjdk'
 
 # ------------------------------------------------------------
 
@@ -61,11 +38,17 @@ export PATH=$PATH:$PNPM_HOME
 export PATH=$PATH:'/opt/apache-maven/apache-maven-3.8.7/bin'
 export PATH=$PATH:'/opt/gradle/gradle-7.6/bin'
 export PATH=$PATH:'/usr/local/kotlinc/bin'
+export PATH=$PATH:"$HOME/.nimble/bin"
 # export PATH=$PATH:"$(go env GOPATH)/bin"
 
 fpath=(~/.zsh/completion $fpath)
 
 # ------------------------------------------------------------
+
+nd () {
+  mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
 
 # Alias
 alias cls='clear'
@@ -81,6 +64,7 @@ alias go_repos="cd $GOPATH/src/github.com/gmr458"
 alias java_repos="cd ~/repos/mine/java"
 alias javascript_repos="cd ~/repos/mine/javascript"
 alias kotlin_repos="cd ~/repos/mine/kotlin"
+alias lua_repos="cd ~/repos/mine/lua"
 alias python_repos="cd ~/repos/mine/python"
 alias rust_repos="cd ~/repos/mine/rust"
 alias typescript_repos="cd ~/repos/mine/typescript"
@@ -107,6 +91,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Node.js version manager
 eval "$(fnm env --use-on-cd)"
+
+# Ocaml
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+source ~/.plugins/powerlevel10k/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

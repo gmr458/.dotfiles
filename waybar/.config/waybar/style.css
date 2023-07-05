@@ -21,7 +21,7 @@
 }
 
 window#waybar {
-  background-color: @black-transparent-7;
+  background-color: @black-transparent-9;
   color: @text;
   /* border-radius: 20px; */
   border: 1px solid @black;
@@ -131,7 +131,7 @@ tooltip label {
 /* -------------------------------------------------------------------------------- */
 
 #custom-launcher,
-#window,
+/* #window, */
 #submap,
 #mode,
 /* #tray, */
