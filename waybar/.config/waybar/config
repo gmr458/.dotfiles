@@ -87,7 +87,7 @@
 
   // Modules left
   "modules-left": [
-    "custom/launcher",
+    // "custom/launcher",
     "sway/workspaces",
     "sway/mode",
     "wlr/workspaces",
@@ -163,8 +163,8 @@
     "network#wlo1",
     "network#eno1",
     // "battery",
-    "clock",
-    "custom/powermenu"
+    "clock"
+    // "custom/powermenu"
   ],
   "tray": {
     "icon-size": 18,
