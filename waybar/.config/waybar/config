@@ -91,7 +91,6 @@
     "sway/workspaces",
     "sway/mode",
     "wlr/workspaces",
-    // "wlr/taskbar",
     "hyprland/submap"
   ],
   "custom/launcher": {
@@ -116,22 +115,6 @@
       "9": "9",
       "default": "1"
     }
-  },
-  "wlr/taskbar": {
-    "all-outputs": false,
-    "format": "{icon} {title:.20}",
-    // "icon-theme": "",
-    "icon-size": 20,
-    "markup": false,
-    "tooltip": true,
-    "tooltip-format": "{title}",
-    "active-first": false,
-    "on-click": "activate",
-    // "on-click-middle": "",
-    // "on-click-right": "",
-    // "on-update": "",
-    "ignore-list": []
-    // "app_ids-mapping": {}
   },
   "hyprland/submap": {
     "format": "{}",
@@ -295,8 +278,8 @@
     "format": "{:󰣆 %A, %B %d | 󰥔 %I:%M %p}",
     // "format-alt": "{:󰣆 %A, %B %d | 󰥔 %I:%M:%S %p}",
     "on-click": "",
-    "tooltip": false,
-    "tooltip-format": "{:󰣆 %A, %B %d, %Y | 󰥔 %I:%M:%S %p}"
+    "tooltip": true,
+    "tooltip-format": "<big>{calendar}</big>"
   },
   "custom/powermenu": {
     "format": "󰤆",
