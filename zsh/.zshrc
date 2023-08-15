@@ -1,11 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
+# source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
 source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -37,8 +30,8 @@ export PATH=$PATH:"$DENO_INSTALL/bin"
 export PATH=$PATH:$PNPM_HOME
 export PATH=$PATH:'/opt/apache-maven/apache-maven-3.8.7/bin'
 export PATH=$PATH:'/opt/gradle/gradle-7.6/bin'
-export PATH=$PATH:'/usr/local/kotlinc/bin'
-export PATH=$PATH:"$HOME/.nimble/bin"
+# export PATH=$PATH:'/usr/local/kotlinc/bin'
+# export PATH=$PATH:"$HOME/.nimble/bin"
 # export PATH=$PATH:"$(go env GOPATH)/bin"
 
 fpath=(~/.zsh/completion $fpath)
@@ -95,7 +88,5 @@ eval "$(fnm env --use-on-cd)"
 # Ocaml
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-source ~/.plugins/powerlevel10k/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Init Oh My Posh
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.jsonc)"

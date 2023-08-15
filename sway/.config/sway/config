@@ -151,7 +151,7 @@ bindsym $mod+v floating toggle
 # ----------------------------------------------------
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # ----------------------------------------------------
 
@@ -224,7 +224,7 @@ bindsym $mod+Shift+t exec pkill -SIGUSR1 '^waybar$'
 # ----------------------------------------------------
 
 # tofi
-bindsym Ctrl+Space exec ~/.config/tofi/scripts/drun.sh
+bindsym $mod+Space exec ~/.config/tofi/scripts/drun.sh
 bindsym $mod+p     exec ~/.config/tofi/scripts/powermenu.sh
 
 # ----------------------------------------------------

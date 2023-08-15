@@ -274,12 +274,10 @@
   },
   "clock": {
     "interval": 1,
-    // "format": "󰥔 {:%I:%M %p}",
     "format": "{:󰣆 %A, %B %d | 󰥔 %I:%M %p}",
-    // "format-alt": "{:󰣆 %A, %B %d | 󰥔 %I:%M:%S %p}",
     "on-click": "",
     "tooltip": true,
-    "tooltip-format": "<big>{calendar}</big>"
+    "tooltip-format": "{calendar}"
   },
   "custom/powermenu": {
     "format": "󰤆",
