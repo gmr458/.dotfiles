@@ -1,6 +1,6 @@
 # source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
 source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ------------------------------------------------------------
 
