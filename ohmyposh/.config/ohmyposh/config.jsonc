@@ -38,7 +38,8 @@
                         "fetch_stash_count": true,
                         "fetch_upstream_icon": true,
                         "branch_icon": " ",
-                        "branch_identical_icon": "≡",
+                        "branch_identical_icon": "󰇼",
+                        "branch_gone_icon": "󰦎",
                         "commit_icon": "",
                         "tag_icon": "󰓹",
                         "upstream_icons": {
