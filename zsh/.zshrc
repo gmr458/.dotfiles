@@ -1,6 +1,12 @@
-# source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
-source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-# source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:*' actionformats ' %F{#F8974E}%f %F{#BC3FBC}%b|%a%f'
+zstyle ':vcs_info:*' formats ' %F{#F8974E}%f %F{#BC3FBC}%b%f'
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat ' %b%:%r'
+
+PROMPT='%F{#C09553}󰝰%f %F{blue}%~%f${vcs_info_msg_0_} %(?.%F{green}❯.%F{red}✗ %? ❯)%f '
 
 # ------------------------------------------------------------
 
@@ -62,8 +68,6 @@ alias python_repos="cd ~/repos/mine/python"
 alias rust_repos="cd ~/repos/mine/rust"
 alias typescript_repos="cd ~/repos/mine/typescript"
 
-alias start_mongo_server="docker run -d --rm -p 27017:27017 --name mongo-server -v /var/lib/data:/data/db mongo:6.0.3"
-
 # ------------------------------------------------------------
 
 HISTFILE=~/.histfile
@@ -86,7 +90,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 eval "$(fnm env --use-on-cd)"
 
 # Ocaml
-[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # Init Oh My Posh
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.jsonc)"
+# eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.jsonc)"
+
+source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
+# source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh

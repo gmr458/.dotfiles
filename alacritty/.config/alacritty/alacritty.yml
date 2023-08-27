@@ -9,7 +9,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/colorschemes/vscode_dark_black_modern.yml
+  - ~/.config/alacritty/colorschemes/vscode_dark_modern.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -68,7 +68,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.4
+  # opacity: 0.4
 
   # Startup Mode (changes require restart)
   #
@@ -131,13 +131,13 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: IosevkaFixed Nerd Font Mono
+    family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
     # family: RobotoMono Nerd Font Mono
     # family: Code New Roman
-    family: Consolas Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -148,13 +148,13 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: IosevkaFixed Nerd Font Mono
+    family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
     # family: RobotoMono Nerd Font Mono
     # family: Code New Roman
-    family: Consolas Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -165,13 +165,13 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: IosevkaFixed Nerd Font Mono
+    family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
     # family: RobotoMono Nerd Font Mono
     # family: Code New Roman
-    family: Consolas Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -182,24 +182,24 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    # family: IosevkaFixed Nerd Font Mono
+    family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
     # family: RobotoMono Nerd Font Mono
     # family: Code New Roman
-    family: Consolas Nerd Font Mono
+    # family: Consolas Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular 
 
   # Point size
-  # size: 12.0 # IosevkaFixed Nerd Font Mono size
+  size: 12.0 # IosevkaFixed Nerd Font Mono size
   # size: 11.5 # FiraCode Nerd Font Mono size
   # size: 10.5 # CaskaydiaCove Nerd Font Mono size
   # size: 11.5 # Comic Mono size
   # size: 10.5 # RobotoMono Nerd Font Mono size
-  size: 11.5 # Consolas Nerd Font Mono
+  # size: 11.5 # Consolas Nerd Font Mono
   # size: 11.5 # Code New Roman
 
   # Offset is the extra space around each character. `offset.y` can be thought
