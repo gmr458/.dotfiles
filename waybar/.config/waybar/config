@@ -7,7 +7,7 @@
   // "output": [],
 
   // Bar position, can be top, bottom, left, right. Default: top.
-  "position": "bottom",
+  "position": "top",
 
   // Height to be used by the bar if possible, leave blank for a dynamic value.
   "height": 38,
