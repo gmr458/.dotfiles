@@ -275,7 +275,7 @@
   "clock": {
     "interval": 1,
     "format": "{:󰣆 %A, %B %d | 󰥔 %I:%M %p}",
-    "on-click": "",
+    "on-click": "gnome-calendar",
     "tooltip": true,
     "tooltip-format": "{calendar}"
   },

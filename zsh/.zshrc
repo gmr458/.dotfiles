@@ -59,14 +59,15 @@ alias lla='lsd -lA'
 alias tree='lsd --tree --ignore-glob node_modules --ignore-glob venv --ignore-glob target --ignore-glob bin --ignore-glob obj --ignore-glob __pycache__'
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {} --theme=Dracula' --preview-window=right:75%"
 
+alias c_repos="cd ~/repos/internal/java"
 alias go_repos="cd $GOPATH/src/github.com/gmr458"
-alias java_repos="cd ~/repos/mine/java"
-alias javascript_repos="cd ~/repos/mine/javascript"
-alias kotlin_repos="cd ~/repos/mine/kotlin"
-alias lua_repos="cd ~/repos/mine/lua"
-alias python_repos="cd ~/repos/mine/python"
-alias rust_repos="cd ~/repos/mine/rust"
-alias typescript_repos="cd ~/repos/mine/typescript"
+alias java_repos="cd ~/repos/internal/java"
+alias js_repos="cd ~/repos/internal/javascript"
+alias lua_repos="cd ~/repos/internal/lua"
+alias ocaml_repos="cd ~/repos/internal/lua"
+alias py_repos="cd ~/repos/internal/python"
+alias rust_repos="cd ~/repos/internal/rust"
+alias ts_repos="cd ~/repos/internal/typescript"
 
 # ------------------------------------------------------------
 
@@ -87,7 +88,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # ------------------------------------------------------------
 
 # Node.js version manager
-eval "$(fnm env --use-on-cd)"
+# eval "$(fnm env --use-on-cd)"
 
 # Ocaml
 # [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
