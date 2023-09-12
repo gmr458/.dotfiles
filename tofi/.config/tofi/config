@@ -21,7 +21,7 @@ ascii-input = true
 
 # STYLE OPTIONS
 font = ~/.local/share/fonts/iosevka-regular.ttf
-font-size = 20
+font-size = 13
 font-features = ""
 font-variations = ""
 background-color = #000

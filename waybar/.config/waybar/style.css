@@ -14,6 +14,7 @@
 @define-color black-transparent-7 rgba(0, 0, 0, 0.7);
 @define-color black-transparent-8 rgba(0, 0, 0, 0.8);
 @define-color black-transparent-9 rgba(0, 0, 0, 0.9);
+@define-color black-solid         rgba(0, 0, 0, 1.0);
 
 * {
   font-family: Iosevka, Material Design Icons Desktop;
@@ -21,7 +22,7 @@
 }
 
 window#waybar {
-  background-color: @black-transparent-5;
+  background-color: @black-solid;
   color: @text;
   /* border-radius: 20px; */
   /* border: 1px solid @black; */
@@ -144,7 +145,8 @@ tooltip label {
 #bluetooth,
 #battery,
 #clock,
-#custom-powermenu {
+#custom-powermenu,
+#custom-notification {
   background-color: transparent;
   color: @text;
   padding: 1px 8px;
@@ -199,7 +201,8 @@ tooltip label {
 .modules-left > widget:first-child > #bluetooth,
 .modules-left > widget:first-child > #battery,
 .modules-left > widget:first-child > #clock,
-.modules-left > widget:first-child > #custom-powermenu {
+.modules-left > widget:first-child > #custom-powermenu,
+.modules-left > widget:first-child > #custom-notification {
   margin-left: 5px;
 }
 
@@ -220,7 +223,8 @@ tooltip label {
 .modules-right > widget:last-child > #bluetooth,
 .modules-right > widget:last-child > #battery,
 .modules-right > widget:last-child > #clock,
-.modules-right > widget:last-child > #custom-powermenu {
+.modules-right > widget:last-child > #custom-powermenu,
+.modules-right > widget:last-child > #custom-notification {
   margin-right: 5px;
 }
 

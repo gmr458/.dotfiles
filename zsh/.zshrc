@@ -24,6 +24,7 @@ export GOPATH="$HOME/go"
 export DENO_INSTALL="$HOME/.deno"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export JAVA_HOME='/usr/lib/jvm/java-17-openjdk'
+export BUN_INSTALL="$HOME/.bun"
 
 # ------------------------------------------------------------
 
@@ -39,6 +40,7 @@ export PATH=$PATH:'/opt/gradle/gradle-7.6/bin'
 # export PATH=$PATH:'/usr/local/kotlinc/bin'
 # export PATH=$PATH:"$HOME/.nimble/bin"
 # export PATH=$PATH:"$(go env GOPATH)/bin"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 fpath=(~/.zsh/completion $fpath)
 
@@ -88,7 +90,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # ------------------------------------------------------------
 
 # Node.js version manager
-# eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd)"
 
 # Ocaml
 # [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
