@@ -47,7 +47,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
+    x: 2
     y: 0 
 
   # Spread additional padding evenly around the terminal content.
@@ -131,11 +131,11 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Iosevka Raven Nerd Font Mono
+    # family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
     # family: Code New Roman
     # family: Consolas Nerd Font Mono
 
@@ -148,11 +148,11 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Raven Nerd Font Mono
+    # family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
     # family: Code New Roman
     # family: Consolas Nerd Font Mono
 
@@ -165,11 +165,11 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Raven Nerd Font Mono
+    # family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
     # family: Code New Roman
     # family: Consolas Nerd Font Mono
 
@@ -182,11 +182,11 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Raven Nerd Font Mono
+    # family: Iosevka Raven Nerd Font Mono
     # family: FiraCode Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     # family: ComicMono Nerd Font Mono
-    # family: RobotoMono Nerd Font Mono
+    family: RobotoMono Nerd Font Mono
     # family: Code New Roman
     # family: Consolas Nerd Font Mono
 
@@ -194,11 +194,11 @@ font:
     style: Regular 
 
   # Point size
-  size: 12.0 # IosevkaFixed Nerd Font Mono size
+  # size: 12.0 # IosevkaFixed Nerd Font Mono size
   # size: 11.5 # FiraCode Nerd Font Mono size
   # size: 10.5 # CaskaydiaCove Nerd Font Mono size
   # size: 11.5 # Comic Mono size
-  # size: 10.5 # RobotoMono Nerd Font Mono size
+  size: 10.5 # RobotoMono Nerd Font Mono size
   # size: 11.5 # Consolas Nerd Font Mono
   # size: 11.5 # Code New Roman
 

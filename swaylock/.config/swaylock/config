@@ -1,13 +1,17 @@
 show-failed-attempts
 
 scaling=stretch
-image=~/Pictures/wallpapers/Tarantula\ Nebula\ \(NIRCam\ Image\).jpg
+image=~/Pictures/wallpapers/windows-11-1920x1080-nature-epic-sunset-25016.jpeg
 
-font=Iosevka Fixed
-font-size=34
+font=Iosevka
+font-size=56
+
+clock
+indicator
+timestr=%I:%M:%S %p
+# datestr=%A %B %d
 
 indicator-radius=180
-indicator-thickness=12
 
 bs-hl-color=f38ba8ff
 caps-lock-bs-hl-color=f38ba8ff
