@@ -25,6 +25,7 @@ set sidescrolloff=5
 set signcolumn=no
 set nosmartcase
 set smartindent
+set smoothscroll
 set nospell
 " set spelllang
 set splitbelow

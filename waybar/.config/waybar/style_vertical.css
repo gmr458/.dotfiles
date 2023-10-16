@@ -1,0 +1,241 @@
+@define-color white      #F2F2F2;
+@define-color black      #000203;
+@define-color text       #BECBCB;
+@define-color lightgray  #686868;
+@define-color darkgray   #353535;
+@define-color red        #F38BA8;
+
+@define-color black-transparent-1 rgba(0, 0, 0, 0.1);
+@define-color black-transparent-2 rgba(0, 0, 0, 0.2);
+@define-color black-transparent-3 rgba(0, 0, 0, 0.3);
+@define-color black-transparent-4 rgba(0, 0, 0, 0.4);
+@define-color black-transparent-5 rgba(0, 0, 0, 0.5);
+@define-color black-transparent-6 rgba(0, 0, 0, 0.6);
+@define-color black-transparent-7 rgba(0, 0, 0, 0.7);
+@define-color black-transparent-8 rgba(0, 0, 0, 0.8);
+@define-color black-transparent-9 rgba(0, 0, 0, 0.9);
+@define-color black-solid         rgba(0, 0, 0, 1.0);
+
+* {
+  font-family: Iosevka, Material Design Icons Desktop;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: @black-transparent-9;
+  color: @text;
+  border-radius: 7px;
+  border: 1px solid @lightgray;
+  /* border: 1px solid rgba(0, 0, 0, 0.0); */
+}
+
+tooltip {
+  background: @black-solid;
+  border: 1px solid @darkgray;
+  border-radius: 7px;
+}
+tooltip label {
+  color: @text;
+}
+
+#workspaces {
+  /* border: 1px solid #10171b; */
+  /* border-radius: 20px; */
+  /* margin-top: 0; */
+  /* margin-bottom: 0; */
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#workspaces button {
+  background-color: transparent;
+  color: @lightgray;
+  padding: 0;
+  /* margin: 0; */
+  margin-top: 3px;
+  margin-bottom: 3px;
+  /* margin-left: 1px;
+  margin-right: 1px; */
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.0);
+  color: @white;
+  transition: all 0.3s ease;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  /* background-color: @darkgray; */
+  /* border: 1px solid @darkgray; */
+  color: @white;
+  transition: all 0.3s ease;
+  animation: colored-gradient 10s ease infinite;
+}
+
+/* #workspaces button.focused:hover,
+#workspaces button.active:hover {
+  background-color: @white;
+  transition: all 1s ease;
+} */
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @black;
+  transition: all 0.3s ease;
+}
+
+/* #workspaces button.hidden {} */
+
+#taskbar {
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+#taskbar button {
+  color: @text;
+  padding: 1px 8px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+#taskbar button:hover {
+  background: transparent;
+  border: 1px solid @darkgray;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: colored-gradient 10s ease infinite;
+}
+
+/* #taskbar button.maximized {} */
+
+/* #taskbar button.minimized {} */
+
+#taskbar button.active {
+  border: 1px solid @darkgray;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: colored-gradient 10s ease infinite;
+}
+
+/* #taskbar button.fullscreen {} */
+
+/* -------------------------------------------------------------------------------- */
+
+#custom-launcher,
+/* #window, */
+#submap,
+#mode,
+#tray,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio.audio,
+#pulseaudio.microphone,
+#network.wlo1,
+#network.eno1,
+#bluetooth,
+#battery,
+#clock,
+#custom-powermenu,
+#custom-notification {
+  background-color: transparent;
+  color: @text;
+  padding: 1px 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  /* border: 1px solid @darkgray; */
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+#submap {
+  border: 0;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* #custom-launcher {
+  background-color: @darkgray;
+  color: @black;
+} */
+
+/* #custom-launcher:hover {
+  color: @white;
+} */
+
+/* #custom-powermenu {
+  background-color: @red;
+  color: @black;
+}
+
+#custom-powermenu:hover {
+  color: @white;
+} */
+
+/* -------------------------------------------------------------------------------- */
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces button,
+.modules-left > widget:first-child > #taskbar button,
+.modules-left > widget:first-child > #custom-launcher,
+.modules-left > widget:first-child > #window,
+.modules-left > widget:first-child > #tray,
+.modules-left > widget:first-child > #cpu,
+.modules-left > widget:first-child > #memory,
+.modules-left > widget:first-child > #backlight,
+.modules-left > widget:first-child > #pulseaudio.audio,
+.modules-left > widget:first-child > #pulseaudio.microphone,
+.modules-left > widget:first-child > #network.wlo1,
+.modules-left > widget:first-child > #network.eno1,
+.modules-left > widget:first-child > #bluetooth,
+.modules-left > widget:first-child > #battery,
+.modules-left > widget:first-child > #clock,
+.modules-left > widget:first-child > #custom-powermenu,
+.modules-left > widget:first-child > #custom-notification {
+  margin-top: 10px;
+}
+
+.modules-right > widget:last-child > #workspaces button,
+.modules-right > widget:last-child > #taskbar button,
+.modules-right > widget:last-child > #custom-launcher,
+.modules-right > widget:last-child > #window,
+.modules-right > widget:last-child > #tray,
+.modules-right > widget:last-child > #cpu,
+.modules-right > widget:last-child > #memory,
+.modules-right > widget:last-child > #backlight,
+.modules-right > widget:last-child > #pulseaudio.audio,
+.modules-right > widget:last-child > #pulseaudio.microphone,
+.modules-right > widget:last-child > #network.wlo1,
+.modules-right > widget:last-child > #network.eno1,
+.modules-right > widget:last-child > #bluetooth,
+.modules-right > widget:last-child > #battery,
+.modules-right > widget:last-child > #clock,
+.modules-right > widget:last-child > #custom-powermenu,
+.modules-right > widget:last-child > #custom-notification {
+  margin-bottom: 10px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#tray {
+  background-color: transparent;
+  padding: 1px 8px;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}

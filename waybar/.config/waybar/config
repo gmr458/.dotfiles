@@ -6,10 +6,10 @@
   "height": 38,
   // "width": 900,
   // "margin": "",
-  "margin-top": 0,
+  "margin-top": 4,
   "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
+  "margin-left": 4,
+  "margin-right": 4,
   "spacing": 1,
   "gtk-layer-shell": true,
   "modules-left": [
@@ -182,7 +182,7 @@
       "󰤥",
       "󰤨"
     ],
-    "format-wifi": "{icon}",
+    "format-wifi": "{icon} ",
     // "format-disconnected": "󰤮",
     "format-disconnected": "",
     // "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",

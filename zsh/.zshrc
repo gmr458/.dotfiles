@@ -24,7 +24,7 @@ export GOPATH="$HOME/go"
 export DENO_INSTALL="$HOME/.deno"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export JAVA_HOME='/usr/lib/jvm/java-17-openjdk'
-export BUN_INSTALL="$HOME/.bun"
+# export BUN_INSTALL="$HOME/.bun"
 
 # ------------------------------------------------------------
 
@@ -40,7 +40,7 @@ export PATH=$PATH:'/opt/gradle/gradle-7.6/bin'
 # export PATH=$PATH:'/usr/local/kotlinc/bin'
 # export PATH=$PATH:"$HOME/.nimble/bin"
 # export PATH=$PATH:"$(go env GOPATH)/bin"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# export PATH="$BUN_INSTALL/bin:$PATH"
 
 fpath=(~/.zsh/completion $fpath)
 
@@ -87,6 +87,9 @@ zstyle ':completion:*' menu select
 # Disable case sensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# pnpm
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
 # ------------------------------------------------------------
 
 # Node.js version manager
@@ -101,3 +104,21 @@ eval "$(fnm env --use-on-cd)"
 source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
 # source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# eval "$(zoxide init zsh)"
+
+# ------------------------------------------------------------
+
+# Open new foot terminal in the same directory
+
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd

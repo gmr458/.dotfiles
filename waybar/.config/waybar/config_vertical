@@ -1,0 +1,240 @@
+// vim: ft=jsonc
+{
+  "layer": "top",
+  // "output": [],
+  "position": "left",
+  // "height": 38,
+  // "width": 900,
+  // "margin": "",
+  "margin-top": 8,
+  "margin-bottom": 8,
+  "margin-left": 8,
+  "margin-right": 0,
+  "spacing": 0,
+  "gtk-layer-shell": true,
+  "modules-left": [
+    "custom/notification",
+    "clock"
+  ],
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:󰥔\n%I\n%M\n%p\n\n󰣆\n%d\n%m\n%y}",
+    // "format-alt": "{:󰣆 %A, %B %d | 󰥔 %I:%M %p}",
+    // "on-click": "gnome-calendar",
+    "tooltip": true,
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "format": {
+        "today": "<span color='#0dbc79'>{}</span>"
+      }
+    }
+  },
+  "modules-center": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    // "hyprland/window"
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "default": "1"
+    },
+    "on-click": "activate"
+  },
+  "hyprland/submap": {
+    "format": "{}",
+    "tooltip": false
+  },
+  "hyprland/window": {
+    "format": " <span font_desc='Iosevka Raven 12'>{:.40}</span> ",
+    "separate-outputs": false
+  },
+  "sway/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "default": "1"
+    },
+    "on-click": "activate"
+  },
+  "sway/mode": {
+    "format": "{}",
+    "tooltip": false
+  },
+  "modules-right": [
+    "tray",
+    // "cpu",
+    // "memory",
+    // "backlight",
+    // "pulseaudio#microphone",
+    "pulseaudio#audio",
+    "bluetooth",
+    "network#wlo1",
+    "network#eno1"
+    // "battery"
+  ],
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "on-click": "",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
+    "on-click": "",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃟"
+    ],
+    "on-scroll-up": "brightnessctl set +5% && ~/.config/dunst/scripts/show_brightness.sh",
+    "on-scroll-down": "brightnessctl set 5%- && ~/.config/dunst/scripts/show_brightness.sh",
+    "on-click": "",
+    "tooltip": false
+  },
+  "pulseaudio#audio": {
+    "format": "{icon}",
+    "format-bluetooth": "󰂯{icon}",
+    "format-bluetooth-muted": "󰂯󰖁",
+    "format-muted": "󰖁 {volume}%",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󰋋",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/dunst/scripts/show_mute.sh",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1% && ~/.config/dunst/scripts/show_volume.sh",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1% && ~/.config/dunst/scripts/show_volume.sh",
+    "tooltip": true,
+    "tooltip-format": "{icon} {desc} {volume}%"
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 {volume}%",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle && ~/.config/dunst/scripts/show_mute_microphone.sh",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+    "max-volume": 100,
+    "tooltip": false
+  },
+  "network#wlo1": {
+    "interval": 1,
+    "interface": "wlo1",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-wifi": "{icon}",
+    // "format-disconnected": "󰤮",
+    "format-disconnected": "",
+    // "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",
+    "on-click": "nm-connection-editor",
+    "tooltip": true,
+    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+  },
+  "network#eno1": {
+    "interval": 1,
+    "interface": "eno1",
+    "format-icons": [
+      "󰈀"
+    ],
+    "format-ethernet": "{icon}",
+    // "format-disconnected": "{icon}",
+    "format-disconnected": "",
+    // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
+    "on-click": "",
+    "tooltip": true,
+    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+  },
+  "bluetooth": {
+    "format-disabled": "",
+    "format-off": "",
+    "format-on": "󰂯",
+    "format-connected": "󰂯",
+    "format-connected-battery": "󰂯",
+    "tooltip-format-connected": "{device_alias} 󰂄{device_battery_percentage}%",
+    "on-click": "",
+    "tooltip": true
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󱘖 {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "on-click": "",
+    "tooltip": false
+  }
+}

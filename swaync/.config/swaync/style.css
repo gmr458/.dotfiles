@@ -216,7 +216,7 @@
 /* Title widget */
 .widget-title {
     margin: 8px;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 .widget-title > button {
     font-size: initial;
@@ -226,6 +226,7 @@
     border: 1px solid @noti-border-color;
     box-shadow: none;
     border-radius: 0;
+    font-size: 1.2rem;
 }
 .widget-title > button:hover {
     background: @noti-bg-hover;
@@ -249,6 +250,9 @@
 .widget-dnd > switch slider {
     background: @noti-bg-hover;
     border-radius: 0;
+}
+.widget-dnd > label {
+    font-size: 1.2rem;
 }
 
 /* Label widget */
@@ -365,4 +369,8 @@
 }
 .widget-inhibitors > button:hover {
     background: @noti-bg-hover;
+}
+
+.control-center-list-placeholder {
+    font-size: 2rem;
 }

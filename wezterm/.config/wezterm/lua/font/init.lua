@@ -42,10 +42,10 @@ local list_fonts = {
     roboto_mono = {
         name = "RobotoMono Nerd Font Mono",
         weight = font_weight.regular,
-        size = 11.4,
+        size = 10.5,
     },
 }
 
-local font = list_fonts.caskaydia_cove
+local font = list_fonts.roboto_mono
 
 return font
