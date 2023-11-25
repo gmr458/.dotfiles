@@ -79,7 +79,7 @@
     "tooltip": false
   },
   "hyprland/window": {
-    "format": " <span font_desc='Iosevka Raven 12'>{:.40}</span> ",
+    "format": "{:.40}'",
     "separate-outputs": false
   },
   "sway/workspaces": {

@@ -17,10 +17,13 @@ set $term alacritty
 exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 # wallpaper
-output * bg ~/Pictures/wallpapers/alena-aenami-stay-1k.jpg fill
+output * bg ~/Pictures/wallpapers/old_sailing_ships_drawing.jpg fill
 
 # dunst
-exec_always --no-startup-id dunst
+# exec_always --no-startup-id dunst
+
+# SwayNotificationCenter
+exec_always --no-startup-id swaync
 
 # NetworkManager
 exec_always --no-startup-id nm-applet --indicator
@@ -186,8 +189,8 @@ bindsym $mod+Return exec $term
 # ----------------------------------------------------
 
 # brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && ~/.config/dunst/scripts/show_brightness.sh
-bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+ && ~/.config/dunst/scripts/show_brightness.sh
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
 
 # ----------------------------------------------------
 
@@ -200,9 +203,9 @@ bindsym XF86AudioPrev  exec playerctl previous
 # ----------------------------------------------------
 
 # volume
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%    && ~/.config/dunst/scripts/show_volume.sh
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%    && ~/.config/dunst/scripts/show_volume.sh
-bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle && ~/.config/dunst/scripts/show_mute.sh
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%
+bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle
 bindsym XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # ----------------------------------------------------
@@ -233,7 +236,7 @@ bindsym $mod+p     exec ~/.config/tofi/scripts/powermenu.sh
 default_border pixel 1
 
 # gaps between windows
-gaps inner 10
+gaps inner 8
 
 # ----------------------------------------------------
 

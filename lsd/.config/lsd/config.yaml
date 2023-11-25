@@ -8,16 +8,18 @@ classic: false
 # == Blocks ==
 # This specifies the columns and their order when using the long and the tree
 # layout.
-# Possible values: permission, user, group, size, size_value, date, name, inode
+# Possible values: permission, user, group, context, size, date, name, inode, links, git
 blocks:
   - permission
   - user
   # - group
+  # - context
   - size
-  # - size_value
   - date
   - name
   # - inode
+  # - links
+  # - git
 
 # == Color ==
 # This has various color options. (Will be expanded in the future.)
@@ -28,15 +30,13 @@ color:
   when: auto
   # How to colorize the output.
   # When "classic" is set, this is set to "no-color".
-  # Possible values: default, <theme-file-name>
-  # when specifying <theme-file-name>, lsd will look up theme file
-  # XDG Base Directory if relative, e.g. ~/.config/lsd/themes/<theme-file-name>.yaml,
-  # The file path if absolute
-  theme: default
+  # Possible values: default, custom
+  # When "custom" is set, lsd will look in the config directory for `colors.yaml`.
+  # theme: custom
 
 # == Date ==
 # This specifies the date format for the date column. The freeform format
-# accepts an strftime like string.
+# accepts a strftime like string.
 # When "classic" is set, this is set to "date".
 # Possible values: date, relative, '+<date_format>'
 # `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
@@ -95,6 +95,11 @@ recursion:
 # Possible values: default, short, bytes
 size: default
 
+# == Permission ==
+# Specify the format of the permission column
+# Possible value: rwx, octal
+permission: rwx
+
 # == Sorting ==
 sorting:
   # Specify what to sort by.
@@ -118,6 +123,16 @@ no-symlink: false
 # Possible values: false, true
 total-size: false
 
+# == Hyperlink ==
+# Attach hyperlink to filenames
+# Possible values: always, auto, never
+hyperlink: never
+
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8
 symlink-arrow: 󰁔
+
+# == Header ==
+# Whether to display block headers.
+# Possible values: false, true
+header: false

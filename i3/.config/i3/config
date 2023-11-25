@@ -4,7 +4,7 @@ set $alt Mod1
 
 font pango:Iosevka Fixed 10
 
-# set $refresh_i3status killall -SIGUSR1 i3status
+set $refresh_i3status killall -SIGUSR1 i3status
 
 # -------------------------------------------
 
@@ -22,7 +22,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec_always --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
 
 # Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Speed keyboard
 exec_always --no-startup-id xset r rate 250 40

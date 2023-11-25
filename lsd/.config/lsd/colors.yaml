@@ -1,0 +1,27 @@
+user: 136
+group: 245
+permission:
+  read: 64
+  write: 136
+  exec: 160
+  exec-sticky: 125
+  no-access: 234
+  octal: 37
+  acl: 37
+  context: 235
+date:
+  hour-old: 64
+  day-old: 136
+  older: 240
+size:
+  none: 235
+  small: 61
+  medium: 37
+  large: 33
+inode:
+  valid: 61
+  invalid: 235
+links:
+  valid: 61
+  invalid: 235
+tree-edge: 235

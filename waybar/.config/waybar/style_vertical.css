@@ -24,8 +24,8 @@
 window#waybar {
   background-color: @black-transparent-9;
   color: @text;
-  border-radius: 7px;
-  border: 1px solid @lightgray;
+  border-radius: 0;
+  border: 1px solid @black-transparent-9;
   /* border: 1px solid rgba(0, 0, 0, 0.0); */
 }
 
@@ -43,8 +43,8 @@ tooltip label {
   /* border-radius: 20px; */
   /* margin-top: 0; */
   /* margin-bottom: 0; */
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 #workspaces button {
@@ -150,10 +150,10 @@ tooltip label {
   background-color: transparent;
   color: @text;
   padding: 1px 8px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
   /* border: 1px solid @darkgray; */
   border-radius: 20px;
   transition: all 0.3s ease;
