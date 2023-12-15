@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/themes/vscode_dark_modern_111111.yml
+  - ~/.config/alacritty/themes/kanagawa_dragon.yml
 
 # env:
 #   TERM: xterm-256color
@@ -7,19 +7,37 @@ import:
 scrolling:
   history: 10000
 
+define: &font_name BlexMono Nerd Font Mono
+define: &font_size 12.0
+define: &offset_x -1
+define: &offset_y -3
+define: &padding_x 3
+define: &padding_y 3
+define: &dynamic_padding false
+
 # define: &font_name CaskaydiaCove Nerd Font Mono
 # define: &font_size 12.0
 # define: &offset_x -1
 # define: &offset_y 0
 # define: &padding_x 4
+# define: &padding_y 3
+# define: &dynamic_padding false
+
+# define: &font_name ComicMono Nerd Font Mono
+# define: &font_size 11.0
+# define: &offset_x 0
+# define: &offset_y 0
+# define: &padding_x 0
 # define: &padding_y 0
+# define: &dynamic_padding false
 
 # define: &font_name Consolas Nerd Font Mono
 # define: &font_size 11.5
 # define: &offset_x 0
 # define: &offset_y 0
-# define: &padding_x 4
+# define: &padding_x 3
 # define: &padding_y 0
+# define: &dynamic_padding false
 
 # define: &font_name FiraCode Nerd Font Mono
 # define: &font_size 11.0
@@ -27,34 +45,39 @@ scrolling:
 # define: &offset_y 0
 # define: &padding_x 4
 # define: &padding_y 0
+# define: &dynamic_padding false
 
-define: &font_name GeistMono Nerd Font Mono
-define: &font_size 12.0
-define: &offset_x -1
-define: &offset_y 0
-define: &padding_x 4
-define: &padding_y 0
+# define: &font_name GeistMono Nerd Font Mono
+# define: &font_size 12.0
+# define: &offset_x -1
+# define: &offset_y -2
+# define: &padding_x 4
+# define: &padding_y 3
+# define: &dynamic_padding false
 
 # define: &font_name Hack Nerd Font Mono
 # define: &font_size 11.5
 # define: &offset_x 0
 # define: &offset_y 0
-# define: &padding_x 4
-# define: &padding_y 0
+# define: &padding_x 3
+# define: &padding_y 1
+# define: &dynamic_padding false
 
-# define: &font_name IosevkaCustom Nerd Font Mono
+# define: &font_name Iosevka Nerd Font Mono
 # define: &font_size 12.0
 # define: &offset_x 0
-# define: &offset_y 0
-# define: &padding_x 4
-# define: &padding_y 0
+# define: &offset_y -1
+# define: &padding_x 3
+# define: &padding_y 1
+# define: &dynamic_padding false
 
 # define: &font_name JetBrainsMono Nerd Font Mono
 # define: &font_size 11.5
-# define: &offset_x 0
-# define: &offset_y 0
-# define: &padding_x 10
-# define: &padding_y 0
+# define: &offset_x -1
+# define: &offset_y -2
+# define: &padding_x 3
+# define: &padding_y 2
+# define: &dynamic_padding false
 
 # define: &font_name RobotoMono Nerd Font Mono
 # define: &font_size 10.5
@@ -62,6 +85,7 @@ define: &padding_y 0
 # define: &offset_y 0
 # define: &padding_x 5
 # define: &padding_y 0
+# define: &dynamic_padding false
 
 font:
   normal:
@@ -71,10 +95,12 @@ font:
     style: Regular
   italic:
     family: *font_name
-    style: Regular
+    # style: Regular
+    style: Italic
   bold_italic:
     family: *font_name
-    style: Regular
+    # style: Regular
+    style: Italic 
   
   size: *font_size
   
@@ -86,10 +112,10 @@ window:
   padding:
     x: *padding_x
     y: *padding_y
-  dynamic_padding: true
+  dynamic_padding: *dynamic_padding
   decorations: full
-  # opacity: 0.8
-  startup_mode: Windowed
+  opacity: 0.90
+  startup_mode: Maximized
 
 draw_bold_text_with_bright_colors: false
 
@@ -115,6 +141,9 @@ key_bindings:
   - { key: J,    mods: Control|Shift, mode: Vi|~Search, action: ScrollToBottom }
   - { key: K,    mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp }
   - { key: J,    mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown }
+
+mouse_bindings:
+  - { mouse: Right, action: Paste }
 
 debug:
   log_level: Off

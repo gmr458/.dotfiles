@@ -28,6 +28,8 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export JAVA_HOME='/usr/lib/jvm/java-17-openjdk'
 # export BUN_INSTALL="$HOME/.bun"
 
+export EDITOR=nvim
+
 # ------------------------------------------------------------
 
 # PATH
@@ -65,6 +67,7 @@ alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 
 
 alias c_repos="cd ~/repos/internal/c"
 alias csharp_repos="cd ~/repos/internal/csharp"
+alias elixir_repos="cd ~/repos/internal/elixir"
 alias go_repos="cd $GOPATH/src/github.com/gmr458"
 alias java_repos="cd ~/repos/internal/java"
 alias js_repos="cd ~/repos/internal/javascript"
@@ -90,16 +93,10 @@ zstyle ':completion:*' menu select
 # Disable case sensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# pnpm
-# [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
-
 # ------------------------------------------------------------
 
 # Node.js version manager
 # eval "$(fnm env --use-on-cd)"
-
-# Ocaml
-# [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # Init Oh My Posh
 # eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.jsonc)"
@@ -108,20 +105,20 @@ source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlig
 # source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
 # source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# eval "$(zoxide init zsh)"
-
 # ------------------------------------------------------------
 
-# Open new foot terminal in the same directory
+# open new foot terminal in the same directory
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
 
-# function osc7-pwd() {
-#     emulate -L zsh # also sets localoptions for us
-#     setopt extendedglob
-#     local LC_ALL=C
-#     printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
-# }
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
-# function chpwd-osc7-pwd() {
-#     (( ZSH_SUBSHELL )) || osc7-pwd
-# }
-# add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+# opam configuration
+[[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
