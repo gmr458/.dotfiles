@@ -7,7 +7,7 @@ set $down  j
 set $up    k
 set $right l
 
-set $term alacritty
+set $term ~/repos/external/alacritty/target/release/alacritty
 
 # -------------------------------------------
 
@@ -17,7 +17,7 @@ set $term alacritty
 exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 # wallpaper
-output * bg ~/Pictures/wallpapers/old_sailing_ships_drawing.jpg fill
+output * bg ~/Pictures/wallpapers/arena.jpg fill
 
 # dunst
 # exec_always --no-startup-id dunst
@@ -98,6 +98,9 @@ bindsym $alt+7 move container to workspace number 7
 bindsym $alt+8 move container to workspace number 8
 bindsym $alt+9 move container to workspace number 9
 bindsym $alt+0 move container to workspace number 10
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 # ----------------------------------------------------
 
@@ -236,6 +239,7 @@ bindsym $mod+p     exec ~/.config/tofi/scripts/powermenu.sh
 default_border pixel 1
 
 # gaps between windows
+smart_gaps on
 gaps inner 8
 
 # ----------------------------------------------------

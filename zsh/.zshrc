@@ -8,7 +8,7 @@
 
 # PROMPT='%F{#C09553}󰝰%f %F{blue}%~%f${vcs_info_msg_0_} %(?.%F{green}❯.%F{red}✗ %? ❯)%f '
 
-PROMPT='%F{blue}%~%f %(?.%F{green}❯.%F{red}✗ %? ❯)%f '
+PROMPT='%F{245}%~%f %(?.%F{green}❯.%F{red}%? ❯)%f '
 
 # ------------------------------------------------------------
 
@@ -101,24 +101,24 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Init Oh My Posh
 # eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.jsonc)"
 
-source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
 # source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ------------------------------------------------------------
 
 # open new foot terminal in the same directory
-function osc7-pwd() {
-    emulate -L zsh # also sets localoptions for us
-    setopt extendedglob
-    local LC_ALL=C
-    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
-}
+# function osc7-pwd() {
+#     emulate -L zsh # also sets localoptions for us
+#     setopt extendedglob
+#     local LC_ALL=C
+#     printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+# }
 
-function chpwd-osc7-pwd() {
-    (( ZSH_SUBSHELL )) || osc7-pwd
-}
-add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+# function chpwd-osc7-pwd() {
+#     (( ZSH_SUBSHELL )) || osc7-pwd
+# }
+# add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
 # opam configuration
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
