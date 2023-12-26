@@ -28,6 +28,9 @@ exec_always --no-startup-id swaync
 # NetworkManager
 exec_always --no-startup-id nm-applet --indicator
 
+# Blueman Manager
+exec_always --no-startup-id blueman-applet
+
 # -------------------------------------------
 
 input "type:touchpad" {
