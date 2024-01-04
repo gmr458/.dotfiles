@@ -1,5 +1,5 @@
 import = [
-  "~/.config/alacritty/themes/vscode_dark_modern_111111.toml",
+  "~/.config/alacritty/themes/kanagawa_dragon_0a0a0a.toml",
   "~/.config/alacritty/fonts/blex_mono.toml",
 ]
 
@@ -7,9 +7,9 @@ live_config_reload = true
 
 [window]
 decorations = "Full"
-# opacity = 0.90
+opacity = 0.80
 blur = false
-startup_mode = "Maximized"
+#startup_mode = "Maximized"
 
 [selection]
 save_to_clipboard = true

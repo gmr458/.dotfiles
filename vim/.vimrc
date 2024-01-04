@@ -38,3 +38,5 @@ set termguicolors
 set nowrap
 
 inoremap jk <ESC>
+
+colorscheme industry

@@ -7,7 +7,7 @@ set $down  j
 set $up    k
 set $right l
 
-set $term ~/repos/external/alacritty/target/release/alacritty
+set $term alacritty
 
 # -------------------------------------------
 
@@ -17,7 +17,7 @@ set $term ~/repos/external/alacritty/target/release/alacritty
 exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 # wallpaper
-output * bg ~/Pictures/wallpapers/arena.jpg fill
+output * bg ~/Pictures/wallpapers/bgc2lmxjqgsa1.jpg fill
 
 # dunst
 # exec_always --no-startup-id dunst

@@ -233,7 +233,7 @@ pane_frames false
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
 themes {
-    dark_modern {
+    vscode_dark_modern {
         fg      "#a9a9a9"
         bg      "#264f78"
         red     "#cd3131"
@@ -246,12 +246,26 @@ themes {
         black   "#181818"
         white   "#e5e5e5"
     }
+    
+    kanagawa_dragon {
+        fg      "#c5c9c5"
+        bg      "#181616"
+        black   "#0d0c0c"
+        red     "#c4746e"
+        green   "#8a9a7b"
+        yellow  "#c4b28a"
+        blue    "#8ba4b0"
+        magenta "#a292a3"
+        cyan    "#8ea4a2"
+        white   "#c8c093"
+        orange  "#ffa066"
+    }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "dark_modern"
+theme "kanagawa_dragon"
 
 // The name of the default layout to load on startup
 // Default: "default"

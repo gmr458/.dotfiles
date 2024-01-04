@@ -23,8 +23,8 @@ bindkey "^[[1;5D" backward-word
 # Environment variables
 export GOROOT='/usr/local/go'
 export GOPATH="$HOME/go"
-export DENO_INSTALL="$HOME/.deno"
-export PNPM_HOME="$HOME/.local/share/pnpm"
+# export DENO_INSTALL="$HOME/.deno"
+# export PNPM_HOME="$HOME/.local/share/pnpm"
 export JAVA_HOME='/usr/lib/jvm/java-17-openjdk'
 # export BUN_INSTALL="$HOME/.bun"
 
@@ -37,14 +37,14 @@ export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.cargo/bin"
 export PATH=$PATH:"$GOROOT/bin"
 export PATH="$PATH:$GOPATH/bin"
-export PATH=$PATH:"$DENO_INSTALL/bin"
-export PATH=$PATH:$PNPM_HOME
+# export PATH=$PATH:"$DENO_INSTALL/bin"
+# export PATH=$PATH:$PNPM_HOME
 # export PATH=$PATH:'/usr/local/kotlinc/bin'
 # export PATH=$PATH:"$HOME/.nimble/bin"
 # export PATH=$PATH:"$(go env GOPATH)/bin"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 
-# fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zsh/completion $fpath)
 
 # ------------------------------------------------------------
 
@@ -66,7 +66,9 @@ alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 
 alias c_repos="cd ~/repos/internal/c"
 alias csharp_repos="cd ~/repos/internal/csharp"
 alias elixir_repos="cd ~/repos/internal/elixir"
+alias external_repos="cd ~/repos/external"
 alias go_repos="cd $GOPATH/src/github.com/gmr458"
+alias internal_repos="cd ~/repos/internal"
 alias java_repos="cd ~/repos/internal/java"
 alias js_repos="cd ~/repos/internal/javascript"
 alias lua_repos="cd ~/repos/internal/lua"
@@ -99,9 +101,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Init Oh My Posh
 # eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.jsonc)"
 
-# source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # source ~/.plugins/zap-zsh/supercharge/supercharge.plugin.zsh
-# source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ------------------------------------------------------------
 
