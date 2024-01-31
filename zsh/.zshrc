@@ -24,8 +24,6 @@ bindkey "^[[1;5D" backward-word
 export GOROOT='/usr/local/go'
 export GOPATH="$HOME/go"
 # export DENO_INSTALL="$HOME/.deno"
-# export PNPM_HOME="$HOME/.local/share/pnpm"
-export JAVA_HOME='/usr/lib/jvm/java-17-openjdk'
 # export BUN_INSTALL="$HOME/.bun"
 
 export EDITOR=nvim
@@ -37,10 +35,8 @@ export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.cargo/bin"
 export PATH=$PATH:"$GOROOT/bin"
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:/usr/local/flutter/bin"
 # export PATH=$PATH:"$DENO_INSTALL/bin"
-# export PATH=$PATH:$PNPM_HOME
-# export PATH=$PATH:'/usr/local/kotlinc/bin'
-# export PATH=$PATH:"$HOME/.nimble/bin"
 # export PATH=$PATH:"$(go env GOPATH)/bin"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 
@@ -76,6 +72,8 @@ alias ocaml_repos="cd ~/repos/internal/ocaml"
 alias py_repos="cd ~/repos/internal/python"
 alias rust_repos="cd ~/repos/internal/rust"
 alias ts_repos="cd ~/repos/internal/typescript"
+
+alias snvim="NVIM_APPNAME=simple nvim"
 
 # ------------------------------------------------------------
 
@@ -122,3 +120,7 @@ source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # opam configuration
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

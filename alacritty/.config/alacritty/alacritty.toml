@@ -1,13 +1,19 @@
 import = [
-  "~/.config/alacritty/themes/kanagawa_dragon_0a0a0a.toml",
+  "~/.config/alacritty/themes/dark/base16_default.toml",
   "~/.config/alacritty/fonts/blex_mono.toml",
 ]
 
 live_config_reload = true
 
+# [colors.primary]
+# background = "#0e0e0e"
+
+# [scrolling]
+# history = 100000
+
 [window]
 decorations = "Full"
-opacity = 0.80
+# opacity = 0.95
 blur = false
 #startup_mode = "Maximized"
 
@@ -29,6 +35,7 @@ bindings = [{ mouse = "Right", action = "Paste" }]
 [keyboard]
 bindings = [
   { key = "N", mods = "Shift|Control", action = "CreateNewWindow" },
+  { key = "B", mods = "Shift|Control", command = { program = "notify-send", args = ["a"] } },
   { key = "F11", mods = "Shift|Control", action = "ToggleFullscreen" },
   { key = "Up", mods = "Control|Shift", action = "ScrollHalfPageUp" },
   { key = "Down", mods = "Control|Shift", action = "ScrollHalfPageDown" },
@@ -39,3 +46,4 @@ bindings = [
   { key = "K", mods = "Control", mode = "Vi|~Search", action = "ScrollHalfPageUp" },
   { key = "J", mods = "Control", mode = "Vi|~Search", action = "ScrollHalfPageDown" },
 ]
+

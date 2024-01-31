@@ -265,7 +265,7 @@ themes {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "kanagawa_dragon"
+// theme "kanagawa_dragon"
 
 // The name of the default layout to load on startup
 // Default: "default"

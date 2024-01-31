@@ -1,28 +1,26 @@
 set background=dark
-set clipboard=unnamedplus
 set cmdheight=1
 set completeopt=menu,menuone,noselect
+set conceallevel=3
 set confirm
-" set cursorline
+set cursorline
 set expandtab
-set guifont=Iosevka\ Fixed:h14
 set ignorecase
 set laststatus=2
 set mouse=a
 set number
 set numberwidth=1
 " set omnifunc=
-set pumheight=0
+set pumheight=10
 set relativenumber
-set scroll=4
-set sidescrolloff=4
+set scrolloff=8
 set shiftwidth=4
 set showcmd
 set showmode
-set showtabline=0
-set sidescroll=5
-set sidescrolloff=5
-set signcolumn=no
+set showtabline=2
+set sidescroll=3
+set sidescrolloff=3
+set signcolumn=yes
 set nosmartcase
 set smartindent
 set smoothscroll
@@ -31,12 +29,37 @@ set nospell
 set splitbelow
 set splitright
 set noswapfile
-" set tabline
 set tabstop=4
 set termguicolors
-"set t_Co=256
+set timeoutlen=800
+set undofile
+set undolevels=10000
+set updatetime=200
+set virtualedit=block
 set nowrap
 
-inoremap jk <ESC>
+let g:mapleader = " "
 
-colorscheme industry
+inoremap jk <esc>
+
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+
+nmap <c-Up> :silent resize -2<cr>
+nmap <c-Down> :silent resize +2<cr>
+nmap <c-Left> :silent vertical resize -2<cr>
+nmap <c-Right> :silent vertical resize +2<cr>
+
+nmap <leader>bd :bd!<cr>
+
+nmap <c-n> :Lexplore 30<cr>
+
+nmap <leader>nh :nohlsearch<cr>
+
+nmap <c-a> gg<s-v>G
+
+map <leader>y "+y
+
+colorscheme habamax
