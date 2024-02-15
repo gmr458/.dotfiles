@@ -1,17 +1,17 @@
 show-failed-attempts
 
 scaling=stretch
-image=~/Pictures/wallpapers/ice.jpg
+image=~/Pictures/wallpapers/astronaut-black-and-white-169.jpg
 
-font=Iosevka
+font=GeistMono Nerd Font Mono
 font-size=56
 
 clock
 indicator
 timestr=%I:%M:%S %p
-# datestr=%A %B %d
+datestr=%A, %b %d
 
-indicator-radius=180
+indicator-radius=220
 
 bs-hl-color=f38ba8ff
 caps-lock-bs-hl-color=f38ba8ff

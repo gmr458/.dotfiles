@@ -183,11 +183,12 @@ keybinds clear-defaults=true {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
-    session-manager { path "session-manager"; }
+    // tab-bar { path "tab-bar"; }
+    // status-bar { path "status-bar"; }
+    // strider { path "strider"; }
+    // compact-bar { path "compact-bar"; }
+    // session-manager { path "session-manager"; }
+    compact-bar-x { path "/home/gdmr/repos/internal/rust/compact-bar-x/target/wasm32-wasi/release/compact-bar-x.wasm"; }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -260,12 +261,26 @@ themes {
         white   "#c8c093"
         orange  "#ffa066"
     }
+
+    base16 {
+        fg      "#D8D8D8"
+        bg      "#0E0E0E"
+        black   "#181818"
+        red     "#AC4242"
+        green   "#90A959"
+        yellow  "#F4BF75"
+        blue    "#6A9FB5"
+        magenta "#AA759F"
+        cyan    "#75B5AA"
+        white   "#F8F8F8"
+        orange  "#ffa066"
+    }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "kanagawa_dragon"
+theme "base16"
 
 // The name of the default layout to load on startup
 // Default: "default"
