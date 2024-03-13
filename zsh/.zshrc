@@ -38,7 +38,9 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/flutter/bin"
 export PATH=$PATH:"$DENO_INSTALL/bin"
 export PATH=$PATH:"$BUN_INSTALL/bin"
-# export PATH=$PATH:"$(go env GOPATH)/bin"
+export PATH=$PATH:"/usr/local/zig"
+export PATH=$PATH:"/usr/local/crystal/bin"
+export PATH=$PATH:"$HOME/.cache/rebar3/bin"
 
 fpath=(~/.zsh/completion $fpath)
 
@@ -52,11 +54,30 @@ nd () {
 # Alias
 alias cls='clear'
 alias md='mkdir'
-alias ls='lsd'
-alias lsa='lsd -A'
-alias ll='lsd -l'
-alias lla='lsd -lA'
-alias tree='lsd --tree --ignore-glob node_modules --ignore-glob venv --ignore-glob target --ignore-glob bin --ignore-glob obj --ignore-glob __pycache__'
+
+# ls
+alias ls='ls --group-directories-first --color=always'
+alias lsa='ls --group-directories-first --color=always --all'
+alias ll='ls --group-directories-first --color=always -hl'
+alias lla='ls --group-directories-first --color=always -hl --all'
+
+# tree
+alias tree='tree --dirsfirst'
+
+# lsd
+# alias ls='lsd'
+# alias lsa='lsd -A'
+# alias ll='lsd -l'
+# alias lla='lsd -lA'
+# alias tree='lsd --tree --ignore-glob node_modules --ignore-glob venv --ignore-glob target --ignore-glob bin --ignore-glob obj --ignore-glob __pycache__'
+
+# eza
+# alias ls='eza --group-directories-first --icons=always'
+# alias lsa='eza --group-directories-first --all --icons=always'
+# alias ll='eza --group-directories-first --long --icons=always --smart-group'
+# alias lla='eza --group-directories-first --long -all --icons=always --smart-group'
+# alias tree='eza --tree --icons ignore-glob node_modules venv target bin obj __pycache__'
+
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {} --theme=Dracula' --preview-window=right:75%"
 
 alias android_repos="cd ~/AndroidStudioProjects"
@@ -64,6 +85,7 @@ alias c_repos="cd ~/repos/internal/c"
 alias csharp_repos="cd ~/repos/internal/csharp"
 alias elixir_repos="cd ~/repos/internal/elixir"
 alias external_repos="cd ~/repos/external"
+alias gleam_repos="cd ~/repos/internal/gleam"
 alias go_repos="cd $GOPATH/src/github.com/gmr458"
 alias internal_repos="cd ~/repos/internal"
 alias java_repos="cd ~/repos/internal/java"

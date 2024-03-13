@@ -12,7 +12,7 @@ classic: false
 blocks:
   - permission
   - user
-  # - group
+  - group
   # - context
   - size
   - date

@@ -1,6 +1,6 @@
 import = [
   "~/.config/alacritty/themes/dark/base16_default.toml",
-  "~/.config/alacritty/fonts/blex_mono.toml",
+  "~/.config/alacritty/fonts/geist_mono.toml",
 ]
 
 live_config_reload = true
@@ -13,7 +13,7 @@ live_config_reload = true
 
 [window]
 decorations = "Full"
-# opacity = 0.95
+opacity = 0.90
 blur = false
 #startup_mode = "Maximized"
 
@@ -21,11 +21,11 @@ blur = false
 save_to_clipboard = true
 
 [cursor]
-style = { shape = "Underline", blinking = "Never" }
-vi_mode_style = { shape = "Block", blinking = "Never" }
-blink_interval = 400
-blink_timeout = 30
-unfocused_hollow = true
+# style = { shape = "Underline", blinking = "Never" }
+# vi_mode_style = { shape = "Block", blinking = "Never" }
+# blink_interval = 400
+# blink_timeout = 30
+unfocused_hollow = false
 thickness = 0.1
 
 [mouse]
@@ -35,7 +35,7 @@ bindings = [{ mouse = "Right", action = "Paste" }]
 [keyboard]
 bindings = [
   { key = "N", mods = "Shift|Control", action = "CreateNewWindow" },
-  { key = "B", mods = "Shift|Control", command = { program = "notify-send", args = ["a"] } },
+  # { key = "B", mods = "Shift|Control", command = { program = "notify-send", args = ["a"] } },
   { key = "F11", mods = "Shift|Control", action = "ToggleFullscreen" },
   { key = "Up", mods = "Control|Shift", action = "ScrollHalfPageUp" },
   { key = "Down", mods = "Control|Shift", action = "ScrollHalfPageDown" },
@@ -46,4 +46,3 @@ bindings = [
   { key = "K", mods = "Control", mode = "Vi|~Search", action = "ScrollHalfPageUp" },
   { key = "J", mods = "Control", mode = "Vi|~Search", action = "ScrollHalfPageDown" },
 ]
-

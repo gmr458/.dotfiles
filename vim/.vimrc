@@ -1,3 +1,5 @@
+syntax on
+
 set background=dark
 set cmdheight=1
 set completeopt=menu,menuone,noselect
