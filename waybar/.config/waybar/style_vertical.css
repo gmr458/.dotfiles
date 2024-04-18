@@ -25,7 +25,7 @@ window#waybar {
   background-color: @black-transparent-9;
   color: @text;
   border-radius: 0;
-  border: 1px solid @black-transparent-9;
+  border-right: 1px solid @darkgray;
   /* border: 1px solid rgba(0, 0, 0, 0.0); */
 }
 
@@ -52,8 +52,8 @@ tooltip label {
   color: @lightgray;
   padding: 0;
   /* margin: 0; */
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   /* margin-left: 1px;
   margin-right: 1px; */
   border-radius: 6px;
@@ -92,39 +92,35 @@ tooltip label {
 
 /* #workspaces button.hidden {} */
 
-#taskbar {
-  border-radius: 8px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 1px;
-  margin-right: 1px;
-}
+/* #taskbar {} */
 
 #taskbar button {
-  color: @text;
-  padding: 1px 8px;
-  margin-left: 1px;
-  margin-right: 1px;
+  opacity: 0;
+}
+
+#taskbar button.active {
+  opacity: 1;
 }
 
 #taskbar button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
   background: transparent;
-  border: 1px solid @darkgray;
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.0);
+  color: transparent;
   transition: all 0.3s ease;
-  animation: colored-gradient 10s ease infinite;
 }
 
 /* #taskbar button.maximized {} */
 
 /* #taskbar button.minimized {} */
 
-#taskbar button.active {
-  border: 1px solid @darkgray;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  animation: colored-gradient 10s ease infinite;
-}
+/* #taskbar button.active { */
+/*   border: 1px solid @darkgray; */
+/*   border-radius: 8px; */
+/*   transition: all 0.3s ease; */
+/*   animation: colored-gradient 10s ease infinite; */
+/* } */
 
 /* #taskbar button.fullscreen {} */
 
@@ -150,8 +146,8 @@ tooltip label {
   background-color: transparent;
   color: @text;
   padding: 1px 8px;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   margin-left: 0;
   margin-right: 0;
   /* border: 1px solid @darkgray; */

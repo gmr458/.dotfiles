@@ -1,8 +1,8 @@
 tab_template name="ui" {
-   children
-   pane size=1 borderless=true {
-       plugin location="zellij:tab-bar"
-   }
+    children
+    pane size=1 borderless=true {
+        plugin location="compact-bar"
+    }
 }
 
 swap_tiled_layout name="vertical" {

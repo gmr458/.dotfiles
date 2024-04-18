@@ -20,7 +20,7 @@ multi-instance = false
 ascii-input = true
 
 # STYLE OPTIONS
-font = ~/.local/share/fonts/IosevkaNerdFontMono-Regular.ttf
+font = ~/.local/share/fonts/IosevkaFixedNerdFontMono-Regular.ttf
 font-size = 16
 font-features = ""
 font-variations = ""

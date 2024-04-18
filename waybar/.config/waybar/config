@@ -59,8 +59,12 @@
     "sway/mode"
   ],
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{icon} {windows}",
+     "window-rewrite": {
+    "class<firefox>": "", // Windows whose classes are "firefox"
+	},
     "format-icons": {
+
       "1": "1",
       "2": "2",
       "3": "3",

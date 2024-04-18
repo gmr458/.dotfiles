@@ -34,7 +34,7 @@ set noswapfile
 set tabstop=4
 set termguicolors
 set timeoutlen=800
-set undofile
+set noundofile
 set undolevels=10000
 set updatetime=200
 set virtualedit=block

@@ -5,9 +5,6 @@ import = [
 
 live_config_reload = true
 
-# [colors.primary]
-# background = "#0e0e0e"
-
 # [scrolling]
 # history = 100000
 
@@ -21,8 +18,8 @@ blur = false
 save_to_clipboard = true
 
 [cursor]
-# style = { shape = "Underline", blinking = "Never" }
-# vi_mode_style = { shape = "Block", blinking = "Never" }
+style = { shape = "Beam", blinking = "Never" }
+vi_mode_style = { shape = "Block", blinking = "Never" }
 # blink_interval = 400
 # blink_timeout = 30
 unfocused_hollow = false
@@ -35,7 +32,7 @@ bindings = [{ mouse = "Right", action = "Paste" }]
 [keyboard]
 bindings = [
   { key = "N", mods = "Shift|Control", action = "CreateNewWindow" },
-  # { key = "B", mods = "Shift|Control", command = { program = "notify-send", args = ["a"] } },
+  { key = "U", mods = "Shift|Control", command = { program = "/home/gdmr/.config/alacritty/switch_theme.sh", args = ["/home/gdmr/.config/alacritty/alacritty.toml"] } },
   { key = "F11", mods = "Shift|Control", action = "ToggleFullscreen" },
   { key = "Up", mods = "Control|Shift", action = "ScrollHalfPageUp" },
   { key = "Down", mods = "Control|Shift", action = "ScrollHalfPageDown" },

@@ -1,13 +1,10 @@
-// If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds clear-defaults=true {
-    normal {
-        bind "Alt m" { SwitchToMode "Move"; }
-    }
+    normal {}
     locked {
         bind "Alt g" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Alt n" { SwitchToMode "Normal"; }
+        bind "Alt r" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
         bind "k" "Up" { Resize "Increase Up"; }
@@ -78,8 +75,6 @@ keybinds clear-defaults=true {
         bind "Alt b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
-        // uncomment this and adjust key if using copy_on_select=false
-        // bind "Alt c" { Copy; }
     }
     search {
         bind "Alt s" { SwitchToMode "Normal"; }
@@ -113,7 +108,7 @@ keybinds clear-defaults=true {
         bind "Alt s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
-            LaunchOrFocusPlugin "zellij:session-manager" {
+            LaunchOrFocusPlugin "session-manager" {
                 floating true
                 move_to_focused_tab true
             };
@@ -147,6 +142,8 @@ keybinds clear-defaults=true {
         bind "Alt g" { SwitchToMode "Locked"; }
         bind "Alt q" { Quit; }
         bind "Alt n" { NewPane; }
+        bind "Alt i" { MoveTab "Left"; }
+        bind "Alt o" { MoveTab "Right"; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
@@ -163,7 +160,7 @@ keybinds clear-defaults=true {
         bind "Alt p" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
-        bind "Alt n" { SwitchToMode "Resize"; }
+        bind "Alt r" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
         bind "Alt s" { SwitchToMode "Scroll"; }
@@ -183,85 +180,13 @@ keybinds clear-defaults=true {
 }
 
 plugins {
-    // tab-bar { path "tab-bar"; }
-    // status-bar { path "status-bar"; }
-    // strider { path "strider"; }
-    // compact-bar { path "compact-bar"; }
-    // session-manager { path "session-manager"; }
-    compact-bar-x { path "/home/gdmr/repos/internal/rust/compact-bar-x/target/wasm32-wasi/release/compact-bar-x.wasm"; }
+    compact-bar location="zellij:compact-bar"
 }
 
-// Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
-// eg. when terminal window with an active zellij session is closed
-// Options:
-//   - detach (Default)
-//   - quit
-//
-// on_force_close "quit"
-
-//  Send a request for a simplified ui (without arrow fonts) to plugins
-//  Options:
-//    - true
-//    - false (Default)
-//
 simplified_ui true
-
-// Choose the path to the default shell that zellij will use for opening new panes
-// Default: $SHELL
-//
-// default_shell ""
-
-// Choose the path to override cwd that zellij will use for opening new panes
-//
-// default_cwd ""
-
-// Toggle between having pane frames around the panes
-// Options:
-//   - true (default)
-//   - false
-//
 pane_frames false
 
-// Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
-// Options:
-//   - true (default)
-//   - false
-//
-// auto_layout true
-
-// Define color themes for Zellij
-// For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
-// Once these themes are defined, one of them should to be selected in the "theme" section of this file
-//
 themes {
-    vscode_dark_modern {
-        fg      "#a9a9a9"
-        bg      "#264f78"
-        red     "#cd3131"
-        green   "#0dbc79"
-        yellow  "#e5e510"
-        blue    "#2472c8"
-        magenta "#bc3fbc"
-        orange  "#ee9d28"
-        cyan    "#11a8cd"
-        black   "#181818"
-        white   "#e5e5e5"
-    }
-    
-    kanagawa_dragon {
-        fg      "#c5c9c5"
-        bg      "#181616"
-        black   "#0d0c0c"
-        red     "#c4746e"
-        green   "#8a9a7b"
-        yellow  "#c4b28a"
-        blue    "#8ba4b0"
-        magenta "#a292a3"
-        cyan    "#8ea4a2"
-        white   "#c8c093"
-        orange  "#ffa066"
-    }
-
     base16 {
         fg      "#D8D8D8"
         bg      "#0E0E0E"
@@ -277,78 +202,6 @@ themes {
     }
 }
 
-// Choose the theme that is specified in the themes section.
-// Default: default
-//
 theme "base16"
-
-// The name of the default layout to load on startup
-// Default: "default"
-//
 default_layout "simple"
-
-// Choose the mode that zellij uses when starting up.
-// Default: normal
-//
-// default_mode "locked"
-
-// Toggle enabling the mouse mode.
-// On certain configurations, or terminals this could
-// potentially interfere with copying text.
-// Options:
-//   - true (default)
-//   - false
-//
-// mouse_mode false
-
-// Configure the scroll back buffer size
-// This is the number of lines zellij stores for each pane in the scroll back
-// buffer. Excess number of lines are discarded in a FIFO fashion.
-// Valid values: positive integers
-// Default value: 10000
-//
-// scroll_buffer_size 10000
-
-// Provide a command to execute when copying text. The text will be piped to
-// the stdin of the program to perform the copy. This can be used with
-// terminal emulators which do not support the OSC 52 ANSI control sequence
-// that will be used by default if this option is not set.
-// Examples:
-//
-// copy_command "xclip -selection clipboard" // x11
-// copy_command "wl-copy"                    // wayland
-// copy_command "pbcopy"                     // osx
-
-// Choose the destination for copied text
-// Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
-// Does not apply when using copy_command.
-// Options:
-//   - system (default)
-//   - primary
-//
-// copy_clipboard "primary"
-
-// Enable or disable automatic copy (and clear) of selection when releasing mouse
-// Default: true
-//
-// copy_on_select false
-
-// Path to the default editor to use to edit pane scrollbuffer
-// Default: $EDITOR or $VISUAL
-//
-// scrollback_editor "/usr/bin/vim"
-
-// When attaching to an existing session with other users,
-// should the session be mirrored (true)
-// or should each user have their own cursor (false)
-// Default: false
-//
-// mirror_session true
-
-// The folder in which Zellij will look for layouts
-//
-// layout_dir "/path/to/my/layout_dir"
-
-// The folder in which Zellij will look for themes
-//
-// theme_dir "/path/to/my/theme_dir"
+copy_on_select true

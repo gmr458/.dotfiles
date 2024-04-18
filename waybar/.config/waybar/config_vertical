@@ -14,11 +14,12 @@
   "gtk-layer-shell": true,
   "modules-left": [
     "custom/notification",
+    "backlight",
     "pulseaudio#audio",
     "network#wlo1",
     "network#eno1",
-    "bluetooth",
-    "tray"
+    "bluetooth"
+    // "tray"
   ],
   "custom/notification": {
     "tooltip": false,
@@ -43,7 +44,8 @@
   "clock": {
     "interval": 1,
     // "format": "{:󰥔\n%I\n%M\n%p\n\n󰣆\n%d\n%m\n%y}",
-    "format": "{:󰥔\n%I\n%M\n%p\n\n󰣆\n%d\n%m\n%y}",
+    "format": "{:󰥔\n%I\n%M\n%p}",
+    "format-alt": "{:󰥔\n%I\n%M\n%p\n󰣆\n%d\n%m\n%y}",
     // "format-alt": "{:󰣆 %A, %B %d | 󰥔 %I:%M %p}",
     // "on-click": "gnome-calendar",
     "tooltip": true,
@@ -62,6 +64,7 @@
     // "hyprland/window"
     "sway/workspaces",
     "sway/mode"
+    // "wlr/taskbar"
   ],
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -107,12 +110,16 @@
     "format": "{}",
     "tooltip": false
   },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "active-first": true
+  },
   "modules-right": [
     // "cpu",
-    // "memory",
-    "backlight",
     // "pulseaudio#microphone",
     // "battery"
+    "tray",
+    "memory",
     "clock"
   ],
   "tray": {
@@ -125,9 +132,10 @@
     "tooltip": false
   },
   "memory": {
-    "format": "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
+    "format": "󰍛",
+    "tooltip-format": "󰍛 total: {total:0.1f}GB, avail: {avail:0.1f}GB, used: {used:0.1f}GB ({percentage}%)\n󰓡 total: {swapTotal:0.1f}GB, avail: {swapAvail:0.1f}GB, used: {swapUsed:0.1f}GB ({swapPercentage}%)",
     "on-click": "",
-    "tooltip": false
+    "tooltip": true
   },
   "backlight": {
     "format": "{icon}",
