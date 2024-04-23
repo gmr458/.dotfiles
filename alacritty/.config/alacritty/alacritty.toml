@@ -1,6 +1,6 @@
 import = [
   "~/.config/alacritty/themes/dark/base16_default.toml",
-  "~/.config/alacritty/fonts/geist_mono.toml",
+  "~/.config/alacritty/fonts/roboto_mono.toml",
 ]
 
 live_config_reload = true
