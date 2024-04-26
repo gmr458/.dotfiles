@@ -3,9 +3,13 @@ normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
 bold = { family = "FiraCode Nerd Font Mono", style = "Regular" }
 italic = { family = "FiraCode Nerd Font Mono", style = "Regular" }
 bold_italic = { family = "FiraCode Nerd Font Mono", style = "Regular" }
-size = 11.0
-offset = { x = -1, y = 0 }
-glyph_offset = { x = 0, y = 0 }
+# size = 11.0
+# offset = { x = -1, y = 0 }
+# glyph_offset = { x = 0, y = 0 }
+
+size = 11.5
+offset = { x = 0, y = -1 }
+glyph_offset = { x = 0, y = -2 }
 
 [window]
 padding = { x = 0, y = 0 }

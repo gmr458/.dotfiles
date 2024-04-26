@@ -17,7 +17,7 @@ set $term alacritty
 exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 # wallpaper
-output * bg ~/Pictures/wallpapers/bgc2lmxjqgsa1.jpg fill
+output * bg ~/Pictures/wallpapers/arena.png fill
 
 # dunst
 # exec_always --no-startup-id dunst
