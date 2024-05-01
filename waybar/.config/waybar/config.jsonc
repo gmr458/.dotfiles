@@ -1,4 +1,3 @@
-// vim: ft=jsonc
 {
   "layer": "top",
   // "output": [],
@@ -43,11 +42,8 @@
   },
   "clock": {
     "interval": 1,
-    // "format": "{:󰥔\n%I\n%M\n%p\n\n󰣆\n%d\n%m\n%y}",
-    "format": "{:󰥔\n%I\n%M\n%p}",
-    "format-alt": "{:󰥔\n%I\n%M\n%p\n󰣆\n%d\n%m\n%y}",
-    // "format-alt": "{:󰣆 %A, %B %d | 󰥔 %I:%M %p}",
-    // "on-click": "gnome-calendar",
+    "format": "󰥔\n{:%I\n%M\n%p}",
+    "format-alt": "󰣆\n{:%d\n%m\n%y\n󰥔\n%I\n%M\n%p}",
     "tooltip": true,
     "tooltip-format": "{calendar}",
     "calendar": {

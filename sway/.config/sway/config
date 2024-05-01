@@ -19,9 +19,6 @@ exec_always --no-startup-id ~/.config/waybar/launch.sh
 # wallpaper
 output * bg ~/Pictures/wallpapers/arena.png fill
 
-# dunst
-# exec_always --no-startup-id dunst
-
 # SwayNotificationCenter
 exec_always --no-startup-id swaync
 
@@ -30,6 +27,8 @@ exec_always --no-startup-id nm-applet --indicator
 
 # Blueman Manager
 exec_always --no-startup-id blueman-applet
+
+font pango:IosevkaFixed Nerd Font Mono 9
 
 # -------------------------------------------
 
@@ -244,6 +243,15 @@ default_border pixel 1
 # gaps between windows
 smart_gaps on
 gaps inner 8
+
+
+# ----------------------------------------------------
+
+# bar {
+#     status_command i3status
+#     tray_padding 4
+#     separator_symbol "|"
+# }
 
 # ----------------------------------------------------
 
