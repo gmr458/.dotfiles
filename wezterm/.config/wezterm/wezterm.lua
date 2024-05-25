@@ -21,38 +21,38 @@ local fonts = {
     },
     cascadia_code = {
         name = 'Cascadia Code NF',
-        size = 12.0,
-        cell_width = 1.0,
+        size = 11.9,
+        cell_width = 0.8,
         line_height = 1.0,
     },
     comic_mono = {
         name = 'ComicMono Nerd Font Mono',
         size = 12.0,
-        cell_width = 1.0,
+        cell_width = 0.8,
         line_height = 1.0,
     },
     consolas = {
         name = 'Consolas Nerd Font Mono',
         size = 13.0,
-        cell_width = 1.0,
+        cell_width = 0.8,
         line_height = 0.9,
     },
     fira_code = {
         name = 'FiraCode Nerd Font Mono',
-        size = 11.0,
+        size = 11.5,
         cell_width = 0.8,
-        line_height = 0.9,
+        line_height = 1.0,
     },
     geist_mono = {
         name = 'GeistMono Nerd Font Mono',
-        size = 12.0,
-        cell_width = 0.9,
+        size = 11.6,
+        cell_width = 0.8,
         line_height = 0.9,
     },
     hack = {
         name = 'Hack Nerd Font Mono',
-        size = 12.0,
-        cell_width = 1.0,
+        size = 11.0,
+        cell_width = 0.8,
         line_height = 1.0,
     },
     iosevka = {
@@ -70,12 +70,14 @@ local fonts = {
     roboto_mono = {
         name = 'RobotoMono Nerd Font Mono',
         size = 11.0,
-        cell_width = 1.0,
+        cell_width = 0.8,
         line_height = 0.9,
     },
 }
 
-local font = fonts.jetbrains_mono
+-- local font = fonts.geist_mono
+local font = fonts.blex_mono
+-- local font = fonts.jetbrains_mono
 
 config.font = wezterm.font(font.name, { weight = 'Regular' })
 config.font_size = font.size
