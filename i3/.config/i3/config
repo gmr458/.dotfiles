@@ -2,51 +2,47 @@
 set $mod Mod4
 set $alt Mod1
 
-font pango:Iosevka Fixed 10
+font pango:IosevkaFixed Nerd Font Mono 9
 
-set $refresh_i3status killall -SIGUSR1 i3status
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+set $term alacritty
 
 # -------------------------------------------
 
-# execute apps at launch
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex-autostart --autostart --environment i3
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 # Picom
-exec_always --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
-
-# Polybar
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Speed keyboard
-exec_always --no-startup-id xset r rate 250 40
-
-# dunst
-exec_always --no-startup-id dunst
+# exec_always --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
+exec_always --no-startup-id picom
 
 # NetworkManager
 exec_always --no-startup-id nm-applet
 
+# Blueman Manager
+exec_always --no-startup-id blueman-applet
+
+# Speed keyboard
+exec_always --no-startup-id xset r rate 250 40
+
 # Enable touchpad tap to click
-exec_always xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+# exec_always xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
 
 # Enable natural scrolling
-exec_always xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
+# exec_always xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
+
+# -------------------------------------------
+
+# key bindings
 
 # ----------------------------------------------------
 
 # change focus with vim like keybinds
-bindsym $mod+h      focus left
-bindsym $mod+j      focus down
-bindsym $mod+k      focus up
-bindsym $mod+l      focus right
-bindsym $mod+ntilde focus right
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
 
 # and with cursor keys
 bindsym $mod+Left  focus left
@@ -57,10 +53,10 @@ bindsym $mod+Right focus right
 # ----------------------------------------------------
 
 # move focused window with vim like keybinds
-bindsym $mod+Shift+h      move left
-bindsym $mod+Shift+j      move down
-bindsym $mod+Shift+k      move up
-bindsym $mod+Shift+l      move right
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
 
 # and with cursor keys
 bindsym $mod+Shift+Left  move left
@@ -70,22 +66,57 @@ bindsym $mod+Shift+Right move right
 
 # ----------------------------------------------------
 
-# split in horizontal orientation
-# bindsym $mod+h split h
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
-# split in vertical orientation
-# bindsym $mod+v split v
+# move focused container to workspace
+bindsym $alt+1 move container to workspace number 1
+bindsym $alt+2 move container to workspace number 2
+bindsym $alt+3 move container to workspace number 3
+bindsym $alt+4 move container to workspace number 4
+bindsym $alt+5 move container to workspace number 5
+bindsym $alt+6 move container to workspace number 6
+bindsym $alt+7 move container to workspace number 7
+bindsym $alt+8 move container to workspace number 8
+bindsym $alt+9 move container to workspace number 9
+bindsym $alt+0 move container to workspace number 10
+
+# ----------------------------------------------------
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+    # resize with vim like keybinds
+    bindsym h resize grow   width  10 px
+    bindsym j resize shrink height 10 px
+    bindsym k resize grow   height 10 px
+    bindsym l resize shrink width  10 px
+
+    # and with cursor keys
+    bindsym Left  resize shrink width  5 px
+    bindsym Down  resize grow   height 5 px
+    bindsym Up    resize shrink height 5 px
+    bindsym Right resize grow   width  5 px
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
 
 # ----------------------------------------------------
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# ----------------------------------------------------
-
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s           layout stacking
-# bindsym $mod+w           layout tabbed
 
 # ----------------------------------------------------
 
@@ -96,81 +127,6 @@ bindsym $mod+Shift+space layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+v floating toggle
-
-# ----------------------------------------------------
-
-# change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
-
-# ----------------------------------------------------
-
-# focus the parent container
-# bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# ----------------------------------------------------
-
-# names for default workspaces
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-# switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
-
-# move focused container to workspace
-bindsym $alt+1 move container to workspace number $ws1  workspace number $ws1
-bindsym $alt+2 move container to workspace number $ws2  workspace number $ws2
-bindsym $alt+3 move container to workspace number $ws3  workspace number $ws3
-bindsym $alt+4 move container to workspace number $ws4  workspace number $ws4
-bindsym $alt+5 move container to workspace number $ws5  workspace number $ws5
-bindsym $alt+6 move container to workspace number $ws6  workspace number $ws6
-bindsym $alt+7 move container to workspace number $ws7  workspace number $ws7
-bindsym $alt+8 move container to workspace number $ws8  workspace number $ws8
-bindsym $alt+9 move container to workspace number $ws9  workspace number $ws9
-bindsym $alt+0 move container to workspace number $ws10 workspace number $ws10
-
-# ----------------------------------------------------
-
-bindsym $mod+r mode "resize"
-
-# resize window
-mode "resize" {
-        # resize with vim like keybinds
-        bindsym h resize shrink width  1 px or 1 ppt
-        bindsym j resize grow   height 1 px or 1 ppt
-        bindsym k resize shrink height 1 px or 1 ppt
-        bindsym l resize grow   width  1 px or 1 ppt
-
-        # and with cursor keys
-        bindsym Left  resize shrink width  1 px or 1 ppt
-        bindsym Down  resize grow   height 1 px or 1 ppt
-        bindsym Up    resize shrink height 1 px or 1 ppt
-        bindsym Right resize grow   width  1 px or 1 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
 
 # ----------------------------------------------------
 
@@ -186,20 +142,21 @@ floating_modifier $mod
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # ----------------------------------------------------
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $term
+
+# ----------------------------------------------------
 
 # brightness
-bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+
+# ----------------------------------------------------
 
 # media player controls
 bindsym XF86AudioPlay  exec playerctl play-pause
@@ -207,33 +164,47 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext  exec playerctl next
 bindsym XF86AudioPrev  exec playerctl previous
 
+# ----------------------------------------------------
+
 # volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   +10%   && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   -10%   && $refresh_i3status
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_i3status
-bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%
+bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle
+bindsym XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# ----------------------------------------------------
 
 # screenshots
 bindsym Print       exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && maim --format=png --quality 1 "$HOME/Pictures/Screenshots/$(date).png"
 bindsym $mod+Print  exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && maim --format=png --quality 1 --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date).png"
 bindsym Shift+Print exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && maim --format=png --quality 1 --select "$HOME/Pictures/Screenshots/$(date).png"
 
-# clipboard Screenshots
+# clipboard screenshots
 bindsym Ctrl+Print       exec --no-startup-id maim --format=png --quality 1                                     | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print  exec --no-startup-id maim --format=png --quality 1 --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --quality 1 --select                            | xclip -selection clipboard -t image/png
 
+# ----------------------------------------------------
+
 # i3lock-color
 bindsym Ctrl+Shift+l exec ~/.config/i3/lock.sh
 
-# rofi
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/scripts/launcher_t3
-bindsym $mod+p     exec --no-startup-id ~/.config/rofi/scripts/powermenu_t1
+# ----------------------------------------------------
+
+# dmenu
+bindsym $mod+space exec --no-startup-id dmenu_run
 
 # ----------------------------------------------------
 
-# Window border
-for_window [all] border pixel 1
+# window border
+default_border pixel 1
 
 # gaps between windows
-gaps inner 10
+smart_gaps on
+gaps inner 8
+
+# ----------------------------------------------------
+
+bar {
+    status_command i3status
+}

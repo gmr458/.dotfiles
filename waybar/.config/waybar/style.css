@@ -17,55 +17,58 @@
 @define-color black-solid         rgba(0, 0, 0, 1.0);
 
 * {
-  font-family: Iosevka, Material Design Icons Desktop;
-  font-size: 13px;
-  padding: 0;
-  margin: 0;
+    font-family:
+        Iosevka,
+        Material Design Icons Desktop;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
-  background-color: @black-transparent-9;
-  color: @text;
-  border-radius: 0;
+    background-color: @black-transparent-9;
+    color: @text;
+    border-radius: 0;
 }
 
 tooltip {
-  background: @black-solid;
-  border: 1px solid @darkgray;
-  border-radius: 0;
+    background: @black-solid;
+    border: 1px solid @darkgray;
+    border-radius: 0;
 }
 tooltip label {
-  color: @text;
+    color: @text;
 }
 
-#workspaces {}
+#workspaces {
+}
 
 #workspaces button {
-  background-color: transparent;
-  color: @lightgray;
-  transition: all 0.3s ease;
+    background-color: transparent;
+    color: @lightgray;
+    transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.0);
-  color: @white;
-  transition: all 0.3s ease;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: @white;
+    transition: all 0.3s ease;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  color: @white;
-  transition: all 0.3s ease;
-  animation: colored-gradient 10s ease infinite;
+    color: @white;
+    transition: all 0.3s ease;
+    animation: colored-gradient 10s ease infinite;
 }
 
 #workspaces button.urgent {
-  background-color: @red;
-  color: @black;
-  transition: all 0.3s ease;
+    background-color: @red;
+    color: @black;
+    transition: all 0.3s ease;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -83,20 +86,21 @@ tooltip label {
 #bluetooth,
 #battery,
 #clock,
-#custom-powermenu,
+#mpd,
+#custom-media,
 #custom-notification {
-  background-color: transparent;
-  color: @text;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 0;
-  margin-right: 0;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+    background-color: transparent;
+    color: @text;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 #submap {
-  border: 0;
+    border: 0;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -115,7 +119,7 @@ tooltip label {
 .modules-left > widget:first-child > #battery,
 .modules-left > widget:first-child > #clock,
 .modules-left > widget:first-child > #custom-notification {
-  margin-top: 4px;
+    margin-top: 4px;
 }
 
 .modules-right > widget:last-child > #workspaces button,
@@ -131,16 +135,16 @@ tooltip label {
 .modules-right > widget:last-child > #battery,
 .modules-right > widget:last-child > #clock,
 .modules-right > widget:last-child > #custom-notification {
-  margin-bottom: 4px;
+    margin-bottom: 4px;
 }
 
 /* -------------------------------------------------------------------------------- */
 
 #tray {
-  background-color: transparent;
-  padding: 1px 5px;
+    background-color: transparent;
+    padding: 1px 5px;
 }
 #tray menu {
-  padding: 2px;
-  border-radius: 0;
+    padding: 2px;
+    border-radius: 0;
 }
