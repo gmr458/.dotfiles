@@ -1,12 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# keybindings, this is necessary on fedora
-# for some reason
+# keybindings, this is necessary on fedora for some reason
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
@@ -36,11 +28,6 @@ export PATH=$PATH:"$HOME/.cache/rebar3/bin"
 fpath=(~/.zsh/completion $fpath)
 
 # aliases
-nd () {
-  mkdir -p -- "$1" &&
-    cd -P -- "$1"
-}
-
 alias cls='clear'
 alias md='mkdir'
 
@@ -142,8 +129,54 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # source ~/.plugins/romkatv/gitstatus/gitstatus.prompt.zsh
 # PROMPT='%F{245}%~%f${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} %(?.%F{green}❯.%F{red}%? ❯)%f '
 
-# how it looks: ~/.config/nvim ❯
-# PROMPT='%F{245}%~%f %(?.%F{green}❯.%F{red}%? ❯)%f '
+function fmt_ms() {
+    local total_ms=$1
+
+    local ms=$((total_ms%1000))
+    local total_seconds=$((total_ms/1000))
+    local seconds=$((total_seconds%60))
+    local total_minutes=$((total_seconds/60))
+    local minutes=$((total_minutes%60))
+    local hours=$((total_minutes/60))
+
+    formatted=""
+    if [ $hours -gt 0 ]; then
+        formatted+="${hours}h "
+    fi
+    if [ $minutes -gt 0 ]; then
+        formatted+="${minutes}min "
+    fi
+    if [ $seconds -gt 0 ]; then
+        formatted+="${seconds}s "
+    fi
+    # if [ $ms -gt 0 ]; then
+    #     formatted+="${ms}ms "
+    # fi
+    # if [ "$formatted" != "" ]; then
+    #     formatted+=" "
+    # fi
+
+    printf "$formatted"
+}
+
+function preexec() {
+  timer=$(($(date +%s%0N)/1000000))
+}
+
+function precmd() {
+  if [ $timer ]; then
+    now=$(($(date +%s%0N)/1000000))
+    elapsed="$(($now-$timer))"
+    formatted=$(fmt_ms $elapsed)
+
+    PROMPT="%F{blue}%~%f %F{8}${formatted:+$formatted}%f%(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+    unset timer
+  else
+    PROMPT="%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+  fi
+}
+
+PROMPT="%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
 
 # curl functions
 function curl_get_json() {
@@ -191,7 +224,7 @@ function extract_tar_xz() {
     tar -xf $1
 }
 
-# upgrade system
+# upgrade system if necessary
 function upgrade() {
     sudo dnf check-update --refresh
     if [ $? -eq 100 ]; then
@@ -199,16 +232,20 @@ function upgrade() {
     fi
 }
 
-# function to stop all docker containers
 function stop_all_docker_containers() {
     docker ps -q | xargs docker stop
 }
 
-# function to stop all docker containers
 function delete_all_docker_containers() {
     docker ps -a --format "{{.ID}}" | xargs docker rm
 }
 
-# powerlevel10k
-source ~/.plugins/romkatv/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+function copy_current_path() {
+    wl-copy $(pwd)
+}
+
+# mkdir and cd
+nd () {
+  mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}

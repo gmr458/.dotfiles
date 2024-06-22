@@ -18,7 +18,7 @@
 @define-color bg-selected rgb(0, 128, 255);
 
 * {
-    font-family: Iosevka;
+    font-family: Roboto;
 }
 
 .notification-row {

@@ -1,6 +1,6 @@
 import = [
   "~/.config/alacritty/themes/dark/base16_default.toml",
-  "~/.config/alacritty/fonts/jet_brains_mono.toml",
+  "~/.config/alacritty/fonts/fira_code.toml",
 ]
 
 live_config_reload = true
@@ -10,7 +10,7 @@ live_config_reload = true
 
 [window]
 decorations = "Full"
-# opacity = 0.8
+opacity = 0.9
 blur = false
 #startup_mode = "Maximized"
 
