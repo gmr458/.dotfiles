@@ -249,3 +249,11 @@ nd () {
   mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
+
+function kitty_theme_light() {
+    kitten themes --cache-age=-1 light
+}
+
+function kitty_theme_dark() {
+    kitten themes --cache-age=-1 dark
+}
