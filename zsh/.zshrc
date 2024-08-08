@@ -152,9 +152,6 @@ function fmt_ms() {
     # if [ $ms -gt 0 ]; then
     #     formatted+="${ms}ms "
     # fi
-    # if [ "$formatted" != "" ]; then
-    #     formatted+=" "
-    # fi
 
     printf "$formatted"
 }
@@ -169,14 +166,14 @@ function precmd() {
     elapsed="$(($now-$timer))"
     formatted=$(fmt_ms $elapsed)
 
-    PROMPT="%F{blue}%~%f %F{8}${formatted:+$formatted}%f%(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+    PROMPT="${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{8}${formatted:+$formatted}%f%(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
     unset timer
   else
-    PROMPT="%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+    PROMPT="${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
   fi
 }
 
-PROMPT="%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+PROMPT="${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
 
 # curl functions
 function curl_get_json() {
