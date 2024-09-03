@@ -22,6 +22,7 @@ export PATH=$PATH:"$DENO_INSTALL/bin"
 export PATH=$PATH:"$BUN_INSTALL/bin"
 export PATH=$PATH:"/usr/local/zig"
 export PATH=$PATH:"/usr/local/crystal/bin"
+export PATH=$PATH:"/usr/local/odin"
 export PATH=$PATH:"$HOME/.cache/rebar3/bin"
 
 # path for completions
@@ -239,6 +240,10 @@ function delete_all_docker_containers() {
 
 function copy_current_path() {
     wl-copy $(pwd)
+}
+
+function get_list_heaviest_dirs() {
+    du -sh */ | sort -hr
 }
 
 # mkdir and cd
