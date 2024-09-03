@@ -246,6 +246,10 @@ function get_list_heaviest_dirs() {
     du -sh */ | sort -hr
 }
 
+function get_list_heaviest_files() {
+    du -ah . | sort -rh
+}
+
 # mkdir and cd
 nd () {
   mkdir -p -- "$1" &&
