@@ -20,10 +20,8 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/flutter/bin"
 export PATH=$PATH:"$DENO_INSTALL/bin"
 export PATH=$PATH:"$BUN_INSTALL/bin"
-export PATH=$PATH:"/usr/local/zig"
-export PATH=$PATH:"/usr/local/crystal/bin"
 export PATH=$PATH:"/usr/local/odin"
-export PATH=$PATH:"$HOME/.cache/rebar3/bin"
+export PATH=$PATH:"/usr/local/c3"
 
 # path for completions
 fpath=(~/.zsh/completion $fpath)
@@ -102,7 +100,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # plugins
 source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # open new foot terminal in the same directory
 # function osc7-pwd() {
@@ -133,28 +131,20 @@ export SDKMAN_DIR="$HOME/.sdkman"
 function fmt_ms() {
     local total_ms=$1
 
-    local ms=$((total_ms%1000))
-    local total_seconds=$((total_ms/1000))
-    local seconds=$((total_seconds%60))
-    local total_minutes=$((total_seconds/60))
-    local minutes=$((total_minutes%60))
-    local hours=$((total_minutes/60))
+    local ms=$((total_ms % 1000))
+    local total_seconds=$((total_ms / 1000))
+    local seconds=$((total_seconds % 60))
+    local total_minutes=$((total_seconds / 60))
+    local minutes=$((total_minutes % 60))
+    local hours=$((total_minutes / 60))
 
-    formatted=""
-    if [ $hours -gt 0 ]; then
-        formatted+="${hours}h "
-    fi
-    if [ $minutes -gt 0 ]; then
-        formatted+="${minutes}min "
-    fi
-    if [ $seconds -gt 0 ]; then
-        formatted+="${seconds}s "
-    fi
-    # if [ $ms -gt 0 ]; then
-    #     formatted+="${ms}ms "
-    # fi
+    local formatted=""
+    [[ $hours -gt 0 ]] && formatted+="${hours}h "
+    [[ $minutes -gt 0 ]] && formatted+="${minutes}min "
+    [[ $seconds -gt 0 ]] && formatted+="${seconds}s "
+    # [[ $ms -gt 0 ]] && formatted+="${ms}ms "
 
-    printf "$formatted"
+    echo "$formatted"
 }
 
 function preexec() {
@@ -167,14 +157,15 @@ function precmd() {
     elapsed="$(($now-$timer))"
     formatted=$(fmt_ms $elapsed)
 
-    PROMPT="${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{8}${formatted:+$formatted}%f%(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{8}${formatted:+$formatted}%f%F{yellow}$%f "
+
     unset timer
   else
-    PROMPT="${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
   fi
 }
 
-PROMPT="${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %(?.%F{green}󰘧.%F{red}%? 󰘧)%f "
+PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
 
 # curl functions
 function curl_get_json() {
@@ -238,6 +229,54 @@ function delete_all_docker_containers() {
     docker ps -a --format "{{.ID}}" | xargs docker rm
 }
 
+function status_mysqld() {
+    sudo systemctl status mysqld
+}
+
+function start_mysqld() {
+    sudo systemctl start mysqld
+}
+
+function stop_mysqld() {
+    sudo systemctl stop mysqld
+}
+
+function status_postgres() {
+    sudo systemctl status postgresql
+}
+
+function start_postgres() {
+    sudo systemctl start postgresql
+}
+
+function stop_postgres() {
+    sudo systemctl stop postgresql
+}
+
+function status_docker() {
+    sudo systemctl status docker
+}
+
+function start_docker() {
+    sudo systemctl start docker
+}
+
+function stop_docker() {
+    sudo systemctl stop docker.service docker.socket
+}
+
+function status_redis() {
+    sudo systemctl status redis
+}
+
+function start_redis() {
+    sudo systemctl start redis
+}
+
+function stop_redis() {
+    sudo systemctl stop redis
+}
+
 function copy_current_path() {
     wl-copy $(pwd)
 }
@@ -257,9 +296,9 @@ nd () {
 }
 
 function kitty_theme_light() {
-    kitten themes --cache-age=-1 light
+    kitten themes --cache-age=-1 cold_light
 }
 
 function kitty_theme_dark() {
-    kitten themes --cache-age=-1 dark
+    kitten themes --cache-age=-1 cold_dark
 }
