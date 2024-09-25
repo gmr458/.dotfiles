@@ -25,7 +25,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha"
+    "dark": "Base16 Black Metal (Bathory) Dark"
   },
   "chat_panel": { "button": false },
   "collaboration_panel": { "button": false },

@@ -20,7 +20,7 @@ multi-instance = false
 ascii-input = true
 
 # STYLE OPTIONS
-font = ~/.local/share/fonts/IosevkaFixedNerdFontMono-Regular.ttf
+font = ~/.local/share/fonts/GeistMonoNerdFontMono-Regular.ttf
 font-size = 16
 font-features = ""
 font-variations = ""
@@ -30,7 +30,8 @@ outline-color = #080800
 border-width = 1
 border-color = #686868
 text-color = #becbcb
-prompt-text = "❯ "
+# prompt-text = "❯ "
+prompt-text = ""
 prompt-padding = 0
 prompt-color = #ffffff
 prompt-background = #00000000
@@ -80,7 +81,7 @@ margin-left = 0
 margin-right = 0
 padding-top = 3%
 padding-bottom = 0
-padding-left = 1%
+padding-left = 2%
 padding-right = 0
 clip-to-padding = true
 horizontal = false

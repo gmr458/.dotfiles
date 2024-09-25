@@ -69,6 +69,7 @@ alias rust_repos="cd ~/repos/internal/rust"
 alias ts_repos="cd ~/repos/internal/typescript"
 
 alias snvim="NVIM_APPNAME=simple nvim"
+alias neovide="neovide --fork ."
 
 # zsh history file
 HISTFILE=~/.histfile
@@ -82,6 +83,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+setopt menu_complete
 
 # zsh completion
 autoload -Uz compinit && compinit

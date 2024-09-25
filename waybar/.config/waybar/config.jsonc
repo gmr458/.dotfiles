@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "left",
-    "width": 22,
+    "width": 24,
     "margin-top": 0,
     "margin-bottom": 0,
     "margin-left": 0,
@@ -10,7 +10,9 @@
     "gtk-layer-shell": true,
     "modules-left": [
         "custom/notification",
+        // "backlight/slider",
         "backlight",
+        "pulseaudio/slider",
         "pulseaudio#audio",
         "network#wlo1",
         "network#eno1",
@@ -36,6 +38,11 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },
+    // "backlight/slider": {
+    //     "min": 1,
+    //     "max": 100,
+    //     "orientation": "vertical"
+    // },
     "backlight": {
         "format": "{icon}",
         "format-icons": ["󰃟"],
@@ -44,6 +51,11 @@
         "on-click": "",
         "tooltip": true,
         "tooltip-format": "{percent}%"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "vertical"
     },
     "pulseaudio#audio": {
         "format": "{icon}",

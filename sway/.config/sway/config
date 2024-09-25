@@ -19,10 +19,13 @@ set $term ~/.local/kitty.app/bin/kitty --single-instance
 exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 # wallpaper
-output * bg ~/Pictures/wallpapers/arena.png fill
+output * bg ~/Pictures/wallpapers/br2049-top-1920x1080.jpg fill
 
 # SwayNotificationCenter
 exec_always --no-startup-id swaync
+
+# avizo
+exec_always avizo-service
 
 # NetworkManager
 exec_always --no-startup-id nm-applet --indicator
@@ -166,9 +169,13 @@ bindsym $mod+Return exec $term
 
 # ----------------------------------------------------
 
-# brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+# # brightness brightnessctl
+# bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+# bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# brightness lightctl
+bindsym XF86MonBrightnessUp   exec lightctl -d up
+bindsym XF86MonBrightnessDown exec lightctl -d down
 
 # ----------------------------------------------------
 
@@ -180,11 +187,17 @@ bindsym XF86AudioPrev  exec playerctl previous
 
 # ----------------------------------------------------
 
-# volume
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%
-bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle
-bindsym XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# # volume pactl
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%
+# bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle
+# bindsym XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# volume avizo
+bindsym XF86AudioRaiseVolume exec volumectl -d -u up
+bindsym XF86AudioLowerVolume exec volumectl -d -u down
+bindsym XF86AudioMute        exec volumectl -d toggle-mute
+bindsym XF86AudioMicMute     exec volumectl -d -m toggle-mute
 
 # ----------------------------------------------------
 
@@ -195,7 +208,10 @@ bindsym Shift+Print exec mkdir -p ~/Pictures/Screenshots/ && GRIM_DEFAULT_DIR=~/
 # ----------------------------------------------------
 
 # swaylock
-bindsym Ctrl+Shift+l exec swaylock
+# bindsym Ctrl+Shift+l exec swaylock
+
+# hyprlock
+bindsym Ctrl+Shift+l exec hyprlock
 
 # ----------------------------------------------------
 
