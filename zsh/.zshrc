@@ -159,15 +159,18 @@ function precmd() {
     elapsed="$(($now-$timer))"
     formatted=$(fmt_ms $elapsed)
 
-    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{8}${formatted:+$formatted}%f%F{yellow}$%f "
+    # PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{8}${formatted:+$formatted}%f%F{yellow}$%f "
+    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{8}${formatted:+$formatted}%f%F{yellow}$%f "
 
     unset timer
   else
-    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
+    # PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
+    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{yellow}$%f "
   fi
 }
 
-PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
+# PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
+PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{yellow}$%f "
 
 # curl functions
 function curl_get_json() {
@@ -281,6 +284,12 @@ function stop_redis() {
 
 function copy_current_path() {
     wl-copy $(pwd)
+}
+
+function copy_current_dirname() {
+    local result=${PWD##*/}
+    result=${result:-/}
+    wl-copy $result
 }
 
 function get_list_heaviest_dirs() {

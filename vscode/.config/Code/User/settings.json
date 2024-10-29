@@ -1,8 +1,9 @@
 {
-    "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "'GeistMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontSize": 16,
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeightBold": "normal",
+    "workbench.tree.indent": 22,
     "editor.lineNumbers": "relative",
     "vim.leader": "<space>",
     "vim.useCtrlKeys": true,
@@ -61,5 +62,7 @@
     "workbench.activityBar.location": "top",
     "window.customTitleBarVisibility": "auto",
     "window.commandCenter": false,
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "vscode-icons"
 }
