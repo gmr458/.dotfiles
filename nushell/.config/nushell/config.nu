@@ -3,6 +3,7 @@ $env.config = {
 }
 
 alias cls = clear
+alias ll = ls
 
 alias android_repos = cd ($env.HOME | path join AndroidStudioProjects)
 alias c_repos = cd ($env.HOME | path join repos internal c)

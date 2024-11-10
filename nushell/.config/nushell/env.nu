@@ -27,7 +27,9 @@ $env.PROMPT_COMMAND = {||
         $"(ansi red)($env.LAST_EXIT_CODE)(ansi reset)"
     }
 
-    let current_path = match (do --ignore-shell-errors { $env.PWD | path relative-to $nu.home-path }) {
+    let current_path = match (do --ignore-shell-errors {
+        $env.PWD | path relative-to $nu.home-path 
+    }) {
         null => $env.PWD
         '' => '~'
         $relative_pwd => ([~ $relative_pwd] | path join)
