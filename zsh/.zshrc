@@ -102,6 +102,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # plugins
 source ~/.plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.plugins/romkatv/gitstatus/gitstatus.prompt.zsh
 # source ~/.plugins/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # open new foot terminal in the same directory
@@ -160,17 +161,20 @@ function precmd() {
     formatted=$(fmt_ms $elapsed)
 
     # PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{8}${formatted:+$formatted}%f%F{yellow}$%f "
-    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{8}${formatted:+$formatted}%f%F{yellow}$%f "
+    # PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{8}${formatted:+$formatted}%f%F{yellow}$%f "
+    PROMPT='%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} %F{8}${formatted:+$formatted}%f%F{yellow}$%f '
 
     unset timer
   else
     # PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
-    PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{yellow}$%f "
+    # PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{yellow}$%f "
+    PROMPT='%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} %F{yellow}$%f '
   fi
 }
 
 # PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%~%f %F{yellow}$%f "
-PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f %F{yellow}$%f "
+# PROMPT="%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} %F{yellow}$%f "
+PROMPT='%(?.%F{green}%?%f.%F{red}%?%f) ${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}%F{blue}%1~%f${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} %F{yellow}$%f '
 
 # curl functions
 function curl_get_json() {
