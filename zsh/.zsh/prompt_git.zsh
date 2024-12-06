@@ -107,7 +107,7 @@ function fmt_ms() {
     local hours=$((total_minutes / 60))
 
     local formatted=""
-    [[ $hours -gt 0 ]] && formatted+="${hours}hr"
+    [[ $hours -gt 0 ]] && formatted+=" ${hours}hr"
     [[ $minutes -gt 0 ]] && formatted+=" ${minutes}min"
     [[ $seconds -gt 0 ]] && formatted+=" ${seconds}sec"
 
@@ -122,7 +122,7 @@ function precmd() {
   PROMPT='%(?.%F{green}%?%f.%F{red}%?%f) '
   PROMPT+="${VIRTUAL_ENV_PROMPT:+$VIRTUAL_ENV_PROMPT}"
   # PROMPT+='%F{blue}%1~%f'
-  PROMPT+='%F{blue}%(4~|.../%3~|%~)%f'
+  PROMPT+='%F{blue}%(4~|.../%2~|%~)%f'
   PROMPT+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT}'
 
   if [ $timer ]; then

@@ -1,3 +1,4 @@
+[general]
 import = [
   "~/.config/alacritty/themes/dark/base16_default.toml",
   "~/.config/alacritty/fonts/fira_code.toml",
