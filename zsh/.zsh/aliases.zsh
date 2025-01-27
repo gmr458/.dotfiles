@@ -40,4 +40,4 @@ alias rust_repos="cd ~/repos/internal/rust"
 alias ts_repos="cd ~/repos/internal/typescript"
 
 alias snvim="NVIM_APPNAME=simple nvim"
-alias neovide="neovide --fork ."
+alias neovide="neovide --fork"

@@ -9,7 +9,7 @@ function fmt_ms() {
     local hours=$((total_minutes / 60))
 
     local formatted=""
-    [[ $hours -gt 0 ]] && formatted+="${hours}hr"
+    [[ $hours -gt 0 ]] && formatted+=" ${hours}hr"
     [[ $minutes -gt 0 ]] && formatted+=" ${minutes}min"
     [[ $seconds -gt 0 ]] && formatted+=" ${seconds}sec"
 

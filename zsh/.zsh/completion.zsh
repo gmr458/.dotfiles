@@ -3,8 +3,6 @@
 # path for completions
 fpath=(~/.zsh/completion $fpath)
 
-setopt menu_complete
-
 # zsh completion
 autoload -Uz compinit && compinit
 
