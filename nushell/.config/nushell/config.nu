@@ -1,9 +1,62 @@
 $env.config = {
     show_banner: false,
+    table: {
+        mode: none
+    }
 }
 
 alias cls = clear
-alias ll = ls
+alias ls-builtin = ls
+
+def ls [
+    --all (-a),
+    --long (-l),
+    --short-names (-s),
+    --full-paths (-f),
+    --du (-d),
+    --directory (-D),
+    --mime-type (-m),
+    --threads (-t),
+    ...pattern: glob,
+]: [ nothing -> string ] {
+    let pattern = if ($pattern | is-empty) { [ '.' ] } else { $pattern }
+    try {
+        (ls-builtin
+            --all=$all
+            --long=$long
+            --short-names=$short_names
+            --full-paths=$full_paths
+            --du=$du
+            --directory=$directory
+            --mime-type=$mime_type
+            --threads=$threads
+            ...$pattern
+        ) | sort-by type name -i | grid -ic -s '  '
+    } catch {
+        (ls-builtin
+            --all=$all
+            --long=$long
+            --short-names=$short_names
+            --full-paths=$full_paths
+            --du=$du
+            --directory=$directory
+            --mime-type=$mime_type
+            --threads=$threads
+            ...$pattern
+        ) | sort-by type name -i
+    }
+}
+
+def lsa [] {
+    try {
+        ls-builtin -a | sort-by type name -i | grid -ic -s '  '
+    } catch {
+        ls-builtin -a | sort-by type name -i
+    }
+}
+def ll [--long (-l)] { ls-builtin --long=$long | sort-by type name -i }
+def lla [] { ls-builtin -a | sort-by type name -i }
+
 
 alias android_repos = cd ($env.HOME | path join AndroidStudioProjects)
 alias c_repos = cd ($env.HOME | path join repos internal c)
@@ -25,5 +78,3 @@ alias ts_repos = cd ($env.HOME | path join repos internal typescript)
 
 # alias snvim = $env.NVIM_APPNAME=simple nvim
 alias neovide = neovide --fork .
-
-source ~/.cache/carapace/init.nu

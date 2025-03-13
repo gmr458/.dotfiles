@@ -18,7 +18,18 @@ $env.PATH = (
     | append '/usr/local/c3'
 )
 
-def fmt_ms [ms: int] { $'($ms)ms' | into duration | into string }
+def fmt_ms [ms: int] {
+    if $ms > 0 {
+        let formatted = (
+            $'($ms)ms'
+            | into duration
+            | into string
+        )
+        $" ($formatted)"
+    } else {
+        ''
+    }
+}
 
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {
@@ -37,7 +48,7 @@ $env.PROMPT_COMMAND = {||
 
     let cmd_durarion = fmt_ms ($env.CMD_DURATION_MS | into int)
 
-    $"($exit_code) (ansi blue)($current_path)(ansi reset) (ansi dark_gray)($cmd_durarion)(ansi reset)"
+    $"($exit_code) (ansi blue)($current_path)(ansi reset)(ansi dark_gray)($cmd_durarion)(ansi reset)"
 }
 
 $env.PROMPT_INDICATOR = {|| $" (ansi yellow)$(ansi reset) "}
@@ -97,7 +108,3 @@ $env.config = {
         }
     ]
 }
-
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
-mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
