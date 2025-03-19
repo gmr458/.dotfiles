@@ -78,3 +78,5 @@ alias ts_repos = cd ($env.HOME | path join repos internal typescript)
 
 # alias snvim = $env.NVIM_APPNAME=simple nvim
 alias neovide = neovide --fork .
+
+source ~/.cache/carapace/init.nu

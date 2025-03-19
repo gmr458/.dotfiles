@@ -1,7 +1,12 @@
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+mkdir ~/.cache/carapace
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+
 $env.GOROOT = '/usr/local/go'
 $env.GOPATH = ($env.HOME | path join go)
 $env.DENO_INSTALL = ($env.HOME | path join .deno)
 $env.BUN_INSTALL = ($env.HOME | path join .bun)
+$env.ANDROID_HOME = ($env.HOME | path join Android Sdk)
 $env.EDITOR = 'nvim'
 
 $env.PATH = (
@@ -31,6 +36,36 @@ def fmt_ms [ms: int] {
     }
 }
 
+def get_git_info [] {
+    let result = ( do -i { git rev-parse --is-inside-work-tree | complete } )
+    if $result.exit_code == 0 {
+        let branch = git branch --show-current
+        let status = git status --porcelain 
+            | lines
+            | str trim
+            | split column " "
+            | get column1
+            | uniq -c
+            | insert color {
+                |e| match $e.value {
+                    "A" => "green"
+                    "D" => "red"
+                    _ => "yellow"
+                }
+            }
+            | each {
+                |e| $"(ansi $e.color)($e.count)($e.value)(ansi reset)"
+            }
+            | str join " "
+
+        if ($status | str length) > 0 {
+            $" ($branch) ($status)"
+        } else {
+            $" ($branch)"
+        }
+    }
+}
+
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {
         $"(ansi green)0(ansi reset)"
@@ -38,7 +73,7 @@ $env.PROMPT_COMMAND = {||
         $"(ansi red)($env.LAST_EXIT_CODE)(ansi reset)"
     }
 
-    let current_path = match (do --ignore-shell-errors {
+    let current_path = match (do --ignore-errors {
         $env.PWD | path relative-to $nu.home-path 
     }) {
         null => $env.PWD
@@ -47,8 +82,9 @@ $env.PROMPT_COMMAND = {||
     }
 
     let cmd_durarion = fmt_ms ($env.CMD_DURATION_MS | into int)
+    let git_info = get_git_info 
 
-    $"($exit_code) (ansi blue)($current_path)(ansi reset)(ansi dark_gray)($cmd_durarion)(ansi reset)"
+    $"($exit_code) (ansi blue)($current_path)(ansi purple)($git_info)(ansi reset)(ansi dark_gray)($cmd_durarion)(ansi reset)"
 }
 
 $env.PROMPT_INDICATOR = {|| $" (ansi yellow)$(ansi reset) "}
