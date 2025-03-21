@@ -3,14 +3,13 @@ mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 $env.GOROOT = '/usr/local/go'
-$env.GOPATH = ($env.HOME | path join go)
-$env.DENO_INSTALL = ($env.HOME | path join .deno)
-$env.BUN_INSTALL = ($env.HOME | path join .bun)
-$env.ANDROID_HOME = ($env.HOME | path join Android Sdk)
+$env.GOPATH = $env.HOME | path join go
+$env.DENO_INSTALL = $env.HOME | path join .deno
+$env.BUN_INSTALL = $env.HOME | path join .bun
+$env.ANDROID_HOME = $env.HOME | path join Android Sdk
 $env.EDITOR = 'nvim'
 
-$env.PATH = (
-    $env.PATH
+$env.PATH = $env.PATH
     | split row (char esep)
     | append ($env.HOME | path join .local bin)
     | append ($env.HOME | path join .cargo bin)
@@ -21,49 +20,41 @@ $env.PATH = (
     | append ($env.BUN_INSTALL | path join bin)
     | append '/usr/local/odin'
     | append '/usr/local/c3'
-)
 
-def fmt_ms [ms: int] {
-    if $ms > 0 {
-        let formatted = (
-            $'($ms)ms'
-            | into duration
-            | into string
-        )
-        $" ($formatted)"
-    } else {
-        ''
+def fmt_ms [ms: int] : [nothing -> string] {
+    match ($ms > 0) {
+        true => {
+            let formatted = $'($ms)ms' 
+                | into duration 
+                | into string
+            $" ($formatted)"
+        }
+        false => ''
     }
 }
 
 def get_git_info [] {
-    let result = ( do -i { git rev-parse --is-inside-work-tree | complete } )
-    if $result.exit_code == 0 {
+    let exit_code = do -i { git rev-parse --is-inside-work-tree | complete } | get exit_code
+    if $exit_code == 0 {
         let branch = git branch --show-current
-        let status = git status --porcelain 
-            | lines
+        if ($branch | str length) > 0 {
+            return $" ($branch)"
+        } 
+        
+        let tag = do -i { git describe --tags --exact-match | complete } 
+            | get stdout
             | str trim
-            | split column " "
-            | get column1
-            | uniq -c
-            | insert color {
-                |e| match $e.value {
-                    "A" => "green"
-                    "D" => "red"
-                    _ => "yellow"
-                }
-            }
-            | each {
-                |e| $"(ansi $e.color)($e.count)($e.value)(ansi reset)"
-            }
-            | str join " "
+        if ($tag | str length) > 0 {
+            return $" #($tag)"
+        } 
 
-        if ($status | str length) > 0 {
-            $" ($branch) ($status)"
-        } else {
-            $" ($branch)"
-        }
+        let commit = git rev-parse --short HEAD
+        if ($commit | str length) > 0 {
+            return $" @($commit)"
+        } 
     }
+    
+    return ""
 }
 
 $env.PROMPT_COMMAND = {||
