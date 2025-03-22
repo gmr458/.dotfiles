@@ -1,7 +1,7 @@
 $env.config = {
     show_banner: false,
     table: {
-        mode: none
+        mode: compact
     }
 }
 
