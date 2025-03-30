@@ -1,21 +1,21 @@
 [font]
 size = 12.0
 allow_float_size = true
-features = { "Iosevka Nerd Font Mono" = ["-liga", "-calt"] }
+features = { "GeistMono Nerd Font Mono" = ["-liga", "-calt"] }
 width = 0
 
 [[font.normal]]
-family = "Iosevka Nerd Font Mono"
+family = "GeistMono Nerd Font Mono"
 style = "W400"
 
 [[font.italic]]
-family = "Iosevka Nerd Font Mono"
+family = "GeistMono Nerd Font Mono"
 style = "W400"
 
 [[font.bold]]
-family = "Iosevka Nerd Font Mono"
+family = "GeistMono Nerd Font Mono"
 style = "W400"
 
 [[font.bold_italic]]
-family = "Iosevka Nerd Font Mono"
+family = "GeistMono Nerd Font Mono"
 style = "W400"
