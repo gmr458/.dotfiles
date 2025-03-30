@@ -3,7 +3,7 @@ mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 let os_name = sys host | get name
-if $os_name == "Fedora Linux" {
+if $os_name == 'Fedora Linux' {
     $env.GOROOT = '/usr/local/go'
     $env.GOPATH = $env.HOME | path join go
     $env.DENO_INSTALL = $env.HOME | path join .deno
@@ -22,74 +22,59 @@ if $os_name == "Fedora Linux" {
         | append ($env.BUN_INSTALL | path join bin)
         | append '/usr/local/odin'
         | append '/usr/local/c3'
+        | append '/usr/local/zig'
 }
+
+$env.LS_COLORS = (vivid generate nord)
 
 def get_git_info [] {
     let tag = gstat | get tag
-    if ($tag | str length) > 0 and $tag !~ "no_tag" {
-        return $" #($tag)"
-    } 
+    if ($tag | str length) > 0 and $tag !~ 'no_tag' {
+        return $' ($tag)'
+    }
 
     let branch = gstat | get branch 
-    if ($branch | str length) > 0 and $branch !~ "no_branch" {
-        return $" ($branch)"
-    } 
-    
-    return ""
+    if ($branch | str length) > 0 and $branch !~ 'no_branch' {
+        return $' ($branch)'
+    }
+
+    return ''
 }
 
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {
-        $"(ansi green)0(ansi reset)"
+        $'(ansi '#76946A')0(ansi reset)'
     } else {
-        $"(ansi red)($env.LAST_EXIT_CODE)(ansi reset)"
+        $'(ansi '#ab4642')($env.LAST_EXIT_CODE)(ansi reset)'
     }
 
     let current_path = match (do --ignore-errors {
-        $env.PWD | path relative-to $nu.home-path 
+        $env.PWD | path relative-to $nu.home-path
     }) {
         null => $env.PWD
         '' => '~'
         $relative_pwd => ([~ $relative_pwd] | path join)
     }
 
-    let cmd_durarion = if ($env.CMD_DURATION_MS | into int) > 0 { 
-        ' ' ++ ($'($env.CMD_DURATION_MS)ms' | into duration | into string) 
+    let cmd_durarion = if ($env.CMD_DURATION_MS | into int) > 0 {
+        ' ' ++ ($'($env.CMD_DURATION_MS)ms' | into duration | into string)
     } else { '' }
 
-    let git_info = get_git_info 
+    let git_info = get_git_info
 
-    $"($exit_code) (ansi blue)($current_path)(ansi purple)($git_info)(ansi reset)(ansi dark_gray)($cmd_durarion)(ansi reset)"
+    $'($exit_code) (ansi '#6A9FB5')($current_path)(ansi '#9ca0b0')($git_info)(ansi reset)(ansi '#585858')($cmd_durarion)(ansi reset)'
 }
 
-$env.PROMPT_INDICATOR = {|| $" (ansi yellow)$(ansi reset) "}
+$env.PROMPT_INDICATOR = {|| $' (ansi yellow)%(ansi reset) '}
 
-$env.PROMPT_COMMAND_RIGHT = ""
+$env.PROMPT_COMMAND_RIGHT = ''
 
 $env.config = {
     menus: [
         {
-            name: help_menu
-            only_buffer_difference: true
-            marker: " ? "
-            type: {
-                layout: description
-                columns: 4
-                col_width: 20
-                col_padding: 2
-                selection_rows: 4
-                description_rows: 10
-            }
-            style: {
-                text: green
-                selected_text: green_reverse
-                description_text: yellow
-            }
-        }
-        {
             name: completion_menu
             only_buffer_difference: false
-            marker: " | "
+            marker: ' | '
             type: {
                 layout: columnar
                 columns: 4
@@ -97,23 +82,23 @@ $env.config = {
                 col_padding: 2
             }
             style: {
-                text: green
-                selected_text: green_reverse
-                description_text: yellow
+                text: '#c8c8c8'
+                selected_text: { fg: '#c8c8c8' bg: '#4C5B2B' }
+                description_text: '#585858'
             }
         }
         {
             name: history_menu
             only_buffer_difference: true
-            marker: " ? "
+            marker: ' ? '
             type: {
                 layout: list
                 page_size: 10
             }
             style: {
-                text: green
-                selected_text: green_reverse
-                description_text: yellow
+                text: '#c8c8c8'
+                selected_text: { fg: '#c8c8c8' bg: '#4C5B2B' }
+                description_text: '#585858'
             }
         }
     ]
