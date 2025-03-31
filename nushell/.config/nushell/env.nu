@@ -27,18 +27,71 @@ if $os_name == 'Fedora Linux' {
 
 $env.LS_COLORS = (vivid generate nord)
 
+# def is_int [value] {
+#     ($value | describe) == int
+# }
+
+def is_int [] {
+    ($in | describe) == int
+}
+
 def get_git_info [] {
-    let tag = gstat | get tag
-    if ($tag | str length) > 0 and $tag !~ 'no_tag' {
-        return $' ($tag)'
+    let output = gstat
+
+    let branch_tag = $output
+        | get tag branch
+        | where { |it| 'no_' not-in $it }
+        | str join ' '
+
+    let status = $output
+        | reject repo_name tag branch remote
+        | rename '+' '+~' '+-' '+->' '+t' '?' '~' '-' 't' '->' '!' 'c' '↑' '↓' 'stshs'
+        | transpose key value
+        | where { |it| $it.value > 0 }
+        | each {
+            |it| insert color {
+                match $it.key {
+                    '+' | '+~' | '+->' | '+t' => '#76946A'
+                    '+-' | '-' | 'c' => '#ab4642'
+                    '!' => '#585858'
+                    _ => '#f7ca88'
+                }
+            }
+        }
+        | each {|it| $'(ansi $it.color)($it.key)($it.value)(ansi reset)' }
+        | str join ' '
+
+    let remote = match ($output | get remote) {
+        '' | 'no_remote' => ''
+        _ => ''
     }
 
-    let branch = gstat | get branch 
-    if ($branch | str length) > 0 and $branch !~ 'no_branch' {
-        return $' ($branch)'
-    }
+    let result = [$remote, $branch_tag, $status]
+        | str join ' '
+        | str trim
 
-    return ''
+    match $result {
+        '' => ''
+        _ => $' ($result)'
+    }
+}
+
+def relative_path_to_home [] {
+    match (do --ignore-errors {
+        $env.PWD | path relative-to $nu.home-path
+    }) {
+        null => $env.PWD
+        '' => '~'
+        $relative_pwd => ([~ $relative_pwd] | path join)
+    }
+}
+
+def last_dir [] {
+    if $env.PWD == $env.HOME {
+        '~'
+    } else {
+        $env.PWD | path split | last
+    }
 }
 
 $env.PROMPT_COMMAND = {||
@@ -48,13 +101,7 @@ $env.PROMPT_COMMAND = {||
         $'(ansi '#ab4642')($env.LAST_EXIT_CODE)(ansi reset)'
     }
 
-    let current_path = match (do --ignore-errors {
-        $env.PWD | path relative-to $nu.home-path
-    }) {
-        null => $env.PWD
-        '' => '~'
-        $relative_pwd => ([~ $relative_pwd] | path join)
-    }
+    let current_path = last_dir
 
     let cmd_durarion = if ($env.CMD_DURATION_MS | into int) > 0 {
         ' ' ++ ($'($env.CMD_DURATION_MS)ms' | into duration | into string)
