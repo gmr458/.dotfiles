@@ -11,8 +11,8 @@ bold_italic = { family = "GeistMono Nerd Font Mono", style = "Regular" }
 
 # normal size
 size = 11.6
-offset = { x = -1, y = 0 }
-glyph_offset = { x = 0, y = -1 }
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
 
 [window]
 padding = { x = 1, y = 0 }

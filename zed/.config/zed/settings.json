@@ -31,7 +31,7 @@
     "theme": {
         "mode": "system",
         "light": "One Light",
-        "dark": "Summercamp"
+        "dark": "Ayu Dark"
     },
     "terminal": {
         "font_weight": 400
@@ -42,7 +42,10 @@
     "tabs": {
         "file_icons": true
     },
-    "tab_bar": { "show": true, "show_nav_history_buttons": false },
+    "tab_bar": { 
+        "show": true,
+        "show_nav_history_buttons": false
+    },
     "toolbar": {
         "breadcrumbs": true,
         "quick_actions": true,

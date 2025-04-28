@@ -1,7 +1,10 @@
 $env.config = {
-    show_banner: false,
+    show_banner: false
     table: {
         mode: compact
+    }
+    shell_integration: {
+        osc2: false
     }
 }
 
@@ -77,7 +80,7 @@ alias ts_repos = cd ($env.HOME | path join repos internal typescript)
 alias ts_repos = cd ($env.HOME | path join repos internal typescript)
 
 # alias snvim = $env.NVIM_APPNAME=simple nvim
-alias neovide = neovide --fork .
+# alias neovide = neovide --fork .
 
 let scheme = {
   recognized_command: '#76946A'

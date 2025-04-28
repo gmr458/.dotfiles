@@ -19,3 +19,6 @@ style = "W400"
 [[font.bold_italic]]
 family = "GeistMono Nerd Font Mono"
 style = "W400"
+
+[box-drawing.sizes]
+default = [1, 3]

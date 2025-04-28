@@ -68,13 +68,13 @@ local fonts = {
     },
     geist_mono = {
         name = 'GeistMono Nerd Font Mono',
-        size = 11.6,
-        cell_width = 0.8,
-        line_height = 0.9,
+        size = 12.0,
+        cell_width = 1.0,
+        line_height = 1.0,
         padding = {
-            left = 3,
+            left = 7,
             right = 0,
-            top = 1,
+            top = 8,
             bottom = 0,
         },
     },
@@ -128,7 +128,7 @@ local fonts = {
     },
 }
 
-local font = fonts.consolas
+local font = fonts.geist_mono
 
 config.window_padding = {
     left = font.padding.left,

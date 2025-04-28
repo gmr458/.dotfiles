@@ -1,8 +1,11 @@
 [include]
 	path = ~/.gitconfig.local
 
-[core]
-	pager = delta   
+[diff]
+    external = difft
+
+; [core]
+; 	pager = delta --diff-so-fancy
 
 [alias]
 	dstatic = -c diff.external=difft diff

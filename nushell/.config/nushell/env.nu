@@ -27,10 +27,6 @@ if $os_name == 'Fedora Linux' {
 
 $env.LS_COLORS = (vivid generate nord)
 
-# def is_int [value] {
-#     ($value | describe) == int
-# }
-
 def is_int [] {
     ($in | describe) == int
 }
@@ -112,7 +108,7 @@ $env.PROMPT_COMMAND = {||
     $'($exit_code) (ansi '#6A9FB5')($current_path)(ansi '#9ca0b0')($git_info)(ansi reset)(ansi '#585858')($cmd_durarion)(ansi reset)'
 }
 
-$env.PROMPT_INDICATOR = {|| $' (ansi yellow)%(ansi reset) '}
+$env.PROMPT_INDICATOR = {|| $' (ansi yellow)$(ansi reset) '}
 
 $env.PROMPT_COMMAND_RIGHT = ''
 
