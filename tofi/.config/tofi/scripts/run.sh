@@ -1,7 +1,10 @@
 #!/bin/bash
 
-if (ps -a | grep tofi-run >/dev/null); then
+if pgrep -x tofi-run >/dev/null; then
   killall -q tofi-run
 else
-  tofi-run | xargs hyprctl dispatch exec
+  cmd=$(tofi-run)
+  if [[ -n "$cmd" ]]; then
+    hyprctl dispatch exec "$cmd"
+  fi
 fi

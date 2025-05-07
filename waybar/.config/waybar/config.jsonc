@@ -182,7 +182,8 @@
     ],
     "tray": {
         "icon-size": 14,
-        "spacing": 8
+        "spacing": 8,
+        "show-passive-items": true
     },
     "cpu": {
         "format": "󰻠",
