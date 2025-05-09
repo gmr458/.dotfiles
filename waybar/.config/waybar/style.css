@@ -151,38 +151,11 @@ tooltip label {
 
 /* -------------------------------------------------------------------------------- */
 
-#backlight-slider {
-    margin-top: 10px;
-}
-
-#backlight-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-}
-#backlight-slider trough {
-    min-height: 80px;
-    min-width: 10px;
-    border-radius: 5px;
-    background-color: black;
-}
-#backlight-slider highlight {
-    min-width: 6px;
-    border: 1px solid @text;
-    border-radius: 5px;
-    background-color: @text;
-}
-
-/* -------------------------------------------------------------------------------- */
-
-#pulseaudio-slider {
+#pulseaudio-slider, #backlight-slider {
     margin-top: 6px;
 }
 
-#pulseaudio-slider slider {
+#pulseaudio-slider slider, #backlight-slider slider {
     min-height: 0px;
     min-width: 0px;
     opacity: 0;
@@ -190,13 +163,13 @@ tooltip label {
     border: none;
     box-shadow: none;
 }
-#pulseaudio-slider trough {
+#pulseaudio-slider trough, #backlight-slider trough {
     min-height: 80px;
     min-width: 5px;
     border-radius: 5px;
     background-color: black;
 }
-#pulseaudio-slider highlight {
+#pulseaudio-slider highlight, #backlight-slider highlight {
     min-width: 5px;
     border: 1px solid @text;
     border-radius: 5px;

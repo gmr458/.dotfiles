@@ -13,4 +13,4 @@ source ~/.zsh/extract_functions.zsh
 source ~/.zsh/utils.zsh
 source ~/.zsh/services.zsh
 source ~/.zsh/kitty.zsh
-source ~/.zsh/external.zsh
+# source ~/.zsh/external.zsh
