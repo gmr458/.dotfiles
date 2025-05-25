@@ -27,50 +27,50 @@ if $os_name == 'Fedora Linux' {
 
 $env.LS_COLORS = (vivid generate nord)
 
-def is_int [] {
-    ($in | describe) == int
-}
+# def is_int [] {
+#     ($in | describe) == int
+# }
 
-def get_git_info [] {
-    let output = gstat
-
-    let branch_tag = $output
-        | get tag branch
-        | where { |it| 'no_' not-in $it }
-        | str join ' '
-
-    let status = $output
-        | reject repo_name tag branch remote
-        | rename '+' '+~' '+-' '+->' '+t' '?' '~' '-' 't' '->' '!' 'c' '↑' '↓' 'stshs'
-        | transpose key value
-        | where { |it| $it.value > 0 }
-        | each {
-            |it| insert color {
-                match $it.key {
-                    '+' | '+~' | '+->' | '+t' => '#76946A'
-                    '+-' | '-' | 'c' => '#ab4642'
-                    '!' => '#585858'
-                    _ => '#f7ca88'
-                }
-            }
-        }
-        | each {|it| $'(ansi $it.color)($it.key)($it.value)(ansi reset)' }
-        | str join ' '
-
-    let remote = match ($output | get remote) {
-        '' | 'no_remote' => ''
-        _ => ''
-    }
-
-    let result = [$remote, $branch_tag, $status]
-        | str join ' '
-        | str trim
-
-    match $result {
-        '' => ''
-        _ => $' ($result)'
-    }
-}
+# def get_git_info [] {
+#     let output = gstat
+#
+#     let branch_tag = $output
+#         | get tag branch
+#         | where { |it| 'no_' not-in $it }
+#         | str join ' '
+#
+#     let status = $output
+#         | reject repo_name tag branch remote
+#         | rename '+' '+~' '+-' '+->' '+t' '?' '~' '-' 't' '->' '!' 'c' '↑' '↓' 'stshs'
+#         | transpose key value
+#         | where { |it| $it.value > 0 }
+#         | each {
+#             |it| insert color {
+#                 match $it.key {
+#                     '+' | '+~' | '+->' | '+t' => '#76946A'
+#                     '+-' | '-' | 'c' => '#ab4642'
+#                     '!' => '#585858'
+#                     _ => '#f7ca88'
+#                 }
+#             }
+#         }
+#         | each {|it| $'(ansi $it.color)($it.key)($it.value)(ansi reset)' }
+#         | str join ' '
+#
+#     let remote = match ($output | get remote) {
+#         '' | 'no_remote' => ''
+#         _ => ''
+#     }
+#
+#     let result = [$remote, $branch_tag, $status]
+#         | str join ' '
+#         | str trim
+#
+#     match $result {
+#         '' => ''
+#         _ => $' ($result)'
+#     }
+# }
 
 def relative_path_to_home [] {
     match (do --ignore-errors {
@@ -103,7 +103,7 @@ $env.PROMPT_COMMAND = {||
         ' ' ++ ($'($env.CMD_DURATION_MS)ms' | into duration | into string)
     } else { '' }
 
-    let git_info = get_git_info
+    let git_info = git_prompt
 
     $'($exit_code) (ansi '#6A9FB5')($current_path)(ansi '#9ca0b0')($git_info)(ansi reset)(ansi '#585858')($cmd_durarion)(ansi reset)'
 }

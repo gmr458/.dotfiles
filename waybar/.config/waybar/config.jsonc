@@ -80,13 +80,16 @@
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": "󰍬 {volume}%",
-        "format-source-muted": "󰍭 {volume}%",
+        // "format-source": "󰍬 {volume}%",
+        "format-source": "󰍬",
+        // "format-source-muted": "󰍭 {volume}%",
+        "format-source-muted": "󰍭",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
         "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
         "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
         "max-volume": 100,
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "{icon} {desc} {volume}%"
     },
     "mpris": {
         "format": "{player_icon}\n{status_icon}",
@@ -190,7 +193,7 @@
         "active-first": true
     },
     "modules-right": [
-        // "pulseaudio#microphone",
+        "pulseaudio#microphone",
         // "battery"
         "tray",
         "memory",
