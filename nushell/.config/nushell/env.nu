@@ -90,6 +90,10 @@ def last_dir [] {
     }
 }
 
+def rename_tab [name] {
+    print -r $"\u{1b}]0;($name)\u{7}"
+}
+
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {
         $'(ansi '#76946A')0(ansi reset)'

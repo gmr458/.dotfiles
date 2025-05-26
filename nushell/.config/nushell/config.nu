@@ -60,6 +60,9 @@ alias cls = clear
 # def ll [--long (-l)] { ls-builtin --long=$long | sort-by type name -i }
 # def lla [] { ls-builtin -a | sort-by type name -i }
 
+def lla [] {
+    ls -la | reject readonly num_links inode group created | sort-by type name
+}
 
 alias android_repos = cd ($env.HOME | path join AndroidStudioProjects)
 alias c_repos = cd ($env.HOME | path join Repos internal c)
@@ -96,54 +99,77 @@ $env.config.color_config = {
     shape_list: $scheme.subtle
     shape_record: $scheme.subtle
     filesize: {||
-        if $in < 1kb {
-            '#3db887'
-        } else if $in < 10kb {
-            '#67b85f'
-        } else if $in < 100kb {
-            '#b8a43e'
-        } else if $in < 10mb {
-            '#d68447'
-        } else if $in < 100mb {
-            '#c45e5e'
-        } else if $in < 1gb {
-            '#d14d4d'
+        if $in == 0B {
+            '#b9f6ca'
+        } else if $in < 1kb {
+            '#69f0ae'
+        } else if $in < 1MB {
+            '#00e676'
+        } else if $in < 1GB {
+            '#00c853'
+        } else if $in < 5GB {
+            '#ffeb3b'
+        } else if $in < 10GB {
+            '#ffa000'
         } else {
-            '#b45b7a'
+            '#f44336'
         }
     }
     duration: {||
-        if $in < 1day {
-            '#86e58b'
+        if $in < 10sec {
+            '#b9f6ca'
+        } else if $in < 60sec {
+            '#69f0ae'
+        } else if $in < 60min {
+            '#00e676'
+        } else if $in < 24hr {
+            '#00c853'
         } else if $in < 1wk {
-            '#78d17b'
+            '#4caf50'
         } else if $in < 4wk {
-            '#67b85f'
-        } else if $in < 12wk {
-            '#559c4d'
-        } else if $in < 24wk {
-            '#4a8a4a'
+            '#388e3c'
         } else if $in < 52wk {
-            '#3c753c'
+            '#2e7d32'
         } else {
-            '#336633'
+            '#1b5e20'
         }
     }
     date: {|| (date now) - $in |
-        if $in < 1day {
-            '#86e58b'
+        if $in < 10sec {
+            '#b9f6ca'
+        } else if $in < 60sec {
+            '#69f0ae'
+        } else if $in < 60min {
+            '#00e676'
+        } else if $in < 24hr {
+            '#00c853'
         } else if $in < 1wk {
-            '#78d17b'
+            '#4caf50'
         } else if $in < 4wk {
-            '#67b85f'
-        } else if $in < 12wk {
-            '#559c4d'
-        } else if $in < 24wk {
-            '#4a8a4a'
+            '#388e3c'
         } else if $in < 52wk {
-            '#3c753c'
+            '#2e7d32'
         } else {
-            '#336633'
+            '#1b5e20'
+        }
+    }
+    datetime: {|| (date now) - $in |
+        if $in < 10sec {
+            '#b9f6ca'
+        } else if $in < 60sec {
+            '#69f0ae'
+        } else if $in < 60min {
+            '#00e676'
+        } else if $in < 24hr {
+            '#00c853'
+        } else if $in < 1wk {
+            '#4caf50'
+        } else if $in < 4wk {
+            '#388e3c'
+        } else if $in < 52wk {
+            '#2e7d32'
+        } else {
+            '#1b5e20'
         }
     }
     shape_external: $scheme.unrecognized_command
