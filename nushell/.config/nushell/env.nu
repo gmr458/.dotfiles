@@ -1,7 +1,3 @@
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
-mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
-
 let os_name = sys host | get name
 if $os_name == 'Fedora Linux' {
     $env.GOROOT = '/usr/local/go'
@@ -82,16 +78,16 @@ def relative_path_to_home [] {
     }
 }
 
+def rename_tab [name] {
+    print -r $"\u{1b}]0;($name)\u{7}"
+}
+
 def last_dir [] {
     if $env.PWD == $env.HOME {
         '~'
     } else {
         $env.PWD | path split | last
     }
-}
-
-def rename_tab [name] {
-    print -r $"\u{1b}]0;($name)\u{7}"
 }
 
 $env.PROMPT_COMMAND = {||

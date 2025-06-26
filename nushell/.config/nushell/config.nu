@@ -1,7 +1,7 @@
 $env.config = {
     show_banner: false
     table: {
-        mode: compact
+        mode: single
     }
     shell_integration: {
         osc2: false
@@ -59,6 +59,10 @@ alias cls = clear
 # }
 # def ll [--long (-l)] { ls-builtin --long=$long | sort-by type name -i }
 # def lla [] { ls-builtin -a | sort-by type name -i }
+
+def ll [] {
+    ls -l | reject readonly num_links inode group created | sort-by type name
+}
 
 def lla [] {
     ls -la | reject readonly num_links inode group created | sort-by type name
