@@ -1,0 +1,253 @@
+# variables
+set $mod Mod4
+set $alt Mod1
+
+font pango:IosevkaFixed Nerd Font Mono 9
+
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+set $term kitty --single-instance
+
+# -------------------------------------------
+
+# execute apps at launch
+
+# waybar
+exec_always --no-startup-id ~/.config/waybar/launch.sh
+
+# wallpaper
+# output * bg ~/Pictures/wallpapers/br2049-top-1920x1080.jpg fill
+output "*" background #000000 solid_color
+
+# SwayNotificationCenter
+exec_always --no-startup-id swaync
+
+# avizo
+exec_always avizo-service
+
+# NetworkManager
+exec_always --no-startup-id nm-applet --indicator
+
+# Blueman Manager
+exec_always --no-startup-id blueman-applet
+
+# -------------------------------------------
+
+input "type:touchpad" {
+    tap            enabled
+    natural_scroll enabled
+}
+
+input "type:keyboard" {
+    xkb_layout   latam
+    repeat_delay 200
+    repeat_rate  32
+}
+
+# ----------------------------------------------------
+
+# key bindings
+
+# ----------------------------------------------------
+
+# change focus with vim like keybinds
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# and with cursor keys
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# ----------------------------------------------------
+
+# move focused window with vim like keybinds
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+# and with cursor keys
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# ----------------------------------------------------
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# move focused container to workspace
+bindsym $alt+1 move container to workspace number 1
+bindsym $alt+2 move container to workspace number 2
+bindsym $alt+3 move container to workspace number 3
+bindsym $alt+4 move container to workspace number 4
+bindsym $alt+5 move container to workspace number 5
+bindsym $alt+6 move container to workspace number 6
+bindsym $alt+7 move container to workspace number 7
+bindsym $alt+8 move container to workspace number 8
+bindsym $alt+9 move container to workspace number 9
+bindsym $alt+0 move container to workspace number 10
+
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
+# ----------------------------------------------------
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+    # resize with vim like keybinds
+    bindsym h resize grow   width  10 px
+    bindsym j resize shrink height 10 px
+    bindsym k resize grow   height 10 px
+    bindsym l resize shrink width  10 px
+
+    # and with cursor keys
+    bindsym Left  resize shrink width  5 px
+    bindsym Down  resize grow   height 5 px
+    bindsym Up    resize shrink height 5 px
+    bindsym Right resize grow   width  5 px
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+# ----------------------------------------------------
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# ----------------------------------------------------
+
+# toggle split between horizontal and vertical
+bindsym $mod+Shift+space layout toggle split
+
+# ----------------------------------------------------
+
+# toggle tiling / floating
+bindsym $mod+v floating toggle
+
+# ----------------------------------------------------
+
+# kill focused window
+bindsym $mod+c kill
+
+# ----------------------------------------------------
+
+floating_modifier $mod normal
+
+# ----------------------------------------------------
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# ----------------------------------------------------
+
+# start a terminal
+bindsym $mod+Return exec $term
+
+# ----------------------------------------------------
+
+# # brightness brightnessctl
+# bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+# bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# brightness lightctl
+bindsym XF86MonBrightnessUp   exec lightctl -d up
+bindsym XF86MonBrightnessDown exec lightctl -d down
+
+# ----------------------------------------------------
+
+# media player controls
+bindsym XF86AudioPlay  exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
+
+# ----------------------------------------------------
+
+# # volume pactl
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%
+# bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle
+# bindsym XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# volume avizo
+bindsym XF86AudioRaiseVolume exec volumectl -d -u up
+bindsym XF86AudioLowerVolume exec volumectl -d -u down
+bindsym XF86AudioMute        exec volumectl -d toggle-mute
+bindsym XF86AudioMicMute     exec volumectl -d -m toggle-mute
+
+# ----------------------------------------------------
+
+# screenshots
+bindsym Print       exec mkdir -p ~/Pictures/Screenshots/ && GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0
+bindsym Shift+Print exec mkdir -p ~/Pictures/Screenshots/ && GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0 -g "$(slurp)"
+
+# ----------------------------------------------------
+
+# swaylock
+# bindsym Ctrl+Shift+l exec swaylock
+
+# hyprlock
+bindsym Ctrl+Shift+l exec hyprlock
+
+# ----------------------------------------------------
+
+# toggle Waybar
+bindsym $mod+Shift+t exec pkill -SIGUSR1 '^waybar$'
+
+# ----------------------------------------------------
+
+# tofi
+bindsym $mod+Space exec ~/.config/tofi/scripts/drun.sh
+bindsym $mod+p     exec ~/.config/tofi/scripts/powermenu.sh
+
+# ----------------------------------------------------
+
+# Window border
+# default_border pixel 1
+
+default_border none
+default_floating_border pixel 1
+
+# gaps between windows
+smart_gaps on
+gaps inner 8
+
+
+client.focused #9ebc9f #222222 #ffffff #9ebc9f #9ebc9f
+
+# ----------------------------------------------------
+
+# bar {
+#     status_command i3status
+#     tray_padding 4
+#     separator_symbol "|"
+# }
+
+# ----------------------------------------------------
+
+include /etc/sway/config.d/*

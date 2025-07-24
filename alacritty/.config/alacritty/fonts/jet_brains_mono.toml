@@ -1,0 +1,12 @@
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+size = 11.3
+offset = { x = -1, y = -3}
+glyph_offset = { x = 0, y = 0 }
+
+[window]
+padding = { x = 0, y = 0 }
+dynamic_padding = true

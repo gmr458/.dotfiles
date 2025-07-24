@@ -1,0 +1,8 @@
+sudo nvim /usr/share/X11/xorg.conf.d/40-libinput.conf
+
+Add the next line to Sections with `Identifier` equal to 
+`libinput pointer catchall` and `libinput touchpad catchall`
+
+`Option "NaturalScrolling" "True"`
+
+Then log off and on to apply.

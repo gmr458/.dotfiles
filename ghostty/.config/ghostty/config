@@ -1,0 +1,64 @@
+font-family = RobotoMono Nerd Font Mono
+font-style-bold = false
+font-style-italic = false
+font-style-bold-italic = false
+font-synthetic-style = false
+font-feature = -liga
+font-size = 12
+
+adjust-cell-width = -1
+
+theme = ColdDark
+
+command = nu
+
+cursor-style = underline
+cursor-style-blink = false
+
+mouse-hide-while-typing = true
+
+window-padding-balance = true
+window-inherit-working-directory = true
+window-inherit-font-size = true
+
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+
+copy-on-select = true
+
+gtk-single-instance = true
+gtk-titlebar = true
+gtk-tabs-location = bottom
+gtk-titlebar-hide-when-maximized = false
+gtk-wide-tabs = false
+
+adw-toolbar-style = flat
+
+bold-is-bright = true
+
+auto-update = off
+
+window-theme = ghostty
+
+keybind = alt+n=new_tab
+keybind = alt+h=previous_tab
+keybind = alt+l=next_tab
+
+
+keybind = alt+|=new_split:right
+keybind = alt+-=new_split:down
+
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
+
+keybind = ctrl+shift+left=resize_split:left,5
+keybind = ctrl+shift+down=resize_split:down,5
+keybind = ctrl+shift+up=resize_split:up,5
+keybind = ctrl+shift+right=resize_split:right,5
+
+keybind = ctrl+up=scroll_to_top
+keybind = ctrl+down=scroll_to_bottom
+
+background-opacity = 0.8

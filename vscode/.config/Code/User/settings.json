@@ -1,0 +1,74 @@
+{
+    "editor.fontFamily": "'RobotoMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeightBold": "normal",
+    "workbench.tree.indent": 22,
+    "editor.lineNumbers": "relative",
+    "vim.leader": "<space>",
+    "vim.useCtrlKeys": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+    ],
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.activityBar.location": "top",
+    "window.customTitleBarVisibility": "auto",
+    "window.commandCenter": false,
+    "window.titleBarStyle": "custom",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.iconTheme": "vscode-icons",
+    "extensions.ignoreRecommendations": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "color-highlight.languages": [
+        "*",
+        "xml"
+    ]
+}

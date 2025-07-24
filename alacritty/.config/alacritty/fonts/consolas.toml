@@ -1,0 +1,12 @@
+[font]
+normal = { family = "Consolas Nerd Font Mono", style = "Regular" }
+bold = { family = "Consolas Nerd Font Mono", style = "Regular" }
+italic = { family = "Consolas Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "Consolas Nerd Font Mono", style = "Italic" }
+size = 11.5
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+
+[window]
+padding = { x = 4, y = 0 }
+dynamic_padding = true

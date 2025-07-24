@@ -1,0 +1,210 @@
+# variables
+set $mod Mod4
+set $alt Mod1
+
+font pango:IosevkaFixed Nerd Font Mono 9
+
+set $left  h
+set $down  j
+set $up    k
+set $right l
+
+set $term alacritty
+
+# -------------------------------------------
+
+# Picom
+# exec_always --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
+exec_always --no-startup-id picom
+
+# NetworkManager
+exec_always --no-startup-id nm-applet
+
+# Blueman Manager
+exec_always --no-startup-id blueman-applet
+
+# Speed keyboard
+exec_always --no-startup-id xset r rate 250 40
+
+# Enable touchpad tap to click
+# exec_always xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+
+# Enable natural scrolling
+# exec_always xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
+
+# -------------------------------------------
+
+# key bindings
+
+# ----------------------------------------------------
+
+# change focus with vim like keybinds
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# and with cursor keys
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# ----------------------------------------------------
+
+# move focused window with vim like keybinds
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+# and with cursor keys
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# ----------------------------------------------------
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# move focused container to workspace
+bindsym $alt+1 move container to workspace number 1
+bindsym $alt+2 move container to workspace number 2
+bindsym $alt+3 move container to workspace number 3
+bindsym $alt+4 move container to workspace number 4
+bindsym $alt+5 move container to workspace number 5
+bindsym $alt+6 move container to workspace number 6
+bindsym $alt+7 move container to workspace number 7
+bindsym $alt+8 move container to workspace number 8
+bindsym $alt+9 move container to workspace number 9
+bindsym $alt+0 move container to workspace number 10
+
+# ----------------------------------------------------
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+    # resize with vim like keybinds
+    bindsym h resize grow   width  10 px
+    bindsym j resize shrink height 10 px
+    bindsym k resize grow   height 10 px
+    bindsym l resize shrink width  10 px
+
+    # and with cursor keys
+    bindsym Left  resize shrink width  5 px
+    bindsym Down  resize grow   height 5 px
+    bindsym Up    resize shrink height 5 px
+    bindsym Right resize grow   width  5 px
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+# ----------------------------------------------------
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# ----------------------------------------------------
+
+# toggle split between horizontal and vertical
+bindsym $mod+Shift+space layout toggle split
+
+# ----------------------------------------------------
+
+# toggle tiling / floating
+bindsym $mod+v floating toggle
+
+# ----------------------------------------------------
+
+# kill focused window
+bindsym $mod+c kill
+
+# ----------------------------------------------------
+
+floating_modifier $mod
+
+# ----------------------------------------------------
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# ----------------------------------------------------
+
+# start a terminal
+bindsym $mod+Return exec $term
+
+# ----------------------------------------------------
+
+# brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+
+# ----------------------------------------------------
+
+# media player controls
+bindsym XF86AudioPlay  exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
+
+# ----------------------------------------------------
+
+# volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@   +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@   -5%
+bindsym XF86AudioMute        exec pactl set-sink-mute   @DEFAULT_SINK@   toggle
+bindsym XF86AudioMicMute     exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# ----------------------------------------------------
+
+# screenshots
+bindsym Print       exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && maim --format=png --quality 1 "$HOME/Pictures/Screenshots/$(date).png"
+bindsym $mod+Print  exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && maim --format=png --quality 1 --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date).png"
+bindsym Shift+Print exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && maim --format=png --quality 1 --select "$HOME/Pictures/Screenshots/$(date).png"
+
+# clipboard screenshots
+bindsym Ctrl+Print       exec --no-startup-id maim --format=png --quality 1                                     | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print  exec --no-startup-id maim --format=png --quality 1 --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --quality 1 --select                            | xclip -selection clipboard -t image/png
+
+# ----------------------------------------------------
+
+# i3lock-color
+bindsym Ctrl+Shift+l exec ~/.config/i3/lock.sh
+
+# ----------------------------------------------------
+
+# dmenu
+bindsym $mod+space exec --no-startup-id dmenu_run
+
+# ----------------------------------------------------
+
+# window border
+default_border pixel 1
+
+# gaps between windows
+smart_gaps on
+gaps inner 8
+
+# ----------------------------------------------------
+
+bar {
+    status_command i3status
+}

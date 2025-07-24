@@ -1,0 +1,24 @@
+[font]
+size = 12.0
+allow_float_size = true
+features = { "GeistMono Nerd Font Mono" = ["-liga", "-calt"] }
+width = -0.4
+
+[[font.normal]]
+family = "GeistMono Nerd Font Mono"
+style = "W400"
+
+[[font.italic]]
+family = "GeistMono Nerd Font Mono"
+style = "W400"
+
+[[font.bold]]
+family = "GeistMono Nerd Font Mono"
+style = "W400"
+
+[[font.bold_italic]]
+family = "GeistMono Nerd Font Mono"
+style = "W400"
+
+[box-drawing.sizes]
+default = [1, 3]

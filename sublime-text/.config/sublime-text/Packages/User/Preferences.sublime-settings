@@ -1,0 +1,9 @@
+{
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"font_face": "FiraCode Nerd Font Mono",
+	"font_size": 11,
+	"font_options": ["no_bold","no_italic"],
+	"rulers": [80, 120],
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true
+}

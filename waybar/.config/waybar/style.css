@@ -1,0 +1,177 @@
+@define-color white      #F2F2F2;
+@define-color black      #000203;
+@define-color text       #BECBCB;
+@define-color lightgray  #686868;
+@define-color darkgray   #353535;
+@define-color red        #F38BA8;
+
+@define-color black-transparent-1 rgba(0, 0, 0, 0.1);
+@define-color black-transparent-2 rgba(0, 0, 0, 0.2);
+@define-color black-transparent-3 rgba(0, 0, 0, 0.3);
+@define-color black-transparent-4 rgba(0, 0, 0, 0.4);
+@define-color black-transparent-5 rgba(0, 0, 0, 0.5);
+@define-color black-transparent-6 rgba(0, 0, 0, 0.6);
+@define-color black-transparent-7 rgba(0, 0, 0, 0.7);
+@define-color black-transparent-8 rgba(0, 0, 0, 0.8);
+@define-color black-transparent-9 rgba(0, 0, 0, 0.9);
+@define-color black-solid         rgba(0, 0, 0, 1.0);
+
+* {
+    font-family:
+        Iosevka,
+        Material Design Icons Desktop;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: @black-solid;
+    color: @text;
+    border-radius: 0;
+}
+
+tooltip {
+    background: @black-solid;
+    border: 1px solid @darkgray;
+    border-radius: 0;
+}
+tooltip label {
+    color: @text;
+}
+
+#workspaces {
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: @lightgray;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: @white;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: @white;
+    transition: all 0.3s ease;
+    animation: colored-gradient 10s ease infinite;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @black;
+    transition: all 0.3s ease;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#submap,
+#mode,
+#tray,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio.audio,
+#pulseaudio.microphone,
+#network.wlo1,
+#network.eno1,
+#bluetooth,
+#battery,
+#clock,
+#mpd,
+#custom-media,
+#custom-notification {
+    background-color: transparent;
+    color: @text;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+#submap {
+    border: 0;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces button,
+.modules-left > widget:first-child > #tray,
+.modules-left > widget:first-child > #cpu,
+.modules-left > widget:first-child > #memory,
+.modules-left > widget:first-child > #backlight,
+.modules-left > widget:first-child > #pulseaudio.audio,
+.modules-left > widget:first-child > #pulseaudio.microphone,
+.modules-left > widget:first-child > #network.wlo1,
+.modules-left > widget:first-child > #network.eno1,
+.modules-left > widget:first-child > #bluetooth,
+.modules-left > widget:first-child > #battery,
+.modules-left > widget:first-child > #clock,
+.modules-left > widget:first-child > #custom-notification {
+    margin-top: 4px;
+}
+
+.modules-right > widget:last-child > #workspaces button,
+.modules-right > widget:last-child > #tray,
+.modules-right > widget:last-child > #cpu,
+.modules-right > widget:last-child > #memory,
+.modules-right > widget:last-child > #backlight,
+.modules-right > widget:last-child > #pulseaudio.audio,
+.modules-right > widget:last-child > #pulseaudio.microphone,
+.modules-right > widget:last-child > #network.wlo1,
+.modules-right > widget:last-child > #network.eno1,
+.modules-right > widget:last-child > #bluetooth,
+.modules-right > widget:last-child > #battery,
+.modules-right > widget:last-child > #clock,
+.modules-right > widget:last-child > #custom-notification {
+    margin-bottom: 4px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#tray {
+    background-color: transparent;
+    padding: 1px 5px;
+}
+#tray menu {
+    padding: 2px;
+    border-radius: 0;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+#pulseaudio-slider, #backlight-slider {
+    margin-top: 6px;
+}
+
+#pulseaudio-slider slider, #backlight-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough, #backlight-slider trough {
+    min-height: 40px;
+    min-width: 5px;
+    border-radius: 5px;
+    background-color: black;
+}
+#pulseaudio-slider highlight, #backlight-slider highlight {
+    min-width: 5px;
+    border: 1px solid @text;
+    border-radius: 5px;
+    background-color: @text;
+}

@@ -1,0 +1,65 @@
+{
+    "assistant": {
+        "enabled": false,
+        "button": false,
+        "version": "2"
+    },
+    "features": {
+        "inline_completion_provider": "none",
+        "copilot": false
+    },
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "vim_mode": true,
+    "tab_size": 4,
+    "cursor_blink": false,
+    "vim": {
+        "toggle_relative_line_numbers": true
+    },
+    "buffer_font_family": "GeistMono Nerd Font Mono",
+    "buffer_font_size": 14,
+    "buffer_font_weight": 400,
+    "buffer_font_features": {
+        "calt": false
+    },
+    "buffer_line_height": { "custom": 1.4 },
+    "ui_font_size": 15,
+    "ui_font_family": "Roboto",
+    "ui_font_weight": 400,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Ayu Dark"
+    },
+    "terminal": {
+        "font_weight": 400
+    },
+    "chat_panel": { "button": false },
+    "collaboration_panel": { "button": false },
+    "show_call_status_icon": false,
+    "tabs": {
+        "file_icons": true
+    },
+    "tab_bar": { 
+        "show": true,
+        "show_nav_history_buttons": false
+    },
+    "toolbar": {
+        "breadcrumbs": true,
+        "quick_actions": true,
+        "selections_menu": false
+    },
+    "ensure_final_newline_on_save": false,
+    "format_on_save": "off",
+    "remove_trailing_whitespace_on_save": false,
+    "soft_wrap": "none",
+    "wrap_guides": [80, 120],
+    "git": {
+        "inline_blame": { "enabled": false }
+    },
+    "project_panel": {
+        "indent_size": 24
+    }
+}

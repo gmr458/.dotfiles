@@ -1,0 +1,25 @@
+[include]
+	path = ~/.gitconfig.local
+
+[diff]
+    external = difft
+
+; [core]
+; 	pager = delta --diff-so-fancy
+
+[alias]
+	dstatic = -c diff.external=difft diff
+
+[delta]
+	syntax-theme = ColdDark
+	line-numbers = true
+	detect-dark-light = always
+	hunk-header-style = omit
+	file-style = omit
+	minus-style = 'syntax "#4C1919"'
+	minus-emph-style = 'syntax "#701414"'
+	line-numbers-minus-style = '"#701414" auto'
+	plus-style = 'syntax "#383E2A"'
+	plus-emph-style = 'syntax "#4C5B2B"'
+	line-numbers-plus-style = '"#4C5B2B" auto'
+	; side-by-side = true

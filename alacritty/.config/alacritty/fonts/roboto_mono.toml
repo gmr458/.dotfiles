@@ -1,0 +1,19 @@
+[font]
+normal = { family = "RobotoMono Nerd Font Mono", style = "Regular" }
+bold = { family = "RobotoMono Nerd Font Mono", style = "Regular" }
+italic = { family = "RobotoMono Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "RobotoMono Nerd Font Mono", style = "Italic" }
+
+# bigger size
+# size = 12.0
+# offset = { x = -1, y = -2 }
+# glyph_offset = { x = 0, y = -1 }
+
+# normal size
+size = 11.7
+offset = { x = -1, y = -2 }
+glyph_offset = { x = 0, y = 0 }
+
+[window]
+padding = { x = 1, y = 0 }
+dynamic_padding = true

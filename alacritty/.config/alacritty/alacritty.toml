@@ -1,0 +1,46 @@
+[general]
+import = [
+  "~/.config/alacritty/themes/dark/base16_default.toml",
+  "~/.config/alacritty/fonts/geist_mono.toml",
+]
+
+live_config_reload = true
+
+# [scrolling]
+# history = 100000
+
+[window]
+decorations = "Full"
+opacity = 0.9
+blur = false
+#startup_mode = "Maximized"
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Underline", blinking = "Never" }
+vi_mode_style = { shape = "Block", blinking = "Never" }
+# blink_interval = 400
+# blink_timeout = 30
+unfocused_hollow = false
+thickness = 0.1
+
+[mouse]
+hide_when_typing = true
+bindings = [{ mouse = "Right", action = "Paste" }]
+
+[keyboard]
+bindings = [
+  { key = "N", mods = "Shift|Control", action = "CreateNewWindow" },
+  { key = "U", mods = "Shift|Control", command = { program = "/home/gdmr/.config/alacritty/switch_theme.sh", args = ["/home/gdmr/.config/alacritty/alacritty.toml"] } },
+  { key = "F11", mods = "Shift|Control", action = "ToggleFullscreen" },
+  { key = "Up", mods = "Control|Shift", action = "ScrollHalfPageUp" },
+  { key = "Down", mods = "Control|Shift", action = "ScrollHalfPageDown" },
+  { key = "Home", mods = "Control|Shift", action = "ScrollToTop" },
+  { key = "End", mods = "Control|Shift", action = "ScrollToBottom" },
+  { key = "K", mods = "Control|Shift", mode = "Vi|~Search", action = "ScrollToTop" },
+  { key = "J", mods = "Control|Shift", mode = "Vi|~Search", action = "ScrollToBottom" },
+  { key = "K", mods = "Control", mode = "Vi|~Search", action = "ScrollHalfPageUp" },
+  { key = "J", mods = "Control", mode = "Vi|~Search", action = "ScrollHalfPageDown" },
+]
