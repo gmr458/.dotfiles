@@ -67,15 +67,15 @@ def ll [
     ls --long --du=$du
         | reject target readonly mode num_links inode user group created
         | sort-by type name
-        | each { |it|
-            let max_length = 22
-            if ($it.name | str length) > $max_length {
-                let truncated_name = ($it.name | str substring 0..$max_length) + "..."
-                $it | upsert name $truncated_name
-            } else {
-                $it
-            }
-        }
+        # | each { |it|
+        #     let max_length = 22
+        #     if ($it.name | str length) > $max_length {
+        #         let truncated_name = ($it.name | str substring 0..$max_length) + "..."
+        #         $it | upsert name $truncated_name
+        #     } else {
+        #         $it
+        #     }
+        # }
 }
 
 def lla [
@@ -84,15 +84,15 @@ def lla [
     ls --all --long --du=$du
         | reject target readonly mode num_links inode user group created
         | sort-by type name
-        | each { |it|
-            let max_length = 22
-            if ($it.name | str length) > $max_length {
-                let truncated_name = ($it.name | str substring 0..$max_length) + "..."
-                $it | upsert name $truncated_name
-            } else {
-                $it
-            }
-        }
+        # | each { |it|
+        #     let max_length = 22
+        #     if ($it.name | str length) > $max_length {
+        #         let truncated_name = ($it.name | str substring 0..$max_length) + "..."
+        #         $it | upsert name $truncated_name
+        #     } else {
+        #         $it
+        #     }
+        # }
 }
 
 alias android_repos = cd ($env.HOME | path join AndroidStudioProjects)

@@ -1,5 +1,8 @@
-let os_name = sys host | get name
-if $os_name == 'Fedora Linux' {
+let running_linux = sys host
+    | get long_os_version
+    | str contains 'Linux'
+
+if $running_linux {
     $env.GOROOT = '/usr/local/go'
     $env.GOPATH = $env.HOME | path join go
     $env.DENO_INSTALL = $env.HOME | path join .deno
@@ -108,6 +111,40 @@ def size_current_dir [] {
     ls --all --du
         | get size
         | math sum
+}
+
+def pick_session [] {
+    let session_dir = $'($env.HOME)/Documents/kitty_sessions'
+    let sessions = (fd -e kitty-session . $session_dir | path basename)
+    let chosen = (
+        $sessions
+            | fzf --prompt='Pick a session: '
+                --pointer='▌'
+                --highlight-line
+                --color='gutter:-1'
+                --scrollbar='█'
+                --info=hidden
+                --layout=reverse
+                --no-bold
+    )
+    if ($chosen | is-not-empty) {
+        let full_path = ($session_dir | path join $chosen)
+        kitty --detach --session $full_path
+    }
+}
+
+def ls_symlinks [] {
+    ls -la
+        | where type == symlink
+        | reject readonly mode num_links inode user group created accessed modified
+}
+
+def biome_format_2 [...to: path] {
+    biome format --verbose --write --indent-width=2 --indent-style=space ...$to
+}
+
+def biome_format_4 [...to: path] {
+    biome format --verbose --write --indent-width=4 --indent-style=space ...$to
 }
 
 $env.PROMPT_COMMAND = {||
