@@ -33,4 +33,7 @@ case "$choice" in
         ;;
     esac
     ;;
+  "Switch User")
+    gdmflexiserver
+    ;;
 esac
