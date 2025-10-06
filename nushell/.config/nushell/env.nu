@@ -22,6 +22,7 @@ if $running_linux {
         | append '/usr/local/odin'
         | append '/usr/local/c3'
         | append '/usr/local/zig'
+        | append '/opt/gradle/gradle-9.1.0/bin'
 }
 
 $env.LS_COLORS = (vivid generate nord)
