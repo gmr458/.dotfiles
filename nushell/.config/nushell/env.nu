@@ -140,12 +140,44 @@ def ls_symlinks [] {
         | reject readonly mode num_links inode user group created accessed modified
 }
 
-def biome_format_2 [...to: path] {
-    biome format --verbose --write --indent-width=2 --indent-style=space ...$to
+def get_git_modifications [] {
+    git status -s
+        | lines
+        | str trim
+        | parse '{status} {file}'
+        | get file
 }
 
-def biome_format_4 [...to: path] {
-    biome format --verbose --write --indent-width=4 --indent-style=space ...$to
+def prettier_format [indent_width: int, ...to: path] {
+    (prettier
+        --write
+        --tab-width=$'($indent_width)'
+        ...$to)
+}
+
+def prettier_format_git [indent_width: int] {
+    let files = get_git_modifications
+    prettier_format $indent_width ...$files
+}
+
+def biome_format [indent_width: int, ...to: path] {
+    (biome format
+        --verbose
+        --write
+        --indent-width=$'($indent_width)'
+        --indent-style=space
+        ...$to)
+}
+
+def biome_format_git [indent_width: int] {
+    let files = get_git_modifications
+    biome_format $indent_width ...$files
+}
+
+def list_all_files_sorted_by_size [] {
+    ls -a **/*
+        | where $it.type == 'file'
+        | sort-by size --reverse
 }
 
 $env.PROMPT_COMMAND = {||
