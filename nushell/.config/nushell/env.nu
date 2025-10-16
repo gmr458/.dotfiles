@@ -117,7 +117,13 @@ def size_current_dir [] {
 
 def pick_session [] {
     let session_dir = $'($env.HOME)/Documents/kitty_sessions'
-    let sessions = (fd -e kitty-session . $session_dir | path basename)
+    mkdir $session_dir
+    let sessions = (
+        fd -e kitty-session . $session_dir
+            | lines
+            | path basename
+            | str join "\n"
+    )
     let chosen = (
         $sessions
             | fzf --prompt='Pick a session: '
