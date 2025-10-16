@@ -218,9 +218,7 @@ $env.PROMPT_COMMAND = {||
         ' ' ++ ($'($env.CMD_DURATION_MS)ms' | into duration | into string)
     } else { '' }
 
-    let git_info = git_prompt
-
-    $'($exit_code) (ansi '#6A9FB5')($current_path)(ansi '#9ca0b0')($git_info)(ansi reset)(ansi '#585858')($cmd_durarion)(ansi reset)'
+    $'($exit_code) (ansi '#6A9FB5')($current_path)(ansi '#9ca0b0')(ansi reset)(ansi '#585858')($cmd_durarion)(ansi reset)'
 }
 
 $env.PROMPT_INDICATOR = {|| $' (ansi yellow)$(ansi reset) '}
