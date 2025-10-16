@@ -181,6 +181,30 @@ def list_all_files_sorted_by_size [] {
         | sort-by size --reverse
 }
 
+def backup_postgres_db [
+    user: string,
+    dbname: string,
+    prefix: string,
+    to: path
+] {
+  let timestamp = date now | format date '%Y_%m_%d_%H_%M_%S'
+
+  (pg_dump -U $user
+      -d $dbname
+      -F c
+      -f $'($to)/($prefix)_($timestamp).dump')
+
+  (pg_dump -U $user
+      -d $dbname
+      -F t
+      -f $'($to)/($prefix)_($timestamp).tar')
+
+  (pg_dump -U $user
+      -d $dbname
+      -F p
+      -f $'($to)/($prefix)_($timestamp).sql')
+}
+
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {
         $'(ansi '#76946A')0(ansi reset)'
