@@ -62,9 +62,11 @@ alias cls = clear
 # def lla [] { ls-builtin -a | sort-by type name -i }
 
 def ll [
-    --du (-d) # Display the apparent directory size ("disk usage") in place of the directory metadata size
+    --du (-d), # Display the apparent directory size ("disk usage") in place of the directory metadata size
+    ...pattern: glob, # The glob pattern to use
 ] {
-    ls --long --du=$du
+    let pattern = if ($pattern | is-empty) { [ '.' ] } else { $pattern }
+    ls --long --du=$du ...$pattern
         | reject target readonly mode num_links inode user group created
         | sort-by type name
         # | each { |it|
@@ -79,9 +81,11 @@ def ll [
 }
 
 def lla [
-    --du (-d) # Display the apparent directory size ("disk usage") in place of the directory metadata size
+    --du (-d), # Display the apparent directory size ("disk usage") in place of the directory metadata size
+    ...pattern: glob, # The glob pattern to use
 ] {
-    ls --all --long --du=$du
+    let pattern = if ($pattern | is-empty) { [ '.' ] } else { $pattern }
+    ls --all --long --du=$du ...$pattern
         | reject target readonly mode num_links inode user group created
         | sort-by type name
         # | each { |it|

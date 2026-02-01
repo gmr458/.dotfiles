@@ -148,11 +148,32 @@ def ls_symlinks [] {
 }
 
 def get_git_modifications [] {
-    git status -s
-        | lines
-        | str trim
-        | parse '{status} {file}'
-        | get file
+    let output = git status --porcelain=v2 | lines
+
+    let ordinary_changed_entries = $output
+        | where ($it | str starts-with '1')
+        | parse '1 {XY} {_} {_} {_} {_} {_} {_} {path}'
+        | where (
+            ($it.XY | str ends-with 'M') or
+            ($it.XY | str ends-with 'T')
+        )
+        | get path
+
+    let renamed_or_copied_entries = $output
+        | where ($it | str starts-with '2')
+        | parse '2 {XY} {_} {_} {_} {_} {_} {_} {_} {path}	{_}'
+        | where (
+            ($it.XY | str ends-with 'M') or
+            ($it.XY | str ends-with 'T')
+        )
+        | get path
+
+    let untracked_entries = $output
+        | where ($it | str starts-with '?')
+        | parse '? {path}'
+        | get path
+
+    $ordinary_changed_entries ++ $renamed_or_copied_entries ++ $untracked_entries
 }
 
 def prettier_format [indent_width: int, ...to: path] {
@@ -164,7 +185,9 @@ def prettier_format [indent_width: int, ...to: path] {
 
 def prettier_format_git [indent_width: int] {
     let files = get_git_modifications
-    prettier_format $indent_width ...$files
+    if ($files | is-not-empty) {
+        prettier_format $indent_width ...$files
+    }
 }
 
 def biome_format [indent_width: int, ...to: path] {
@@ -178,7 +201,9 @@ def biome_format [indent_width: int, ...to: path] {
 
 def biome_format_git [indent_width: int] {
     let files = get_git_modifications
-    biome_format $indent_width ...$files
+    if ($files | is-not-empty) {
+        biome_format $indent_width ...$files
+    }
 }
 
 def list_all_files_sorted_by_size [] {
@@ -211,6 +236,28 @@ def backup_postgres_db [
       -f $'($to)/($prefix)_($timestamp).sql')
 }
 
+def search_history [] {
+    let cmds = history
+        | get command
+        | uniq
+        | str join "\n"
+    let chosen = (
+        $cmds
+            | fzf --prompt='Search history: '
+                --pointer='▌'
+                --highlight-line
+                --color='gutter:-1'
+                --scrollbar='█'
+                --info=hidden
+                --layout=reverse
+                --no-bold
+    )
+    if ($chosen | is-not-empty) {
+        $chosen | wl-copy
+        echo $"Command '($chosen)' copied to clipboard"
+    }
+}
+
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {
         $'(ansi '#76946A')0(ansi reset)'
@@ -220,9 +267,14 @@ $env.PROMPT_COMMAND = {||
 
     let current_path = last_dir
 
-    let cmd_durarion = if ($env.CMD_DURATION_MS | into int) > 0 {
+    let cmd_duration_ms_int = $env.CMD_DURATION_MS | into int
+    let cmd_durarion = if $cmd_duration_ms_int == 823 {
+        ''
+    } else if $cmd_duration_ms_int > 0 {
         ' ' ++ ($'($env.CMD_DURATION_MS)ms' | into duration | into string)
-    } else { '' }
+    } else {
+        ''
+    }
 
     $'($exit_code) (ansi '#6A9FB5')($current_path)(ansi '#9ca0b0')(ansi reset)(ansi '#585858')($cmd_durarion)(ansi reset)'
 }
