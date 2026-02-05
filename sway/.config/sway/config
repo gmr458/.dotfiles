@@ -15,18 +15,21 @@ set $term kitty --single-instance
 
 # execute apps at launch
 
+# quickshell
+exec_always --no-startup-id qs -c noctalia-shell
+
 # waybar
-exec_always --no-startup-id ~/.config/waybar/launch.sh
+# exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 # wallpaper
 # output * bg ~/Pictures/wallpapers/br2049-top-1920x1080.jpg fill
-output "*" background #000000 solid_color
+# output "*" background #000000 solid_color
 
 # SwayNotificationCenter
-exec_always --no-startup-id swaync
+# exec_always --no-startup-id swaync
 
 # avizo
-exec_always avizo-service
+# exec_always avizo-service
 
 # NetworkManager
 exec_always --no-startup-id nm-applet --indicator
@@ -217,7 +220,7 @@ bindsym Ctrl+Shift+l exec hyprlock
 # ----------------------------------------------------
 
 # toggle Waybar
-bindsym $mod+Shift+t exec pkill -SIGUSR1 '^waybar$'
+# bindsym $mod+Shift+t exec pkill -SIGUSR1 '^waybar$'
 
 # ----------------------------------------------------
 

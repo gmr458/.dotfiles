@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'RobotoMono Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "'Iosevka Nerd Font Mono', 'Droid Sans Mono', 'monospace', monospace",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeightBold": "normal",
     "workbench.tree.indent": 22,
@@ -70,5 +70,6 @@
     "color-highlight.languages": [
         "*",
         "xml"
-    ]
+    ],
+    "chat.viewSessions.enabled": false
 }

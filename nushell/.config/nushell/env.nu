@@ -23,7 +23,6 @@ if $running_linux {
         | append '/usr/local/c3'
         | append '/usr/local/zig'
         | append '/opt/gradle/gradle-9.1.0/bin'
-        | append '/usr/local/tsgo/bin'
 }
 
 $env.LS_COLORS = (vivid generate nord)
@@ -185,6 +184,28 @@ def prettier_format [indent_width: int, ...to: path] {
 
 def prettier_format_git [indent_width: int] {
     let files = get_git_modifications
+        | where (
+            ($it | str ends-with ".js") or
+            ($it | str ends-with ".jsx") or
+            ($it | str ends-with ".ts") or
+            ($it | str ends-with ".tsx") or
+            ($it | str ends-with ".json") or
+            ($it | str ends-with ".css") or
+            ($it | str ends-with ".scss") or
+            ($it | str ends-with ".html") or
+            ($it | str ends-with ".md") or
+            ($it | str ends-with ".yaml") or
+            ($it | str ends-with ".yml") or
+            ($it | str ends-with ".vue") or
+            ($it | str ends-with ".svelte") or
+            ($it | str ends-with ".astro") or
+            ($it | str ends-with ".graphql") or
+            ($it | str ends-with ".mjs") or
+            ($it | str ends-with ".cjs") or
+            ($it | str ends-with ".less") or
+            ($it | str ends-with "/")
+        )
+
     if ($files | is-not-empty) {
         prettier_format $indent_width ...$files
     }
@@ -201,6 +222,28 @@ def biome_format [indent_width: int, ...to: path] {
 
 def biome_format_git [indent_width: int] {
     let files = get_git_modifications
+        | where (
+            ($it | str ends-with ".js") or
+            ($it | str ends-with ".jsx") or
+            ($it | str ends-with ".ts") or
+            ($it | str ends-with ".tsx") or
+            ($it | str ends-with ".json") or
+            ($it | str ends-with ".css") or
+            ($it | str ends-with ".scss") or
+            ($it | str ends-with ".html") or
+            ($it | str ends-with ".md") or
+            ($it | str ends-with ".yaml") or
+            ($it | str ends-with ".yml") or
+            ($it | str ends-with ".vue") or
+            ($it | str ends-with ".svelte") or
+            ($it | str ends-with ".astro") or
+            ($it | str ends-with ".graphql") or
+            ($it | str ends-with ".mjs") or
+            ($it | str ends-with ".cjs") or
+            ($it | str ends-with ".less") or
+            ($it | str ends-with "/")
+        )
+
     if ($files | is-not-empty) {
         biome_format $indent_width ...$files
     }
@@ -257,6 +300,15 @@ def search_history [] {
         echo $"Command '($chosen)' copied to clipboard"
     }
 }
+
+def kitty_theme_light [] {
+    kitten themes --cache-age=-1 cold_light
+}
+
+def kitty_theme_dark [] {
+    kitten themes --cache-age=-1 cold_dark
+}
+
 
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {
