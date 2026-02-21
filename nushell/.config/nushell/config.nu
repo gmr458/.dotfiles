@@ -216,4 +216,4 @@ $env.config.color_config = {
 
 $env.config.highlight_resolved_externals = true
 
-source ~/.cache/carapace/init.nu
+source $"($nu.cache-dir)/carapace.nu"

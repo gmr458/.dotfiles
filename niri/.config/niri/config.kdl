@@ -69,19 +69,19 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open Terminal: kitty" { spawn "kitty"; }
-    
+
     Mod+E hotkey-overlay-title="Open File Manager: nautilus" { spawn "nautilus"; }
-    
+
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    
+
     Mod+P hotkey-overlay-title="Session Menu" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
-    
+
     Ctrl+Shift+0 hotkey-overlay-title="Lock Screen: hyprlock" { spawn "hyprlock"; }
 
     Mod+C repeat=false { close-window; }
-    
+
     Mod+V { toggle-window-floating; }
-    
+
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     Mod+Left  { focus-column-left; }
@@ -145,17 +145,17 @@ binds {
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-    
+
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
-    
+
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-    
+
     Mod+Shift+C { center-column; }
 
     Mod+Minus { set-column-width "-10%"; }
@@ -167,27 +167,20 @@ binds {
 
     Mod+O repeat=false { toggle-overview; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "volumectl -d -u up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "volumectl -d down"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "volumectl -d toggle-mute"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "volumectl -d -m toggle-mute"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
     XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
 
-    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "lightctl -d up"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "lightctl -d down"; }
-
-    Print { 
-        spawn-sh "mkdir -p ~/Pictures/Screenshots && GRIM_DEFAULT_DIR=~/Pictures/Screenshots grim -t png -l 0"; 
-    }
-    Shift+Print { 
-        spawn-sh "mkdir -p ~/Pictures/Screenshots && GRIM_DEFAULT_DIR=~/Pictures/Screenshots grim -t png -l 0 -g $(slurp)"; 
-    }
-    Alt+Print { screenshot-window; }
-    Ctrl+Print { screenshot-screen; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl s +1%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl s 1%-"; }
+    Print { screenshot-screen; }
+    Shift+Print { screenshot; }
 
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
