@@ -27,6 +27,8 @@ if $running_linux {
 
 $env.LS_COLORS = (vivid generate nord)
 
+$env.FZF_DEFAULT_OPTS = "--prompt='❯ ' --pointer='▌' --highlight-line --color='gutter:-1' --scrollbar='█' --info=hidden --layout=reverse --no-bold --bind 'tab:down,btab:up'"
+
 # def is_int [] {
 #     ($in | describe) == int
 # }
@@ -123,17 +125,7 @@ def pick_session [] {
             | path basename
             | str join "\n"
     )
-    let chosen = (
-        $sessions
-            | fzf --prompt='Pick a session: '
-                --pointer='▌'
-                --highlight-line
-                --color='gutter:-1'
-                --scrollbar='█'
-                --info=hidden
-                --layout=reverse
-                --no-bold
-    )
+    let chosen = $sessions | fzf --prompt='Pick a session: '
     if ($chosen | is-not-empty) {
         let full_path = ($session_dir | path join $chosen)
         kitty --detach --session $full_path
@@ -284,20 +276,18 @@ def search_history [] {
         | get command
         | uniq
         | str join "\n"
-    let chosen = (
-        $cmds
-            | fzf --prompt='Search history: '
-                --pointer='▌'
-                --highlight-line
-                --color='gutter:-1'
-                --scrollbar='█'
-                --info=hidden
-                --layout=reverse
-                --no-bold
-    )
+    let chosen = $cmds | fzf --prompt='Search history: '
     if ($chosen | is-not-empty) {
         $chosen | wl-copy
         echo $"Command '($chosen)' copied to clipboard"
+    }
+}
+
+def search_files [] {
+    let chosen = (fzf --prompt='Search files: ')
+    if ($chosen | is-not-empty) {
+        $chosen | wl-copy
+        echo $"Path '($chosen)' copied to clipboard"
     }
 }
 

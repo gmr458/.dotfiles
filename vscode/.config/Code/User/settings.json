@@ -71,5 +71,6 @@
         "*",
         "xml"
     ],
-    "chat.viewSessions.enabled": false
+    "chat.viewSessions.enabled": false,
+    "svelte.enable-ts-plugin": true
 }
