@@ -1,19 +1,14 @@
 [font]
 normal = { family = "GeistMono Nerd Font Mono", style = "Regular" }
 bold = { family = "GeistMono Nerd Font Mono", style = "Regular" }
-italic = { family = "GeistMono Nerd Font Mono", style = "Regular" }
-bold_italic = { family = "GeistMono Nerd Font Mono", style = "Regular" }
-
-# bigger size
-# size = 12.0
-# offset = { x = -1, y = -2 }
-# glyph_offset = { x = 0, y = -1 }
+italic = { family = "GeistMono Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "GeistMono Nerd Font Mono", style = "Italic" }
 
 # normal size
-size = 11.6
+size = 14.0
 offset = { x = 0, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 
 [window]
-padding = { x = 1, y = 0 }
+padding = { x = 0, y = 0 }
 dynamic_padding = true
