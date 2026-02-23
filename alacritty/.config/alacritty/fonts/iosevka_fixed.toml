@@ -3,9 +3,14 @@ normal = { family = "IosevkaFixed Nerd Font Mono", style = "Regular" }
 bold = { family = "IosevkaFixed Nerd Font Mono", style = "Regular" }
 italic = { family = "IosevkaFixed Nerd Font Mono", style = "Italic" }
 bold_italic = { family = "IosevkaFixed Nerd Font Mono", style = "Italic" }
-size = 12.0
-offset = { x = 0, y = -1 }
-glyph_offset = { x = 0, y = -1 }
+
+# size = 12.0
+# offset = { x = 0, y = -1 }
+# glyph_offset = { x = 0, y = -1 }
+
+size = 14.0
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
 
 [window]
 padding = { x = 0, y = 0 }
