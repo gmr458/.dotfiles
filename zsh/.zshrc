@@ -14,3 +14,5 @@ source ~/.zsh/utils.zsh
 source ~/.zsh/services.zsh
 source ~/.zsh/kitty.zsh
 # source ~/.zsh/external.zsh
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
