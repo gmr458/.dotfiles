@@ -23,6 +23,8 @@ if $running_linux {
         | append '/usr/local/c3'
         | append '/usr/local/zig'
         | append '/opt/gradle/gradle-9.1.0/bin'
+        | append ($env.ANDROID_HOME | path join emulator)
+        | append ($env.ANDROID_HOME | path join platform-tools)
 }
 
 $env.LS_COLORS = (vivid generate nord)
