@@ -5,6 +5,8 @@ font-style-bold-italic = false
 font-synthetic-style = false
 font-size = 13
 
+theme = Oxocarbon
+
 command = nu
 
 cursor-style = underline
