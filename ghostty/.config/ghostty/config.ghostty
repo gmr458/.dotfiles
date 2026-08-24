@@ -1,14 +1,9 @@
-font-family = RobotoMono Nerd Font Mono
+font-family = "IosevkaFixed Nerd Font Mono"
 font-style-bold = false
 font-style-italic = false
 font-style-bold-italic = false
 font-synthetic-style = false
-font-feature = -liga
-font-size = 12
-
-adjust-cell-width = -1
-
-theme = ColdDark
+font-size = 13
 
 command = nu
 
@@ -60,5 +55,3 @@ keybind = ctrl+shift+right=resize_split:right,5
 
 keybind = ctrl+up=scroll_to_top
 keybind = ctrl+down=scroll_to_bottom
-
-background-opacity = 0.8

@@ -301,6 +301,21 @@ def kitty_theme_dark [] {
     kitten themes --cache-age=-1 cold_dark
 }
 
+def update_opencode [] {
+    if ('~/.local/bin/opencode' | path exists) {
+        let version = (opencode -v) | str trim
+        rm -f ~/.local/bin/opencode
+        print $'opencode ($version) deleted'
+    }
+    print 'downloading updated opencode'
+    http get https://github.com/anomalyco/opencode/releases/latest/download/opencode-linux-x64.tar.gz | save ~/.local/bin/opencode-linux-x64.tar.gz
+    print 'updated opencode downloaded'
+    tar -xzf ~/.local/bin/opencode-linux-x64.tar.gz -C ~/.local/bin
+    print 'updated opencode extracted'
+    rm -f ~/.local/bin/opencode-linux-x64.tar.gz
+    rm -rf ~/.opencode
+    print 'cleanup done'
+}
 
 $env.PROMPT_COMMAND = {||
     let exit_code = if ($env.LAST_EXIT_CODE == 0) {

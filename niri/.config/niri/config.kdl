@@ -49,6 +49,7 @@ spawn-at-startup "blueman-applet"
 spawn-sh-at-startup "qs -c noctalia-shell"
 
 hotkey-overlay {
+    skip-at-startup
 }
 
 prefer-no-csd
@@ -76,7 +77,7 @@ binds {
 
     Mod+P hotkey-overlay-title="Session Menu" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
 
-    Ctrl+Shift+0 hotkey-overlay-title="Lock Screen: hyprlock" { spawn "hyprlock"; }
+    Ctrl+Shift+0 hotkey-overlay-title="Lock Screen: noctalia" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 
     Mod+C repeat=false { close-window; }
 
