@@ -43,10 +43,9 @@ layout {
     }
 }
 
+spawn-at-startup "noctalia"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "blueman-applet"
-
-spawn-sh-at-startup "qs -c noctalia-shell"
 
 hotkey-overlay {
     skip-at-startup
@@ -73,11 +72,8 @@ binds {
 
     Mod+E hotkey-overlay-title="Open File Manager: nautilus" { spawn "nautilus"; }
 
-    Mod+Space hotkey-overlay-title="Application Launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-
-    Mod+P hotkey-overlay-title="Session Menu" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
-
-    Ctrl+Shift+0 hotkey-overlay-title="Lock Screen: noctalia" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Ctrl+Shift+0 { spawn "noctalia" "msg" "session" "lock"; }
 
     Mod+C repeat=false { close-window; }
 
@@ -168,9 +164,9 @@ binds {
 
     Mod+O repeat=false { toggle-overview; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -178,8 +174,8 @@ binds {
     XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
     XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
 
-    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl s +1%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl s 1%-"; }
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
     Print { screenshot-screen; }
     Shift+Print { screenshot; }
 
