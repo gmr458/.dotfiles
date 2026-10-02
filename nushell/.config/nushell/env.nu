@@ -9,9 +9,9 @@ if $running_linux {
     $env.BUN_INSTALL = $env.HOME | path join .bun
     $env.ANDROID_HOME = $env.HOME | path join Android Sdk
     $env.EDITOR = 'nvim'
+    $env.PNPM_HOME = $env.HOME | path join .local share pnpm
 
     $env.PATH = $env.PATH
-        | split row (char esep)
         | append ($env.HOME | path join .local bin)
         | append ($env.HOME | path join .cargo bin)
         | append ($env.GOROOT | path join bin)
@@ -25,6 +25,7 @@ if $running_linux {
         | append '/opt/gradle/gradle-9.1.0/bin'
         | append ($env.ANDROID_HOME | path join emulator)
         | append ($env.ANDROID_HOME | path join platform-tools)
+        | append ($env.PNPM_HOME | path join bin)
 }
 
 $env.LS_COLORS = (vivid generate nord)
@@ -302,19 +303,50 @@ def kitty_theme_dark [] {
 }
 
 def update_opencode [] {
-    if ('~/.local/bin/opencode' | path exists) {
-        let version = (opencode -v) | str trim
-        rm -f ~/.local/bin/opencode
-        print $'opencode ($version) deleted'
+    let bin_path = ($nu.home-dir | path join '.local/bin/opencode')
+
+    let release = (try {
+        http get 'https://api.github.com/repos/anomalyco/opencode/releases/latest'
+    } catch { |err|
+        print $'failed to check latest release: ($err.msg)'
+        return
+    })
+    let latest_version = ($release.tag_name | str trim | parse 'v{version}' | get version.0 | into semver)
+
+    if ($bin_path | path exists) {
+        let current_version = (^opencode -v | str trim | into semver)
+
+        if $latest_version <= $current_version {
+            print $'opencode is up to date: ($current_version)'
+            return
+        }
+
+        print $'updating opencode ($current_version) -> ($latest_version)'
+        rm -f $bin_path
+    } else {
+        print $'opencode not installed, installing ($latest_version)'
     }
-    print 'downloading updated opencode'
-    http get https://github.com/anomalyco/opencode/releases/latest/download/opencode-linux-x64.tar.gz | save ~/.local/bin/opencode-linux-x64.tar.gz
-    print 'updated opencode downloaded'
-    tar -xzf ~/.local/bin/opencode-linux-x64.tar.gz -C ~/.local/bin
-    print 'updated opencode extracted'
-    rm -f ~/.local/bin/opencode-linux-x64.tar.gz
-    rm -rf ~/.opencode
-    print 'cleanup done'
+
+    let tmp_dir = (mktemp -d)
+    let tarball = ($tmp_dir | path join 'opencode-linux-x64.tar.gz')
+
+    try {
+        http get 'https://github.com/anomalyco/opencode/releases/latest/download/opencode-linux-x64.tar.gz'
+            | save -f $tarball
+
+        tar -xzf $tarball -C ($nu.home-dir | path join '.local/bin')
+
+        rm -rf ($nu.home-dir | path join '.opencode')
+        print 'opencode updated and cleaned up'
+    } catch { |err|
+        print $'update failed: ($err.msg)'
+    }
+
+    rm -rf $tmp_dir
+}
+
+def list_target_directories [] {
+    fd -t d -H -I '^target$' | lines
 }
 
 $env.PROMPT_COMMAND = {||
