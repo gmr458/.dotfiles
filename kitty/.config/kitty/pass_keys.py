@@ -1,28 +1,22 @@
-"""The purpose of this script if for the
-ctrl+hjkl to be executed in Neovim before
-Kitty if Neovim is open, this allows for
-better navigation between the Neovim and
-Kitty windows"""
-
 import re
-from typing import List
 
 from kittens.tui.handler import result_handler
 from kitty.key_encoding import KeyEvent, parse_shortcut
-from kitty.boss import Boss
+
+PASSTHROUGH = r"\b(vim|nvim|fzf)\b"
 
 
-def is_window_vim(window, vim_id):
+# Return True if any foreground process in the window matches PASSTHROUGH
+def is_window_passthrough(window):
+
     fp = window.child.foreground_processes
-    print(fp)
-    return any(
-        re.search(
-            vim_id,
-            p["cmdline"][0] if len(p["cmdline"]) else "",
-            re.I,
-        )
-        for p in fp
-    )
+
+    # Check if any argument in a process's cmdline matches PASSTHROUGH,
+    # including when launched via wrappers or pipelines (e.g., "zoxide query | fzf")
+    def is_process_passthrough(p):
+        return any(re.search(PASSTHROUGH, arg, re.IGNORECASE) for arg in p["cmdline"])
+
+    return any(is_process_passthrough(p) for p in fp)
 
 
 def encode_key_mapping(window, key_mapping):
@@ -41,26 +35,19 @@ def encode_key_mapping(window, key_mapping):
     return window.encoded_key(event)
 
 
-def main(_: List[str]):
+def main():
     pass
 
 
 @result_handler(no_ui=True)
-def handle_result(
-    args: List[str],
-    answer: str,
-    target_window_id: int,
-    boss: Boss,
-) -> None:
-    direction = args[1]
-    key_mapping = args[2]
-    vim_id = args[3] if len(args) > 3 else "n?vim"
-
+def handle_result(args, result, target_window_id, boss):
     window = boss.window_id_map.get(target_window_id)
+    direction = args[2]
+    key_mapping = args[3]
 
     if window is None:
         return
-    if is_window_vim(window, vim_id):
+    if is_window_passthrough(window):
         for keymap in key_mapping.split(">"):
             encoded = encode_key_mapping(window, keymap)
             window.write_to_child(encoded)
