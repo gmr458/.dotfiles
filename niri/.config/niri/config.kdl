@@ -47,6 +47,11 @@ spawn-at-startup "noctalia"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "blueman-applet"
 
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
+}
+
 hotkey-overlay {
     skip-at-startup
 }

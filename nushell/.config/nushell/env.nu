@@ -1,10 +1,9 @@
 let running_linux = sys host
     | get long_os_version
     | str contains 'Linux'
+let on_nixos = '/etc/NIXOS' | path exists
 
-if $running_linux {
-    $env.GOROOT = '/usr/local/go'
-    $env.GOPATH = $env.HOME | path join go
+if $running_linux and not $on_nixos {
     $env.DENO_INSTALL = $env.HOME | path join .deno
     $env.BUN_INSTALL = $env.HOME | path join .bun
     $env.ANDROID_HOME = $env.HOME | path join Android Sdk
@@ -14,8 +13,7 @@ if $running_linux {
     $env.PATH = $env.PATH
         | append ($env.HOME | path join .local bin)
         | append ($env.HOME | path join .cargo bin)
-        | append ($env.GOROOT | path join bin)
-        | append ($env.GOPATH | path join bin)
+        | append (go env GOPATH | str trim | path join bin)
         | append '/usr/local/flutter/bin'
         | append ($env.DENO_INSTALL | path join bin)
         | append ($env.BUN_INSTALL | path join bin)
@@ -28,7 +26,161 @@ if $running_linux {
         | append ($env.PNPM_HOME | path join bin)
 }
 
-$env.LS_COLORS = (vivid generate nord)
+if $on_nixos {
+    $env.PATH = $env.PATH
+        | append ($env.HOME | path join .local bin)
+        | append ($env.HOME | path join .cargo bin)
+        | append (go env GOPATH | str trim | path join bin)
+}
+
+def rebuild [] {
+    if not ('/etc/NIXOS' | path exists) {
+        error make {msg: "rebuild is only available on NixOS"}
+    }
+    sudo nixos-rebuild switch --flake ~/nixos-config
+}
+
+def generations [] {
+    if not ('/etc/NIXOS' | path exists) {
+        error make {msg: "generations is only available on NixOS"}
+    }
+    sudo nixos-rebuild list-generations
+}
+
+def cleanup [--older-than: string = ""] {
+    if not ('/etc/NIXOS' | path exists) {
+        error make {msg: "cleanup is only available on NixOS"}
+    }
+    if ($older_than | is-empty) {
+        sudo nix-collect-garbage -d
+    } else {
+        sudo nix-collect-garbage -d --delete-older-than $older_than
+    }
+}
+
+def upgrade [input?: string] {
+    if not ('/etc/NIXOS' | path exists) {
+        error make {msg: "upgrade is only available on NixOS"}
+    }
+    cd ~/nixos-config
+    if ($input | is-empty) {
+        for i in [nixpkgs home-manager helium] {
+            nix flake update $i
+        }
+    } else {
+        nix flake update $input
+    }
+    sudo nixos-rebuild switch --flake ~/nixos-config
+}
+
+def upgrade-source [] {
+    if not ('/etc/NIXOS' | path exists) {
+        error make {msg: "upgrade-source is only available on NixOS"}
+    }
+    cd ~/nixos-config
+    for i in [ghostty neovim-nightly-overlay] {
+        nix flake update $i
+    }
+    sudo nixos-rebuild switch --flake ~/nixos-config
+}
+
+def extract_gz [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_gz: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/gzip' {
+        error make {msg: $"extract_gz: not gzip data: ($file)"}
+    }
+    if (gzip -dc -- $file | file -b --mime-type - | str trim) == 'application/x-tar' {
+        error make {msg: $"extract_gz: tar archive, use extract_tar_gz: ($file)"}
+    }
+    gzip -d -- $file
+}
+
+def extract_bz2 [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_bz2: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/x-bzip2' {
+        error make {msg: $"extract_bz2: not bzip2 data: ($file)"}
+    }
+    if (bzip2 -dc -- $file | file -b --mime-type - | str trim) == 'application/x-tar' {
+        error make {msg: $"extract_bz2: tar archive, use extract_tar_bz2: ($file)"}
+    }
+    bunzip2 -- $file
+}
+
+def extract_xz [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_xz: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/x-xz' {
+        error make {msg: $"extract_xz: not xz data: ($file)"}
+    }
+    if (xz -dc -- $file | file -b --mime-type - | str trim) == 'application/x-tar' {
+        error make {msg: $"extract_xz: tar archive, use extract_tar_xz: ($file)"}
+    }
+    unxz -- $file
+}
+
+def extract_tar [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_tar: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/x-tar' {
+        error make {msg: $"extract_tar: not tar data: ($file)"}
+    }
+    tar -xf $file
+}
+
+def extract_tar_gz [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_tar_gz: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/gzip' {
+        error make {msg: $"extract_tar_gz: not gzip data: ($file)"}
+    }
+    if (gzip -dc -- $file | file -b --mime-type - | str trim) != 'application/x-tar' {
+        error make {msg: $"extract_tar_gz: not a tar archive: ($file)"}
+    }
+    tar -xzf $file
+}
+
+def extract_tar_bz2 [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_tar_bz2: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/x-bzip2' {
+        error make {msg: $"extract_tar_bz2: not bzip2 data: ($file)"}
+    }
+    if (bzip2 -dc -- $file | file -b --mime-type - | str trim) != 'application/x-tar' {
+        error make {msg: $"extract_tar_bz2: not a tar archive: ($file)"}
+    }
+    tar -xjf $file
+}
+
+def extract_tar_xz [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_tar_xz: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/x-xz' {
+        error make {msg: $"extract_tar_xz: not xz data: ($file)"}
+    }
+    if (xz -dc -- $file | file -b --mime-type - | str trim) != 'application/x-tar' {
+        error make {msg: $"extract_tar_xz: not a tar archive: ($file)"}
+    }
+    tar -xJf $file
+}
+
+def extract_zip [file: path] {
+    if not ($file | path exists) {
+        error make {msg: $"extract_zip: no such file: ($file)"}
+    }
+    if (file -b --mime-type -- $file | str trim) != 'application/zip' {
+        error make {msg: $"extract_zip: not zip data: ($file)"}
+    }
+    unzip $file
+}
 
 $env.FZF_DEFAULT_OPTS = "--prompt='❯ ' --pointer='▌' --highlight-line --color='gutter:-1' --scrollbar='█' --info=hidden --layout=reverse --no-bold --bind 'tab:down,btab:up'"
 

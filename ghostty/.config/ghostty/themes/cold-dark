@@ -1,0 +1,24 @@
+# cold-dark — Ghostty port of cold.nvim dark (bg #0e0e0e, fg #c8c8c8).
+background = #0e0e0e
+foreground = #c8c8c8
+cursor-color = #c8c8c8
+cursor-text = #0e0e0e
+selection-background = #212121
+selection-foreground = #c8c8c8
+
+palette = 0=#161616
+palette = 1=#ab4642
+palette = 2=#76946A
+palette = 3=#b08508
+palette = 4=#739393
+palette = 5=#9ca0b0
+palette = 6=#799496
+palette = 7=#b8b8b8
+palette = 8=#585858
+palette = 9=#FFA3A3
+palette = 10=#9EBC9F
+palette = 11=#f7ca88
+palette = 12=#86c1b9
+palette = 13=#C493B0
+palette = 14=#ced9d9
+palette = 15=#f9f9f9

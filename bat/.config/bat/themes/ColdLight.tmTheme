@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>ColdDark</string>
+	<string>ColdLight</string>
 	<key>settings</key>
 	<array>
 		<dict>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#0e0e0e</string>
+				<string>#fefefe</string>
 				<key>foreground</key>
-				<string>#c8c8c8</string>
+				<string>#111111</string>
 				<key>caret</key>
-				<string>#c8c8c8</string>
+				<string>#111111</string>
 				<key>block_caret</key>
-				<string>#585858</string>
+				<string>#888888</string>
 				<key>selection</key>
-				<string>#383838</string>
+				<string>#c8c8c8</string>
 				<key>lineHighlight</key>
-				<string>#161616</string>
+				<string>#d8d8d8</string>
 				<key>gutterForeground</key>
-				<string>#585858</string>
+				<string>#888888</string>
 				<key>findHighlight</key>
-				<string>#452b04</string>
+				<string>#f7ca88</string>
 				<key>bracketsForeground</key>
-				<string>#b8b8b8</string>
+				<string>#383838</string>
 				<key>bracketsContentsForeground</key>
-				<string>#b8b8b8</string>
+				<string>#383838</string>
 			</dict>
 		</dict>
 		<dict>
@@ -39,7 +39,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#585858</string>
+				<string>#5c5c5c</string>
 			</dict>
 		</dict>
 		<dict>
@@ -50,7 +50,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#9EBC9F</string>
+				<string>#548b40</string>
 			</dict>
 		</dict>
 		<dict>
@@ -61,7 +61,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#799496</string>
+				<string>#346969</string>
 			</dict>
 		</dict>
 		<dict>
@@ -72,7 +72,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#d8d8d8</string>
+				<string>#202020</string>
 			</dict>
 		</dict>
 		<dict>
@@ -83,7 +83,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#739393</string>
+				<string>#346969</string>
 			</dict>
 		</dict>
 		<dict>
@@ -94,7 +94,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#c8c8c8</string>
+				<string>#111111</string>
 			</dict>
 		</dict>
 		<dict>
@@ -105,7 +105,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#739393</string>
+				<string>#346969</string>
 			</dict>
 		</dict>
 		<dict>
@@ -116,7 +116,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#b8b8b8</string>
+				<string>#383838</string>
 			</dict>
 		</dict>
 		<dict>
@@ -127,7 +127,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#a8aec1</string>
+				<string>#5E698E</string>
 			</dict>
 		</dict>
 		<dict>
@@ -138,7 +138,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#a8a8a8</string>
+				<string>#383838</string>
 			</dict>
 		</dict>
 		<dict>
@@ -149,7 +149,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#c8c8c8</string>
+				<string>#111111</string>
 			</dict>
 		</dict>
 		<dict>
@@ -171,7 +171,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#739393</string>
+				<string>#346969</string>
 			</dict>
 		</dict>
 		<dict>
@@ -182,7 +182,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#d8d8d8</string>
+				<string>#202020</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 			</dict>
@@ -195,7 +195,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#c8c8c8</string>
+				<string>#111111</string>
 			</dict>
 		</dict>
 		<dict>
@@ -206,7 +206,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#9EBC9F</string>
+				<string>#548b40</string>
 			</dict>
 		</dict>
 		<dict>
@@ -228,7 +228,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#f7ca88</string>
+				<string>#b08508</string>
 			</dict>
 		</dict>
 		<dict>
@@ -239,13 +239,13 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#f9f9f9</string>
+				<string>#fefefe</string>
 				<key>background</key>
 				<string>#ab4642</string>
 			</dict>
 		</dict>
 	</array>
 	<key>uuid</key>
-	<string>cold-dark-bat-theme</string>
+	<string>cold-light-bat-theme</string>
 </dict>
 </plist>

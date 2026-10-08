@@ -1,12 +1,23 @@
-export PATH=$PATH:"$HOME/.local/bin"
-export PATH=$PATH:"$HOME/.cargo/bin"
-export PATH=$PATH:"$GOROOT/bin"
-export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:/usr/local/flutter/bin"
-export PATH=$PATH:"$DENO_INSTALL/bin"
-export PATH=$PATH:"$BUN_INSTALL/bin"
-export PATH=$PATH:"/usr/local/odin"
-export PATH=$PATH:"/usr/local/c3"
-export PATH=$PATH:"/usr/local/zig"
-export PATH=$PATH:"$ANDROID_HOME/emulator"
-export PATH=$PATH:"$ANDROID_HOME/platform-tools"
+path_append() {
+  case ":$PATH:" in
+    *:"$1":*) ;;
+    *) export PATH="$PATH:$1" ;;
+  esac
+}
+
+path_append "$HOME/.local/bin"
+path_append "$HOME/.cargo/bin"
+path_append "$(go env GOPATH)/bin"
+
+if [[ ! -f /etc/NIXOS ]]; then
+  path_append "/usr/local/flutter/bin"
+  path_append "$DENO_INSTALL/bin"
+  path_append "$BUN_INSTALL/bin"
+  path_append "/usr/local/odin"
+  path_append "/usr/local/c3"
+  path_append "/usr/local/zig"
+  path_append "/opt/gradle/gradle-9.1.0/bin"
+  path_append "$ANDROID_HOME/emulator"
+  path_append "$ANDROID_HOME/platform-tools"
+  path_append "$PNPM_HOME/bin"
+fi

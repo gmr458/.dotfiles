@@ -1,0 +1,24 @@
+# cold-light — Ghostty port of cold.nvim light (bg #fefefe, fg #111111).
+background = #fefefe
+foreground = #111111
+cursor-color = #111111
+cursor-text = #fefefe
+selection-background = #c8c8c8
+selection-foreground = #111111
+
+palette = 0=#383838
+palette = 1=#ab4642
+palette = 2=#548b40
+palette = 3=#b08508
+palette = 4=#346969
+palette = 5=#5E698E
+palette = 6=#799496
+palette = 7=#b8b8b8
+palette = 8=#787878
+palette = 9=#701414
+palette = 10=#4C5B2B
+palette = 11=#7e4e08
+palette = 12=#739393
+palette = 13=#9ca0b0
+palette = 14=#86c1b9
+palette = 15=#fefefe

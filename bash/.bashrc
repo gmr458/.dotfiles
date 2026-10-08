@@ -27,7 +27,6 @@ unset rc
 # --- My Config ------------------------------
 
 # environment variables
-export GOROOT='/usr/local/go'
 export GOPATH="$HOME/go"
 export DENO_INSTALL="$HOME/.deno"
 export BUN_INSTALL="$HOME/.bun"
@@ -36,7 +35,6 @@ export EDITOR=nvim
 # PATH
 export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.cargo/bin"
-export PATH=$PATH:"$GOROOT/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/flutter/bin"
 export PATH=$PATH:"$DENO_INSTALL/bin"

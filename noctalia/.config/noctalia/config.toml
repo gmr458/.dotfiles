@@ -5,9 +5,7 @@ ui_scale = 1.0
 [audio]
 enable_overdrive = false
 enable_sounds = false
-notification_sound = ""
 sound_volume = 0.5
-volume_change_sound = ""
 
 [backdrop]
 blur_intensity = 0.5
@@ -70,6 +68,8 @@ sync_all_monitors = false
 
 [calendar]
 enabled = false
+event_date_format = "%A %e %B"
+event_time_format = "%H:%M"
 refresh_minutes = 15
 
 [control_center]
@@ -81,8 +81,6 @@ sidebar_section = "compact"
 width = 700
 
     [control_center.calendar]
-    event_date_format = "%A %e %B"
-    event_time_format = "%H:%M"
     show_events_card = true
     show_week_numbers = false
 
@@ -638,6 +636,15 @@ transition_on_startup = false
     order = "random"
     recursive = true
 
+    [wallpaper.default]
+    path = "/home/gdmr/Pictures/Wallpapers/output_00113.png"
+
+    [wallpaper.last]
+    path = "/home/gdmr/Pictures/Wallpapers/output_00113.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/gdmr/Pictures/Wallpapers/output_00113.png"
+
 [weather]
 effects = true
 enabled = true
@@ -661,7 +668,7 @@ show_label = false
 type = "brightness"
 
 [widget.clock]
-font_family = "Iosevka Fixed"
+font_family = "Iosevka NF"
 font_weight = 400
 format = "{:%I:%M:%S:%p}:-:{:%d:%m:%y}"
 type = "clock"

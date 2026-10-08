@@ -5,9 +5,7 @@ font-style-bold-italic = false
 font-synthetic-style = false
 font-size = 13
 
-theme = Oxocarbon
-
-command = nu
+theme = dark:cold-dark,light:cold-light
 
 cursor-style = underline
 cursor-style-blink = false

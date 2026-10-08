@@ -11,6 +11,3 @@ zstyle ':completion:*' menu select
 
 # disable case sensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-# enable colors
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
